@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="BLLWS_User.asmx.cs" Class="OnLineExamBLLWS.BLLWS_User" %>

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace OnLineExamModel
 {
+    [Serializable]
     public class UserAnswer
     {
 

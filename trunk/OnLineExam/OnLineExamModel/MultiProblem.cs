@@ -5,6 +5,7 @@ using System.Text;
 namespace OnLineExamModel
 {
     //多选题类
+    [Serializable]
     public class MultiProblem
     {
         #region 私有成员

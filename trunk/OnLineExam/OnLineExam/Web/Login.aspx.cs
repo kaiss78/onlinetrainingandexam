@@ -7,11 +7,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
-using OnLineExamBLL;
+using localhost;
 
 public partial class _Default : System.Web.UI.Page
 {
+    BLLWS_User service = new BLLWS_User();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.txtUserID.Focus();
@@ -37,7 +38,7 @@ public partial class _Default : System.Web.UI.Page
         u.UserID = usersId;
         u.UserPwd = pwdMd5;
 
-        bool success = UserManager.Login(ref u);
+        bool success = service.Login(ref u);
         if (success)
         {
             if (u.UserPwd == pwdMd5)//输入密码与用户密码相同

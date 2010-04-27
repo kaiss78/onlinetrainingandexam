@@ -5,6 +5,7 @@ using System.Text;
 namespace OnLineExamModel
 {
     //用户类
+    [Serializable]
     public class Scores
     {
         #region 私有成员

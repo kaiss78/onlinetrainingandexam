@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 namespace OnLineExamModel
 {
     //单选题类
+    [Serializable]
     public class SingleProblem
     {
         private int _ID;                                               //题目编号

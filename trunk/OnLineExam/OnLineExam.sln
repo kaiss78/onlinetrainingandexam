@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamDAL", "OnLineExam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamModel", "OnLineExamModel\OnLineExamModel.csproj", "{BD72F5B9-F917-4F82-ABCD-47925BF6660F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamDALWS", "OnLineExamDALWS\OnLineExamDALWS.csproj", "{C9254560-24CA-4D8A-BA8A-7F7DF2F2EFF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamBLLWS", "OnLineExamBLLWS\OnLineExamBLLWS.csproj", "{EFEA1010-A1FC-45B7-8238-E9322759ADF0}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -57,6 +61,14 @@ Global
 		{BD72F5B9-F917-4F82-ABCD-47925BF6660F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD72F5B9-F917-4F82-ABCD-47925BF6660F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD72F5B9-F917-4F82-ABCD-47925BF6660F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9254560-24CA-4D8A-BA8A-7F7DF2F2EFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9254560-24CA-4D8A-BA8A-7F7DF2F2EFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9254560-24CA-4D8A-BA8A-7F7DF2F2EFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9254560-24CA-4D8A-BA8A-7F7DF2F2EFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFEA1010-A1FC-45B7-8238-E9322759ADF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFEA1010-A1FC-45B7-8238-E9322759ADF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFEA1010-A1FC-45B7-8238-E9322759ADF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFEA1010-A1FC-45B7-8238-E9322759ADF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

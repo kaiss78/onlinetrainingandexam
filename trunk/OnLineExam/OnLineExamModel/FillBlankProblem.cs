@@ -5,6 +5,7 @@ using System.Text;
 namespace OnLineExamModel
 {
     //填空题类
+    [Serializable]
     public class FillBlankProblem
     {
         #region 私有成员
