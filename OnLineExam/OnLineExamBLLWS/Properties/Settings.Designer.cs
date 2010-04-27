@@ -42,5 +42,35 @@ namespace OnLineExamBLLWS.Properties {
                 return ((string)(this["OnLineExamBLLWS_DALWS_SingleSelected_DALWS_SingleSelected"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2535/DALWS_Role.asmx")]
+        public string OnLineExamBLLWS_DALWS_Role_DALWS_Role {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_Role_DALWS_Role"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2535/DALWS_QuestionProblem.asmx")]
+        public string OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2535/DALWS_Paper.asmx")]
+        public string OnLineExamBLLWS_DALWS_Paper_DALWS_Paper {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_Paper_DALWS_Paper"]));
+            }
+        }
     }
 }

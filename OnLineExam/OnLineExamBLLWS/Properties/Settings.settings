@@ -8,5 +8,14 @@
     <Setting Name="OnLineExamBLLWS_DALWS_SingleSelected_DALWS_SingleSelected" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:2535/DALWS_SingleSelected.asmx</Value>
     </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_Role_DALWS_Role" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_Role.asmx</Value>
+    </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_QuestionProblem.asmx</Value>
+    </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_Paper_DALWS_Paper" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_Paper.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
