@@ -11,10 +11,14 @@ using System.Web.UI.HtmlControls;
 using OnLineExamBLL;
 using OnLineExamModel;
 using System.Collections.Generic;
-using OnLineExamDAL;
+using localhost;
+//using OnLineExamDAL;
 
 public partial class Web_SingleSelectAdd : System.Web.UI.Page
 {
+    DALWS_SingleSelected DALService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected BLLService = new BLLWS_SingleSelected();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "增加试题";
@@ -33,10 +37,11 @@ public partial class Web_SingleSelectAdd : System.Web.UI.Page
                 i1.Text = userName;
 
                 ddlCourse.Items.Clear();
-                Course course = new Course();
-                List<Course> list = SingleSelectedService.ListCourse();
-
-                for (int i = 0; i < list.Count; i++)
+                localhost.Course course = new localhost.Course();
+                //List<Course> list = service.ListCourse();
+                localhost.Course[] list = DALService.ListCourse();
+                
+                for (int i = 0; i < list.Length; i++)
                 {
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
@@ -47,7 +52,7 @@ public partial class Web_SingleSelectAdd : System.Web.UI.Page
     }
     protected void imgBtnSave_Click(object sender, ImageClickEventArgs e)
     {
-        SingleProblem sp = new SingleProblem();
+        localhost.SingleProblem sp = new localhost.SingleProblem();
         sp.CourseID = Convert.ToInt32(ddlCourse.SelectedValue);
         sp.Title = txtTitle.Text;
         sp.AnswerA = txtAnswerA.Text;
@@ -55,7 +60,7 @@ public partial class Web_SingleSelectAdd : System.Web.UI.Page
         sp.AnswerC = txtAnswerC.Text;
         sp.AnswerD = txtAnswerD.Text;
         sp.Answer = ddlAnswer.SelectedValue;
-        if (SingleSelectedManager.AddSingleSelected(sp))
+        if (BLLService.AddSingleSelected(sp))
         {
             lblMessage.Text = "添加成功！";
             txtTitle.Text = string.Empty;
