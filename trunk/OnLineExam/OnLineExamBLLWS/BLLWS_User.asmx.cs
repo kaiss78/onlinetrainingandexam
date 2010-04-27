@@ -17,20 +17,18 @@ namespace OnLineExamBLLWS
     // [System.Web.Script.Services.ScriptService]
     public class BLLWS_User : System.Web.Services.WebService
     {
-        static DALWS_User.DALWS_User service = new DALWS_User.DALWS_User();
+        DALWS_User.DALWS_User service = new DALWS_User.DALWS_User();
 
         [WebMethod]
         public List<Scores> selectAllScore(string PaperID)
         {
-            List<Scores> list = service.SelectAll(PaperID).ToList();
-            return list;
+            return service.SelectAll(PaperID).ToList();
         }
 
         [WebMethod]
         public List<Scores> selectAlls()
         {
-            List<Scores> list = service.SelectAll(null).ToList();
-            return list;
+            return service.SelectAll(null).ToList();
         }
 
         [WebMethod]
@@ -42,22 +40,19 @@ namespace OnLineExamBLLWS
         [WebMethod]
         public List<Users> seluserName(string userName)
         {
-            List<Users> list = service.SelectUserName(userName).ToList();
-            return list;
+            return service.SelectUserName(userName).ToList();
         }
 
         [WebMethod]
         public List<Users> seluser(string userID)
         {
-            List<Users> list = service.SelectUserID(userID).ToList();
-            return list;
+            return service.SelectUserID(userID).ToList();
         }
 
         [WebMethod]
         public List<Users> listuser()
         {
-            List<Users> list = service.SelectUser().ToList();
-            return list;
+            return service.SelectUser().ToList();
         }
 
         [WebMethod]
@@ -100,8 +95,7 @@ namespace OnLineExamBLLWS
         [WebMethod]
         public List<UserAnswer> GetselectUserPaperList()
         {
-            List<UserAnswer> list = service.selectUserPaperList().ToList();
-            return list;
+            return service.selectUserPaperList().ToList();
         }
 
         [WebMethod]

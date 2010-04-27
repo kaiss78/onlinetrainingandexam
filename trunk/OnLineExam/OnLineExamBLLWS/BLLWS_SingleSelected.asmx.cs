@@ -18,33 +18,19 @@ namespace OnLineExamBLLWS
     public class BLLWS_SingleSelected : System.Web.Services.WebService
     {
         DALWS_SingleSelected.DALWS_SingleSelected service = new DALWS_SingleSelected.DALWS_SingleSelected();
-        
+
         [WebMethod]
         public bool AddSingleSelected(SingleProblem sp)
         {
-            if (service.InsertQuestion(sp))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return service.InsertQuestion(sp);
         }
 
         [WebMethod]
         public bool UpdateSingleSelected(SingleProblem spp)
         {
-            if (service.UpdateQuestion(spp))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return service.UpdateQuestion(spp);
         }
-        
+
         [WebMethod]
         public List<SingleProblem> GetSingleProblemList(string selectvalue)
         {
@@ -54,7 +40,6 @@ namespace OnLineExamBLLWS
         [WebMethod]
         public List<SingleProblem> GetSingQuestion(string UsersID, int PaperID)
         {
-
             return service.selectSingQuestion(UsersID, PaperID).ToList();
         }
     }

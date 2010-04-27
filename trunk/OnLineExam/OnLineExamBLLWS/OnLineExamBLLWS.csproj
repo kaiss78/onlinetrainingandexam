@@ -53,11 +53,35 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BLLWS_Paper.asmx" />
+    <Content Include="BLLWS_QuestionProblem.asmx" />
+    <Content Include="BLLWS_Role.asmx" />
     <Content Include="BLLWS_SingleSelected.asmx" />
     <Content Include="BLLWS_User.asmx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_Paper\DALWS_Paper.wsdl" />
+    <None Include="Web References\DALWS_Paper\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.wsdl" />
+    <None Include="Web References\DALWS_QuestionProblem\QuestionProblem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_QuestionProblem\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_Role\DALWS_Role.wsdl" />
+    <None Include="Web References\DALWS_Role\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_Role\Role.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\DALWS_SingleSelected\Course.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -86,9 +110,24 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\DALWS_SingleSelected\DALWS_SingleSelected.disco" />
+    <None Include="Web References\DALWS_Role\DALWS_Role.disco" />
+    <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.disco" />
+    <None Include="Web References\DALWS_Paper\DALWS_Paper.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLWS_Paper.asmx.cs">
+      <DependentUpon>BLLWS_Paper.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_QuestionProblem.asmx.cs">
+      <DependentUpon>BLLWS_QuestionProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_Role.asmx.cs">
+      <DependentUpon>BLLWS_Role.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BLLWS_SingleSelected.asmx.cs">
       <DependentUpon>BLLWS_SingleSelected.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -102,6 +141,21 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_Paper\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_QuestionProblem\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_Role\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\DALWS_SingleSelected\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -118,6 +172,39 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_Paper.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_Paper\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_Paper.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Paper_DALWS_Paper</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_QuestionProblem.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_QuestionProblem\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_QuestionProblem.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_Role.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_Role\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_Role.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Role_DALWS_Role</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:2535/DALWS_SingleSelected.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_SingleSelected\</RelPath>
