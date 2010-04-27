@@ -27,9 +27,19 @@ namespace OnLineExamBLLWS.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2535/DALWS_User.asmx")]
-        public string OnLineExamBLLWS_localhost_Service1 {
+        public string OnLineExamBLLWS_DALWS_User_DALWS_User {
             get {
-                return ((string)(this["OnLineExamBLLWS_localhost_Service1"]));
+                return ((string)(this["OnLineExamBLLWS_DALWS_User_DALWS_User"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2535/DALWS_SingleSelected.asmx")]
+        public string OnLineExamBLLWS_DALWS_SingleSelected_DALWS_SingleSelected {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_SingleSelected_DALWS_SingleSelected"]));
             }
         }
     }

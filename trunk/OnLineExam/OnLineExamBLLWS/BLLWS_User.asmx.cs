@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using OnLineExamBLLWS.localhost;
+using OnLineExamBLLWS.DALWS_User;
 
 namespace OnLineExamBLLWS
 {
@@ -17,7 +17,7 @@ namespace OnLineExamBLLWS
     // [System.Web.Script.Services.ScriptService]
     public class BLLWS_User : System.Web.Services.WebService
     {
-        static localhost.DALWS_User service = new localhost.DALWS_User();
+        static DALWS_User.DALWS_User service = new DALWS_User.DALWS_User();
 
         [WebMethod]
         public List<Scores> selectAllScore(string PaperID)

@@ -53,29 +53,46 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BLLWS_SingleSelected.asmx" />
     <Content Include="BLLWS_User.asmx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\localhost\DALWS_User.disco" />
-    <None Include="Web References\localhost\DALWS_User.wsdl" />
-    <None Include="Web References\localhost\Reference.map">
+    <None Include="Web References\DALWS_SingleSelected\Course.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_SingleSelected\DALWS_SingleSelected.wsdl" />
+    <None Include="Web References\DALWS_SingleSelected\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\localhost\Scores.datasource">
+    <None Include="Web References\DALWS_SingleSelected\SingleProblem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\localhost\UserAnswer.datasource">
+    <None Include="Web References\DALWS_User\DALWS_User.disco" />
+    <None Include="Web References\DALWS_User\DALWS_User.wsdl" />
+    <None Include="Web References\DALWS_User\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_User\Scores.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\localhost\Users.datasource">
+    <None Include="Web References\DALWS_User\UserAnswer.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\DALWS_User\Users.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_SingleSelected\DALWS_SingleSelected.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLWS_SingleSelected.asmx.cs">
+      <DependentUpon>BLLWS_SingleSelected.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BLLWS_User.asmx.cs">
       <DependentUpon>BLLWS_User.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -86,7 +103,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Web References\localhost\Reference.cs">
+    <Compile Include="Web References\DALWS_SingleSelected\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_User\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -96,16 +118,27 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_SingleSelected.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_SingleSelected\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_SingleSelected.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_SingleSelected_DALWS_SingleSelected</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:2535/DALWS_User.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost\</RelPath>
+      <RelPath>Web References\DALWS_User\</RelPath>
       <UpdateFromURL>http://localhost:2535/DALWS_User.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>OnLineExamBLLWS_localhost_Service1</CachedSettingsPropName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_User_DALWS_User</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace OnLineExamBLLWS.localhost {
+namespace OnLineExamBLLWS.DALWS_User {
     using System.Diagnostics;
     using System.Web.Services;
     using System.ComponentModel;
@@ -71,7 +71,7 @@ namespace OnLineExamBLLWS.localhost {
         
         /// <remarks/>
         public DALWS_User() {
-            this.Url = global::OnLineExamBLLWS.Properties.Settings.Default.OnLineExamBLLWS_localhost_Service1;
+            this.Url = global::OnLineExamBLLWS.Properties.Settings.Default.OnLineExamBLLWS_DALWS_User_DALWS_User;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
