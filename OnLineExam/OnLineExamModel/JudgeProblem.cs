@@ -5,6 +5,7 @@ using System.Text;
 namespace OnLineExamModel
 {
     //判断题类
+    [Serializable]
     public class JudgeProblem
     {
         #region 私有成员

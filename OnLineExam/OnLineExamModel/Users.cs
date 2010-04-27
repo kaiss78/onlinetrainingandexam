@@ -5,6 +5,7 @@ using System.Collections;
 
 namespace OnLineExamModel
 {
+    [Serializable]
     public class Users
     {
         public Users()

@@ -5,6 +5,7 @@ using System.Text;
 namespace OnLineExamModel
 {
     //用户类
+    [Serializable]
     public class Paper
     {
         #region 私有成员

@@ -5,6 +5,7 @@ using System.Text;
 namespace OnLineExamModel
 {
     //考试科目类
+    [Serializable]
     public class Course
     {
         #region 私有成员
