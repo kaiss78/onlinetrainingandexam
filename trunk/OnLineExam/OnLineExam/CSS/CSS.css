@@ -1,0 +1,95 @@
+﻿*
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+body, html
+{
+	background: url(../images/bg.jpg) no-repeat top center;
+	font-size: 12px;
+	font-family: Arial;
+}
+
+
+
+A:link, A:active
+{
+	color: #000;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: 宋体;
+}
+A:visited
+{
+	color: #000;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: 宋体;
+}
+A:hover
+{
+	color: #FF0000;
+	text-decoration: none;
+	font-size: 13px;
+	font-family: 宋体;
+}
+
+td
+{
+	height: 25px;
+}
+
+hr
+{
+	border: 1px solid #ccc;
+	height: 1px;
+}
+
+h4
+{
+	padding-left: 20px;
+	padding-top: 2px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+dt
+{
+	background: url(../Images/menuup.gif);
+	height: 21px;
+	text-align: center;
+	padding-top: 5px;
+	font-size: 16px;
+	color: #66CCFF;
+	margin-bottom: 10px;
+	font-family: 黑体;
+}
+dd
+{
+	margin: 0px;
+	text-align: center;
+	height: 21;
+}
+
+.accordionHeader
+{
+	border: 1px solid #2F4F4F;
+	background: url(../Images/lineS.jpg) repeat-x;
+	color: #99CCFF;
+	background-color: #99CCFF;
+	font-weight: bold;
+	padding: 5px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+.accordionContent
+{
+	background-color: White;
+	border: 0px dashed #2F4F4F;
+	border-top: none;
+	padding: 5px;
+	padding-top: 10px;
+}
