@@ -53,6 +53,10 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DALWS_Course.asmx" />
+    <Content Include="DALWS_FillBlankProblem.asmx" />
+    <Content Include="DALWS_JudgeProblem.asmx" />
+    <Content Include="DALWS_MultiProblem.asmx" />
     <Content Include="DALWS_Paper.asmx" />
     <Content Include="DALWS_QuestionProblem.asmx" />
     <Content Include="DALWS_Role.asmx" />
@@ -61,6 +65,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALWS_Course.asmx.cs">
+      <DependentUpon>DALWS_Course.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DALWS_FillBlankProblem.asmx.cs">
+      <DependentUpon>DALWS_FillBlankProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DALWS_JudgeProblem.asmx.cs">
+      <DependentUpon>DALWS_JudgeProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DALWS_MultiProblem.asmx.cs">
+      <DependentUpon>DALWS_MultiProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DALWS_Paper.asmx.cs">
       <DependentUpon>DALWS_Paper.asmx</DependentUpon>
       <SubType>Component</SubType>
