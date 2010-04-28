@@ -8,12 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamDAL;
-using OnLineExamBLL;
 using System.Data.SqlClient;
+using localhost;
 
 public partial class Web_PaperSetup2 : System.Web.UI.Page
 {
+    BLLWS_Course courseService = new BLLWS_Course();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷制定";
@@ -58,8 +59,7 @@ public partial class Web_PaperSetup2 : System.Web.UI.Page
     //初始化考试科目
     private void InitData()
     {
-        CourseManager course = new CourseManager();       //创建考试科目对象
-        DataSet ds = course.QueryCourse();  //查询考试科目信息
+        DataSet ds = courseService.QueryCourse();  //查询考试科目信息
         ddlCourse.DataSource = ds;          //指名考试科目列表框数据源
         ddlCourse.DataTextField = "Name";   //DataTextField显示Name字段值
         ddlCourse.DataValueField = "ID";    //DataValueField显示ID字段值
