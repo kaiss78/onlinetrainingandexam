@@ -8,13 +8,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
-using OnLineExamDAL;
 using System.Collections.Generic;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_JudgeAdd : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_JudgeProblem judgeProblemService = new BLLWS_JudgeProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "增加试题";
@@ -28,16 +30,16 @@ public partial class Web_JudgeAdd : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
 
                 ddlCourse.Items.Clear();
                 Course course = new Course();
-                List<Course> list = SingleSelectedService.ListCourse();
+                Course[] list = singleSelectedService.ListCourse();
 
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < list.Length; i++)
                 {
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
@@ -51,7 +53,7 @@ public partial class Web_JudgeAdd : System.Web.UI.Page
         pro.CourseID = Convert.ToInt32(ddlCourse.SelectedValue);
         pro.Title = txtTitle.Text;
         pro.Answer = Convert.ToBoolean(rblAnswer.SelectedValue);
-        if (JudgeProblemManager.judgeProblemInsert(pro))
+        if (judgeProblemService.judgeProblemInsert(pro))
         {
             lblMessage.Text = "添加成功！";
             txtTitle.Text = string.Empty;
