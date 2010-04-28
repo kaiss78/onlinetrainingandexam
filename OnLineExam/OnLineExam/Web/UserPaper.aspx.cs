@@ -8,17 +8,21 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamModel;
 using System.Collections.Generic;
-using OnLineExamDAL;
+using localhost;
 
 public partial class Web_UserPaper : System.Web.UI.Page
 {
-    int i = 0;
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Paper paperService = new BLLWS_Paper();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
+    BLLWS_MultiProblem multiProblemService = new BLLWS_MultiProblem();
+    BLLWS_JudgeProblem judgeProblemService = new BLLWS_JudgeProblem();
+    BLLWS_FillBlankProblem fillBlankProblemService = new BLLWS_FillBlankProblem();
+    BLLWS_QuestionProblem questionProblemService = new BLLWS_QuestionProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
         this.Page.Title = "试卷评阅";
         Panel1.Visible = true;
         Panel2.Visible = false;
@@ -31,7 +35,7 @@ public partial class Web_UserPaper : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
@@ -39,55 +43,54 @@ public partial class Web_UserPaper : System.Web.UI.Page
                 string userid = Request["UserID"].ToString();
                 int paperid = int.Parse(Request["PaperID"]);
 
-                GridView1.DataSource = SingleSelectedManager.GetSingQuestion(userid, paperid);
+                GridView1.DataSource = singleSelectedService.GetSingQuestion(userid, paperid);
                 GridView1.DataBind();
-                List<SingleProblem> list1 = SingleSelectedManager.GetSingQuestion(userid, paperid);
-                if (list1.Count != 0)
+                SingleProblem[] list1 = singleSelectedService.GetSingQuestion(userid, paperid);
+                if (list1.Length != 0)
                 {
                     Label lbl1 = GridView1.HeaderRow.FindControl("Label27") as Label;
                     lbl1.Text = list1[0].Mark.ToString();
                 }
 
-                GridView2.DataSource = MultiProblemManager.GetMutiQuestion(userid, paperid);
+                GridView2.DataSource = multiProblemService.GetMutiQuestion(userid, paperid);
                 GridView2.DataBind();
-                List<MultiProblem> list2 = MultiProblemManager.GetMutiQuestion(userid, paperid);
-                if (list2.Count != 0)
+                MultiProblem[] list2 = multiProblemService.GetMutiQuestion(userid, paperid);
+                if (list2.Length != 0)
                 {
                     Label lbl2 = GridView2.HeaderRow.FindControl("Label28") as Label;
                     lbl2.Text = list2[0].Mark.ToString();
                 }
 
-                GridView3.DataSource = JudgeProblemManager.GetJudgeQuestion(userid, paperid);
+                GridView3.DataSource = judgeProblemService.GetJudgeQuestion(userid, paperid);
                 GridView3.DataBind();
-                List<JudgeProblem> list3 = JudgeProblemManager.GetJudgeQuestion(userid, paperid);
-                if (list3.Count != 0)
+                JudgeProblem[] list3 = judgeProblemService.GetJudgeQuestion(userid, paperid);
+                if (list3.Length != 0)
                 {
                     Label lbl3 = GridView3.HeaderRow.FindControl("Label29") as Label;
                     lbl3.Text = list3[0].Mark.ToString();
                 }
 
-                GridView4.DataSource = FillBlankProblemManager.GetFillQuestion(userid, paperid);
+                GridView4.DataSource = fillBlankProblemService.GetFillQuestion(userid, paperid);
                 GridView4.DataBind();
-                List<FillBlankProblem> list4 = FillBlankProblemManager.GetFillQuestion(userid, paperid);
-                if (list4.Count != 0)
+                FillBlankProblem[] list4 = fillBlankProblemService.GetFillQuestion(userid, paperid);
+                if (list4.Length != 0)
                 {
                     Label lbl4 = GridView4.HeaderRow.FindControl("Label30") as Label;
                     lbl4.Text = list4[0].Mark.ToString();
                 }
 
-                GridView5.DataSource = QuestionProblemManager.GetQuesQuestion(userid, paperid);
+                GridView5.DataSource = questionProblemService.GetQuesQuestion(userid, paperid);
                 GridView5.DataBind();
-                List<QuestionProblem> list5 = QuestionProblemManager.GetQuesQuestion(userid, paperid);
-                if (list5.Count != 0)
+                QuestionProblem[] list5 = questionProblemService.GetQuesQuestion(userid, paperid);
+                if (list5.Length != 0)
                 {
                     Label lbl = GridView5.HeaderRow.FindControl("Label31") as Label;
                     lbl.Text = list5[0].Mark.ToString();
                 }
 
-                i = Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"]);
-                sumScore.Text = i.ToString();
-                Xpaperid.Text = PaperManager.GetPaperType(paperid);
-                lblExamtime.Text = UserManager.GetTime(Convert.ToInt32(userid));
+                sumScore.Text = (Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"])).ToString();
+                Xpaperid.Text = paperService.GetPaperType(paperid);
+                lblExamtime.Text = userService.GetTime(Convert.ToInt32(userid));
                 //List<UserAnswer> ans = new List<UserAnswer>();
                 //UserService user = new UserService();
 
@@ -244,8 +247,8 @@ public partial class Web_UserPaper : System.Web.UI.Page
         Panel1.Visible = false;
         Panel2.Visible = true;
         //单选题状况
-        List<SingleProblem> list1 = SingleSelectedManager.GetSingQuestion(userid, paperid);
-        if (list1.Count != 0)
+        SingleProblem[] list1 = singleSelectedService.GetSingQuestion(userid, paperid);
+        if (list1.Length != 0)
         {
 
 
@@ -257,8 +260,8 @@ public partial class Web_UserPaper : System.Web.UI.Page
 
 
         //多选题状况
-        List<MultiProblem> list2 = MultiProblemManager.GetMutiQuestion(userid, paperid);
-        if (list2.Count != 0)
+        MultiProblem[] list2 = multiProblemService.GetMutiQuestion(userid, paperid);
+        if (list2.Length != 0)
         {
             Label39.Text = Session["Mulrights"].ToString();
             Label40.Text = Session["Mulerrors"].ToString();
@@ -266,8 +269,8 @@ public partial class Web_UserPaper : System.Web.UI.Page
             Label54.Text = Session["MulMark"].ToString();
         }
         //判断题状况
-        List<JudgeProblem> list3 = JudgeProblemManager.GetJudgeQuestion(userid, paperid);
-        if (list3.Count != 0)
+        JudgeProblem[] list3 = judgeProblemService.GetJudgeQuestion(userid, paperid);
+        if (list3.Length != 0)
         {
             Label52.Text = Session["Judrights"].ToString();
             Label51.Text = Session["Juderrors"].ToString();
@@ -275,16 +278,15 @@ public partial class Web_UserPaper : System.Web.UI.Page
             Label55.Text = Session["JudgeMark"].ToString();
         }
         //填空题状况
-        List<FillBlankProblem> list4 = FillBlankProblemManager.GetFillQuestion(userid, paperid);
-        if (list4.Count != 0)
+        FillBlankProblem[] list4 = fillBlankProblemService.GetFillQuestion(userid, paperid);
+        if (list4.Length != 0)
         {
             Label49.Text = Session["Fillright"].ToString();
             Label50.Text = Session["Fillerrors"].ToString();
             Label45.Text = string.Format("{0:F2}", Session["proportion3"]);
             Label56.Text = Session["FillMark"].ToString();
         }
-        i = Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"]);
-        Label57.Text = i.ToString();
+        Label57.Text = (Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"])).ToString();
     }
 
     int Singcount = 0;
@@ -353,7 +355,7 @@ public partial class Web_UserPaper : System.Web.UI.Page
 
         string userId = Request["UserID"].ToString();
         int paperId = int.Parse(Request["PaperID"]);
-        if (UserManager.InsertScores(scores, PaperName, userId, paperId))
+        if (userService.InsertScores(scores, PaperName, userId, paperId))
         {
             lblMessage.Text = "插入成功！";
         }
