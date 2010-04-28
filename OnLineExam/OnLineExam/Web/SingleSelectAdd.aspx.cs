@@ -8,16 +8,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamModel;
 using System.Collections.Generic;
 using localhost;
-//using OnLineExamDAL;
 
 public partial class Web_SingleSelectAdd : System.Web.UI.Page
 {
-    DALWS_SingleSelected DALService = new DALWS_SingleSelected();
-    BLLWS_SingleSelected BLLService = new BLLWS_SingleSelected();
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService2 = new BLLWS_SingleSelected();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -32,14 +30,13 @@ public partial class Web_SingleSelectAdd : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
                 ddlCourse.Items.Clear();
                 localhost.Course course = new localhost.Course();
-                //List<Course> list = service.ListCourse();
-                localhost.Course[] list = DALService.ListCourse();
+                Course[] list = singleSelectedService.ListCourse();
                 
                 for (int i = 0; i < list.Length; i++)
                 {
@@ -60,7 +57,7 @@ public partial class Web_SingleSelectAdd : System.Web.UI.Page
         sp.AnswerC = txtAnswerC.Text;
         sp.AnswerD = txtAnswerD.Text;
         sp.Answer = ddlAnswer.SelectedValue;
-        if (BLLService.AddSingleSelected(sp))
+        if (singleSelectedService2.AddSingleSelected(sp))
         {
             lblMessage.Text = "添加成功！";
             txtTitle.Text = string.Empty;
