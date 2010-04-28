@@ -8,11 +8,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_Default : System.Web.UI.Page
 {
+    BLLWS_Role roleService = new BLLWS_Role();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         RedirectPage();
@@ -24,7 +25,7 @@ public partial class Web_Default : System.Web.UI.Page
 
         Role user = new Role();
         string userId = Session["userID"].ToString();
-        user.RoleName = RoleManager.GetRoleName(userId);
+        user.RoleName = roleService.GetRoleName(userId);
         switch (user.RoleName)
         {
             case "管理员":
