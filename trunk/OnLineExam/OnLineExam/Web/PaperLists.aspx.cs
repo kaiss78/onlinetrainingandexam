@@ -8,10 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_PaperLists : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Paper paperService = new BLLWS_Paper();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷管理";
@@ -24,7 +27,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
 
@@ -36,8 +39,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
 
     protected void InitData()
     {
-        PaperManager paper = new PaperManager();
-        DataSet ds = paper.QueryAllPaper();
+        DataSet ds = paperService.QueryAllPaper();
         if (ds.Tables[0].Rows.Count > 0)
         {
             GridView1.DataSource = ds;
@@ -63,7 +65,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
     {
         string javasc = @"window.onload=function(){alert('删除成功')}";
         int ID = int.Parse(GridView1.DataKeys[e.RowIndex].Values[0].ToString()); //取出要删除记录的主键值
-        if (PaperManager.DeletePaper(ID) || PaperManager.DeletePaperDetail(ID))
+        if (paperService.DeletePaper(ID) || paperService.DeletePaperDetail(ID))
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
         }
@@ -81,7 +83,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
         byte ddlpaper = byte.Parse(((DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddlPaperState")).SelectedValue);
         if (ddlpaper == 0)
         {
-            if (PaperManager.UpdatePate(ID))
+            if (paperService.UpdatePate(ID))
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
                 Response.Redirect("PaperLists.aspx");
@@ -89,7 +91,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
         }
         if (ddlpaper == 1)
         {
-            if (PaperManager.UpdatePate1(ID))
+            if (paperService.UpdatePate1(ID))
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
                 Response.Redirect("PaperLists.aspx");
