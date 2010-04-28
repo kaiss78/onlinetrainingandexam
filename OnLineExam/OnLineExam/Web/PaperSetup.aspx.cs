@@ -9,11 +9,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
-using OnLineExamDAL;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_PaperSetup : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Course courseService = new BLLWS_Course();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷制定";
@@ -26,7 +28,7 @@ public partial class Web_PaperSetup : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
 
@@ -107,8 +109,7 @@ public partial class Web_PaperSetup : System.Web.UI.Page
     }
     protected void InitData()
     {
-        CourseManager course = new CourseManager();       //创建考试科目对象
-        DataSet ds = course.QueryCourse();  //查询考试科目信息
+        DataSet ds = courseService.QueryCourse();  //查询考试科目信息
         ddlCourse.DataSource = ds;          //指名考试科目列表框数据源
         ddlCourse.DataTextField = "Name";   //DataTextField显示Name字段值
         ddlCourse.DataValueField = "ID";    //DataValueField显示ID字段值
