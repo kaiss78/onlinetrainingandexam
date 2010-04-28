@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SelectAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PaperID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectAllResult" type="tns:ArrayOfScores" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScores">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Scores" nillable="true" type="tns:Scores" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Scores">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaperID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExamTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="JudgeTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PingYu" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectUserID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectUserIDResult" type="tns:ArrayOfUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Users">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Role" type="tns:Role" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Duties" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Role">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_DepartmentManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_RoleManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_Role" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserScore" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_CourseManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_PaperSetup" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_PaperLists" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserPaperList" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_SingleSelectManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_MultiSelectManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_FillBlankManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_JudgeManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_QuestionManage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectUserNameResult" type="tns:ArrayOfUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectUser">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectUserResult" type="tns:ArrayOfUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertUsersResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginUserResult" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Update1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Update1Result" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delUserId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delUserIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="delUserIdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectUserPaperList">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="UserAnswer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaperID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TitleID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mark" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserAnswers" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExamTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaperName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CourseID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaperState" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="JudgeTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfUserAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserAnswer" nillable="true" type="tns:UserAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectUserPaperListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectUserPaperListResult" type="tns:ArrayOfUserAnswer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserPaperList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsersID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PapersID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUserPaperListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteUserPaperListResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delScores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delScoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="delScoresResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectExamInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectExamInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectExamInfoResult" type="tns:ArrayOfUserAnswer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeclctCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paperId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeclctCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SeclctCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertScore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="score" type="tns:Scores" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaperName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paperId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertScoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertScoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectPwd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectPwdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SelectPwdResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SelectAllSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectAll" />
+  </wsdl:message>
+  <wsdl:message name="SelectAllSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectUserID" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectUserName" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectUser" />
+  </wsdl:message>
+  <wsdl:message name="SelectUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:insertUsers" />
+  </wsdl:message>
+  <wsdl:message name="insertUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:insertUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginUserSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="LoginUserSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update1SoapIn">
+    <wsdl:part name="parameters" element="tns:Update1" />
+  </wsdl:message>
+  <wsdl:message name="Update1SoapOut">
+    <wsdl:part name="parameters" element="tns:Update1Response" />
+  </wsdl:message>
+  <wsdl:message name="delUserIdSoapIn">
+    <wsdl:part name="parameters" element="tns:delUserId" />
+  </wsdl:message>
+  <wsdl:message name="delUserIdSoapOut">
+    <wsdl:part name="parameters" element="tns:delUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectUserPaperListSoapIn">
+    <wsdl:part name="parameters" element="tns:selectUserPaperList" />
+  </wsdl:message>
+  <wsdl:message name="selectUserPaperListSoapOut">
+    <wsdl:part name="parameters" element="tns:selectUserPaperListResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserPaperListSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUserPaperList" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserPaperListSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUserPaperListResponse" />
+  </wsdl:message>
+  <wsdl:message name="delScoresSoapIn">
+    <wsdl:part name="parameters" element="tns:delScores" />
+  </wsdl:message>
+  <wsdl:message name="delScoresSoapOut">
+    <wsdl:part name="parameters" element="tns:delScoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectExamInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:selectExamInfo" />
+  </wsdl:message>
+  <wsdl:message name="selectExamInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:selectExamInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeclctCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SeclctCheck" />
+  </wsdl:message>
+  <wsdl:message name="SeclctCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SeclctCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertScoreSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertScore" />
+  </wsdl:message>
+  <wsdl:message name="InsertScoreSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTime" />
+  </wsdl:message>
+  <wsdl:message name="GetTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectPwdSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectPwd" />
+  </wsdl:message>
+  <wsdl:message name="SelectPwdSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectPwdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DALWS_UserSoap">
+    <wsdl:operation name="SelectAll">
+      <wsdl:input message="tns:SelectAllSoapIn" />
+      <wsdl:output message="tns:SelectAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserID">
+      <wsdl:input message="tns:SelectUserIDSoapIn" />
+      <wsdl:output message="tns:SelectUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserName">
+      <wsdl:input message="tns:SelectUserNameSoapIn" />
+      <wsdl:output message="tns:SelectUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectUser">
+      <wsdl:input message="tns:SelectUserSoapIn" />
+      <wsdl:output message="tns:SelectUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertUsers">
+      <wsdl:input message="tns:insertUsersSoapIn" />
+      <wsdl:output message="tns:insertUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:input message="tns:LoginUserSoapIn" />
+      <wsdl:output message="tns:LoginUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update1">
+      <wsdl:input message="tns:Update1SoapIn" />
+      <wsdl:output message="tns:Update1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delUserId">
+      <wsdl:input message="tns:delUserIdSoapIn" />
+      <wsdl:output message="tns:delUserIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectUserPaperList">
+      <wsdl:input message="tns:selectUserPaperListSoapIn" />
+      <wsdl:output message="tns:selectUserPaperListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserPaperList">
+      <wsdl:input message="tns:DeleteUserPaperListSoapIn" />
+      <wsdl:output message="tns:DeleteUserPaperListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delScores">
+      <wsdl:input message="tns:delScoresSoapIn" />
+      <wsdl:output message="tns:delScoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectExamInfo">
+      <wsdl:input message="tns:selectExamInfoSoapIn" />
+      <wsdl:output message="tns:selectExamInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeclctCheck">
+      <wsdl:input message="tns:SeclctCheckSoapIn" />
+      <wsdl:output message="tns:SeclctCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertScore">
+      <wsdl:input message="tns:InsertScoreSoapIn" />
+      <wsdl:output message="tns:InsertScoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTime">
+      <wsdl:input message="tns:GetTimeSoapIn" />
+      <wsdl:output message="tns:GetTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectPwd">
+      <wsdl:input message="tns:SelectPwdSoapIn" />
+      <wsdl:output message="tns:SelectPwdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <wsdl:input message="tns:GetUserNameSoapIn" />
+      <wsdl:output message="tns:GetUserNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DALWS_UserSoap" type="tns:DALWS_UserSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectAll">
+      <soap:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserID">
+      <soap:operation soapAction="http://tempuri.org/SelectUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserName">
+      <soap:operation soapAction="http://tempuri.org/SelectUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUser">
+      <soap:operation soapAction="http://tempuri.org/SelectUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUsers">
+      <soap:operation soapAction="http://tempuri.org/insertUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update1">
+      <soap:operation soapAction="http://tempuri.org/Update1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delUserId">
+      <soap:operation soapAction="http://tempuri.org/delUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectUserPaperList">
+      <soap:operation soapAction="http://tempuri.org/selectUserPaperList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserPaperList">
+      <soap:operation soapAction="http://tempuri.org/DeleteUserPaperList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delScores">
+      <soap:operation soapAction="http://tempuri.org/delScores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectExamInfo">
+      <soap:operation soapAction="http://tempuri.org/selectExamInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeclctCheck">
+      <soap:operation soapAction="http://tempuri.org/SeclctCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertScore">
+      <soap:operation soapAction="http://tempuri.org/InsertScore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTime">
+      <soap:operation soapAction="http://tempuri.org/GetTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPwd">
+      <soap:operation soapAction="http://tempuri.org/SelectPwd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <soap:operation soapAction="http://tempuri.org/GetUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DALWS_UserSoap12" type="tns:DALWS_UserSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SelectAll">
+      <soap12:operation soapAction="http://tempuri.org/SelectAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserID">
+      <soap12:operation soapAction="http://tempuri.org/SelectUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUserName">
+      <soap12:operation soapAction="http://tempuri.org/SelectUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectUser">
+      <soap12:operation soapAction="http://tempuri.org/SelectUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertUsers">
+      <soap12:operation soapAction="http://tempuri.org/insertUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap12:operation soapAction="http://tempuri.org/LoginUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update1">
+      <soap12:operation soapAction="http://tempuri.org/Update1" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delUserId">
+      <soap12:operation soapAction="http://tempuri.org/delUserId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectUserPaperList">
+      <soap12:operation soapAction="http://tempuri.org/selectUserPaperList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserPaperList">
+      <soap12:operation soapAction="http://tempuri.org/DeleteUserPaperList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delScores">
+      <soap12:operation soapAction="http://tempuri.org/delScores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectExamInfo">
+      <soap12:operation soapAction="http://tempuri.org/selectExamInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeclctCheck">
+      <soap12:operation soapAction="http://tempuri.org/SeclctCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertScore">
+      <soap12:operation soapAction="http://tempuri.org/InsertScore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTime">
+      <soap12:operation soapAction="http://tempuri.org/GetTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectPwd">
+      <soap12:operation soapAction="http://tempuri.org/SelectPwd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserName">
+      <soap12:operation soapAction="http://tempuri.org/GetUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DALWS_User">
+    <wsdl:port name="DALWS_UserSoap" binding="tns:DALWS_UserSoap">
+      <soap:address location="http://localhost:2535/DALWS_User.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DALWS_UserSoap12" binding="tns:DALWS_UserSoap12">
+      <soap12:address location="http://localhost:2535/DALWS_User.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
