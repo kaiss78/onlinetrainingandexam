@@ -8,10 +8,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_PwdModify1 : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Page.Title = "修改密码";
@@ -24,7 +26,7 @@ public partial class Web_PwdModify1 : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
             }
@@ -35,10 +37,9 @@ public partial class Web_PwdModify1 : System.Web.UI.Page
         string userId = Session["userID"].ToString();
         string newPwd = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(this.txtNewPwd.Text.Trim(), "MD5").ToString();
         string pwdMd5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(this.txtOldPwd.Text.Trim(), "MD5").ToString();
-        if (UserManager.GetSelectPwd(pwdMd5))
+        if (userService.GetSelectPwd(pwdMd5))
         {
-           
-            UserManager.ModifyPwd(newPwd, userId);
+            userService.ModifyPwd(newPwd, userId);
             lblMessage.Text = "修改成功！";
             this.txtOldPwd.Text = string.Empty;
         }
