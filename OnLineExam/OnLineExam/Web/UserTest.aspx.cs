@@ -8,11 +8,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamDAL;
+using localhost;
 
 public partial class Web_UserTest : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+
     protected int singeCount = 1;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,7 +26,7 @@ public partial class Web_UserTest : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.FindControl("labUser");
                 i1.Text = userName;
 
