@@ -11,7 +11,7 @@ using localhost;
 
 public partial class _Default : System.Web.UI.Page
 {
-    BLLWS_User service = new BLLWS_User();
+    BLLWS_User userService = new BLLWS_User();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -38,7 +38,7 @@ public partial class _Default : System.Web.UI.Page
         u.UserID = usersId;
         u.UserPwd = pwdMd5;
 
-        bool success = service.Login(ref u);
+        bool success = userService.Login(ref u);
         if (success)
         {
             if (u.UserPwd == pwdMd5)//输入密码与用户密码相同
