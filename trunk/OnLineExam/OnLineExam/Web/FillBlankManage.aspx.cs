@@ -9,12 +9,14 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
-using OnLineExamModel;
-using OnLineExamDAL;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_FillBlankManage : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_FillBlankProblem fillBlankProblemService = new BLLWS_FillBlankProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "填空题管理";
@@ -28,7 +30,7 @@ public partial class Web_FillBlankManage : System.Web.UI.Page
             {
 
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
@@ -36,9 +38,9 @@ public partial class Web_FillBlankManage : System.Web.UI.Page
                 //展示绑定的数据并将它展示在下拉列表中
                 ddlCourse.Items.Clear();
                 Course course = new Course();
-                List<Course> list = SingleSelectedService.ListCourse();
+                Course[] list = singleSelectedService.ListCourse();
 
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < list.Length; i++)
                 {
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
@@ -50,7 +52,7 @@ public partial class Web_FillBlankManage : System.Web.UI.Page
     {
         this.GridView1.DataSourceID = null;
         string selectvalue = this.ddlCourse.SelectedValue;
-        this.GridView1.DataSource = FillBlankProblemManager.GeFillBlankProblemList(selectvalue);
+        this.GridView1.DataSource = fillBlankProblemService.GeFillBlankProblemList(selectvalue);
         this.GridView1.DataBind();
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
