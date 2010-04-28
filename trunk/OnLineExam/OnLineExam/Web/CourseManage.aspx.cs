@@ -8,12 +8,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamModel;
 using System.Data.SqlClient;
+using localhost;
 
 public partial class Web_CourseManage1 : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Course courseService = new BLLWS_Course();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "考试科目管理";
@@ -27,10 +29,10 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
-                GridView1.DataSource = CourseManager.GetSelect();
+                GridView1.DataSource = courseService.GetSelect();
                 GridView1.DataKeyNames = new string[] { "DepartmentId" };
                 GridView1.DataBind();
             }
@@ -56,7 +58,7 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
         c.DepartmentId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
         try
         {
-            CourseManager.GetDeleteCourse(c);
+            courseService.GetDeleteCourse(c);
             lblMessger.Text = "删除成功！";
         }
         catch (Exception)
