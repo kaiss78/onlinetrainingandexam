@@ -8,14 +8,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
 using System.Collections.Generic;
-using OnLineExamDAL;
 using System.Data.SqlClient;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_MultiSelectUpdate : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_MultiProblem multiProblemService = new BLLWS_MultiProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "修改试题";
@@ -28,7 +30,7 @@ public partial class Web_MultiSelectUpdate : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
@@ -36,9 +38,9 @@ public partial class Web_MultiSelectUpdate : System.Web.UI.Page
                 //展示绑定的数据并将它展示在下拉列表中
                 ddlCourse.Items.Clear();
                 Course course = new Course();
-                List<Course> list = SingleSelectedService.ListCourse();
+                Course[] list = singleSelectedService.ListCourse();
 
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < list.Length; i++)
                 {
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
@@ -101,7 +103,7 @@ public partial class Web_MultiSelectUpdate : System.Web.UI.Page
                 pro.Answer += cblAnswer.Items[i].Text;
             }
         }
-        if (MultiProblemManager.multiProblemUpdate(pro))
+        if (multiProblemService.multiProblemUpdate(pro))
         {
             lblMessage.Text = "修改成功！";
         }
