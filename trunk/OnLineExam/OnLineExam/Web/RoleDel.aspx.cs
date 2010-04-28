@@ -8,11 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamDAL;
+using localhost;
 
 public partial class Web_RoleDel : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_Role roleService = new DALWS_Role();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Title = "删除角色";
@@ -25,7 +27,7 @@ public partial class Web_RoleDel : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
             }
@@ -35,7 +37,7 @@ public partial class Web_RoleDel : System.Web.UI.Page
     {
         string RoleID = txtRoleID.Text;
 
-        if (RoleService.Delect(RoleID))
+        if (roleService.Delect(RoleID))
         {
             lblMessage.Text = "删除成功！";
         }
