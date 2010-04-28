@@ -8,11 +8,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-
+using localhost;
 
 public partial class Web_UserPaperList : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷评阅";
@@ -25,11 +26,11 @@ public partial class Web_UserPaperList : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
 
-                GridView1.DataSource = UserManager.GetselectUserPaperList();
+                GridView1.DataSource = userService.GetselectUserPaperList();
                 GridView1.DataBind();
             }
         }
@@ -39,8 +40,8 @@ public partial class Web_UserPaperList : System.Web.UI.Page
     {
         string UserID = GridView1.DataKeys[e.RowIndex].Values[0].ToString(); //取出要删除记录的主键值1
         int PaperID = int.Parse(GridView1.DataKeys[e.RowIndex].Values[1].ToString().Trim());//取出要删除记录的主键值2
-        UserManager.DeleteUserPaperList(UserID, PaperID);
-        GridView1.DataSource = UserManager.GetselectUserPaperList();
+        userService.DeleteUserPaperList(UserID, PaperID);
+        GridView1.DataSource = userService.GetselectUserPaperList();
         GridView1.DataBind();
         LabelPageInfo.Text = "删除成功！";
     }
