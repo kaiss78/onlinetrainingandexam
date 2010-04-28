@@ -8,11 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamDAL;
+using localhost;
 
 public partial class Web_Role : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Role roleService = new BLLWS_Role();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "角色管理";
@@ -25,11 +27,11 @@ public partial class Web_Role : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
-                GridView1.DataSource = RoleManager.SelectRoles();
+                GridView1.DataSource = roleService.SelectRoles();
                 GridView1.DataBind();
             }
         }
@@ -62,7 +64,7 @@ public partial class Web_Role : System.Web.UI.Page
 
     protected void GridView1_RowDeleted(object sender, GridViewDeletedEventArgs e)
     {
-        GridView1.DataSource = RoleManager.SelectRoles();
+        GridView1.DataSource = roleService.SelectRoles();
         GridView1.DataBind();
     }
     //protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
