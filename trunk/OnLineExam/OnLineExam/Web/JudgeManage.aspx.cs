@@ -8,13 +8,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
 using System.Collections.Generic;
-using OnLineExamDAL;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_JudgeManage : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_JudgeProblem judgeProblemService = new BLLWS_JudgeProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "单选题管理";
@@ -26,16 +28,16 @@ public partial class Web_JudgeManage : System.Web.UI.Page
         else
         {
             string userId = Session["userID"].ToString();
-            string userName = UserManager.GetUserName(userId);
+            string userName = userService.GetUserName(userId);
             Label i1 = (Label)Page.Master.FindControl("labUser");
             i1.Text = userName;
 
             //展示绑定的数据并将它展示在下拉列表中
             ddlCourse.Items.Clear();
             Course course = new Course();
-            List<Course> list = SingleSelectedService.ListCourse();
+            Course[] list = singleSelectedService.ListCourse();
 
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Length; i++)
             {
                 ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                 ddlCourse.Items.Add(item);
@@ -59,7 +61,7 @@ public partial class Web_JudgeManage : System.Web.UI.Page
     {
         this.GridView1.DataSourceID = null;
         string selectvalue = this.ddlCourse.SelectedValue;
-        this.GridView1.DataSource = JudgeProblemManager.GetJudgeProblemList(selectvalue);
+        this.GridView1.DataSource = judgeProblemService.GetJudgeProblemList(selectvalue);
         this.GridView1.DataBind();
     }
 }
