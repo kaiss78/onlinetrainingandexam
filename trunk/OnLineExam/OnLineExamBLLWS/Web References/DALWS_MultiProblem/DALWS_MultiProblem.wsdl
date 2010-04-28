@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="MultiProblemInsert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mi" type="tns:MultiProblem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MultiProblem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserAnswer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExamTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mark" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaperName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CourseID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Answer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MultiProblemInsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MultiProblemInsertResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MultiProblemUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="mu" type="tns:MultiProblem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MultiProblemUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MultiProblemUpdateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultiProblemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectvalue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultiProblemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultiProblemListResult" type="tns:ArrayOfMultiProblem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMultiProblem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MultiProblem" nillable="true" type="tns:MultiProblem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="selectMutiQuestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PaperId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="selectMutiQuestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="selectMutiQuestionResult" type="tns:ArrayOfMultiProblem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="MultiProblemInsertSoapIn">
+    <wsdl:part name="parameters" element="tns:MultiProblemInsert" />
+  </wsdl:message>
+  <wsdl:message name="MultiProblemInsertSoapOut">
+    <wsdl:part name="parameters" element="tns:MultiProblemInsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="MultiProblemUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:MultiProblemUpdate" />
+  </wsdl:message>
+  <wsdl:message name="MultiProblemUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:MultiProblemUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiProblemListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultiProblemList" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiProblemListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultiProblemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="selectMutiQuestionSoapIn">
+    <wsdl:part name="parameters" element="tns:selectMutiQuestion" />
+  </wsdl:message>
+  <wsdl:message name="selectMutiQuestionSoapOut">
+    <wsdl:part name="parameters" element="tns:selectMutiQuestionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DALWS_MultiProblemSoap">
+    <wsdl:operation name="MultiProblemInsert">
+      <wsdl:input message="tns:MultiProblemInsertSoapIn" />
+      <wsdl:output message="tns:MultiProblemInsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MultiProblemUpdate">
+      <wsdl:input message="tns:MultiProblemUpdateSoapIn" />
+      <wsdl:output message="tns:MultiProblemUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiProblemList">
+      <wsdl:input message="tns:GetMultiProblemListSoapIn" />
+      <wsdl:output message="tns:GetMultiProblemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="selectMutiQuestion">
+      <wsdl:input message="tns:selectMutiQuestionSoapIn" />
+      <wsdl:output message="tns:selectMutiQuestionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DALWS_MultiProblemSoap" type="tns:DALWS_MultiProblemSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MultiProblemInsert">
+      <soap:operation soapAction="http://tempuri.org/MultiProblemInsert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MultiProblemUpdate">
+      <soap:operation soapAction="http://tempuri.org/MultiProblemUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiProblemList">
+      <soap:operation soapAction="http://tempuri.org/GetMultiProblemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMutiQuestion">
+      <soap:operation soapAction="http://tempuri.org/selectMutiQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DALWS_MultiProblemSoap12" type="tns:DALWS_MultiProblemSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="MultiProblemInsert">
+      <soap12:operation soapAction="http://tempuri.org/MultiProblemInsert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MultiProblemUpdate">
+      <soap12:operation soapAction="http://tempuri.org/MultiProblemUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiProblemList">
+      <soap12:operation soapAction="http://tempuri.org/GetMultiProblemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="selectMutiQuestion">
+      <soap12:operation soapAction="http://tempuri.org/selectMutiQuestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DALWS_MultiProblem">
+    <wsdl:port name="DALWS_MultiProblemSoap" binding="tns:DALWS_MultiProblemSoap">
+      <soap:address location="http://localhost:2535/DALWS_MultiProblem.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DALWS_MultiProblemSoap12" binding="tns:DALWS_MultiProblemSoap12">
+      <soap12:address location="http://localhost:2535/DALWS_MultiProblem.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

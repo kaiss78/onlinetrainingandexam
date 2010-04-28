@@ -17,5 +17,17 @@
     <Setting Name="OnLineExamBLLWS_DALWS_Paper_DALWS_Paper" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:2535/DALWS_Paper.asmx</Value>
     </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_MultiProblem.asmx</Value>
+    </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_JudgeProblem.asmx</Value>
+    </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_FillBlankProblem_DALWS_FillBlankProblem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_FillBlankProblem.asmx</Value>
+    </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_Course_DALWS_Course" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2535/DALWS_Course.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
