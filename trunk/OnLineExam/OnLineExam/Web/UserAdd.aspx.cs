@@ -8,13 +8,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
-using OnLineExamBLL;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using localhost;
 
 public partial class Web_UserAdd : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "增加用户";
@@ -27,7 +28,7 @@ public partial class Web_UserAdd : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
             }
@@ -42,7 +43,7 @@ public partial class Web_UserAdd : System.Web.UI.Page
         user.UserName = txtUserName.Text;
         user.UserPwd = txtUserPwd.Text;
         user.RoleId = Convert.ToInt32(ddlRole.SelectedValue);
-        if (UserManager.AddUsers(user))
+        if (userService.AddUsers(user))
         {
             lblMessage.Text = "插入成功！";
         }
