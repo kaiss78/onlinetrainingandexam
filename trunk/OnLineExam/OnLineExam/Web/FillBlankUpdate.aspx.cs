@@ -8,14 +8,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
 using System.Collections.Generic;
-using OnLineExamDAL;
-using OnLineExamBLL;
 using System.Data.SqlClient;
+using localhost;
 
 public partial class Web_FillBlankUpdate : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_FillBlankProblem fillBlankProblemService = new BLLWS_FillBlankProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "修改试题";
@@ -29,16 +31,16 @@ public partial class Web_FillBlankUpdate : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
 
                 ddlCourse.Items.Clear();
                 Course course = new Course();
-                List<Course> list = SingleSelectedService.ListCourse();
+                Course[] list = singleSelectedService.ListCourse();
 
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < list.Length; i++)
                 {
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
@@ -77,7 +79,7 @@ public partial class Web_FillBlankUpdate : System.Web.UI.Page
         pro.FrontTitle = txtFrontTitle.Text;
         pro.BackTitle = txtBackTitle.Text;
         pro.Answer = txtAnswer.Text;
-        if (FillBlankProblemManager.FillBlankProblemUpdate(pro))
+        if (fillBlankProblemService.FillBlankProblemUpdate(pro))
         {
             lblMessage.Text = "修改成功！";
             txtFrontTitle.Text = string.Empty;
