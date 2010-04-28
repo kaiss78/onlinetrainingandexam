@@ -8,11 +8,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamDAL;
+using localhost;
 
 public partial class Web_StudentIndex : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Paper paperService = new BLLWS_Paper();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -25,10 +28,10 @@ public partial class Web_StudentIndex : System.Web.UI.Page
             {
                 InitData();
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 labUser.Text = userId;
                 lblName.Text = userName;
-                GridView1.DataSource = UserManager.GetselectExaminfo(userId);
+                GridView1.DataSource = userService.GetselectExaminfo(userId);
                 GridView1.DataBind();
             }
         }
@@ -36,7 +39,7 @@ public partial class Web_StudentIndex : System.Web.UI.Page
 
     private void InitData()
     {
-        DataSet ds = PaperManager.QueryPaper();  //查询所有可用试卷
+        DataSet ds = paperService.QueryPaper();  //查询所有可用试卷
         if (ds.Tables[0].Rows.Count >= 1)
         {
             ddlPaper.DataSource = ds;           //指名考试科目列表框数据源
@@ -69,9 +72,9 @@ public partial class Web_StudentIndex : System.Web.UI.Page
         string userId = Session["userID"].ToString();
         string newPwd = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(this.txtNewPwd.Text.Trim(), "MD5").ToString();
         string pwdMd5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(this.txtOldPwd.Text.Trim(), "MD5").ToString();
-        if (UserManager.GetSelectPwd(pwdMd5))
+        if (userService.GetSelectPwd(pwdMd5))
         {
-            UserManager.ModifyPwd(newPwd, userId);
+            userService.ModifyPwd(newPwd, userId);
             this.lblPwd.Text = "修改成功！";
         }
         else
@@ -89,7 +92,7 @@ public partial class Web_StudentIndex : System.Web.UI.Page
         string UserID = Session["userID"].ToString();
         string PaperID = ddlPaper.SelectedValue;
 
-        if (!(SingleSelectedService.Getitem(UserID, PaperID)))
+        if (!(singleSelectedService.Getitem(UserID, PaperID)))
         {
             lblMessage.Text = "您已经考过";
         }
