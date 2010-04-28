@@ -8,14 +8,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamModel;
-using OnLineExamDAL;
 using System.IO;
 using System.Data.OleDb;
+using localhost;
 
 public partial class Web_UserScore : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_User userService2 = new DALWS_User();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "成绩管理";
@@ -28,11 +29,11 @@ public partial class Web_UserScore : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
-                GridView1.DataSource = UserManager.selectAlls();
+                GridView1.DataSource = userService.selectAlls();
                 GridView1.DataBind();
             }
         }
@@ -55,10 +56,10 @@ public partial class Web_UserScore : System.Web.UI.Page
         }
         else
         {
-            if (UserService.delScores(userID))//根据主键使用delScores方法删除用户
+            if (userService2.delScores(userID))//根据主键使用delScores方法删除用户
             {
 
-                GridView1.DataSource = UserManager.selectAlls();
+                GridView1.DataSource = userService.selectAlls();
                 GridView1.DataBind();
                 Label12.Text = "删除成功！";
             }
@@ -147,7 +148,7 @@ public partial class Web_UserScore : System.Web.UI.Page
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
         string PaperID = DropDownList1.SelectedValue;
-        GridView1.DataSource = UserManager.selectAllScore(PaperID);
+        GridView1.DataSource = userService.selectAllScore(PaperID);
         GridView1.DataBind();
     }
 
