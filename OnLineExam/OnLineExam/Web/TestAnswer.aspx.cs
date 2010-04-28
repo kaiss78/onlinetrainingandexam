@@ -8,10 +8,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_TestAnswer : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷答案";
@@ -24,7 +26,7 @@ public partial class Web_TestAnswer : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
             }
