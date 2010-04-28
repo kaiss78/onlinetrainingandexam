@@ -8,11 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamModel;
-using OnLineExamBLL;
+using localhost;
 
 public partial class _Default : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Course courseService = new BLLWS_Course();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "添加考试科目";
@@ -26,7 +28,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
 
@@ -37,7 +39,7 @@ public partial class _Default : System.Web.UI.Page
     {
         Course course = new Course();
         course.DepartmentName = txtName.Text;
-        if (CourseManager.courseInsert(course))
+        if (courseService.courseInsert(course))
         {
             lblMessage.Text = "添加成功！";
             txtName.Text = string.Empty;

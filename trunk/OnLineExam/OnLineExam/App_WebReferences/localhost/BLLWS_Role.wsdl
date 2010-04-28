@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="tns:Role" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Role">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_DepartmentManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_RoleManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_Role" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserScore" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_CourseManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_PaperSetup" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_PaperLists" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserPaperList" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_SingleSelectManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_MultiSelectManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_FillBlankManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_JudgeManage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_QuestionManage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertRolesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectRoles">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectRolesResult" type="tns:ArrayOfRole" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRole">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRoleName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRoleNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRoleNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRoles" />
+  </wsdl:message>
+  <wsdl:message name="InsertRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectRoles" />
+  </wsdl:message>
+  <wsdl:message name="SelectRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRoleName" />
+  </wsdl:message>
+  <wsdl:message name="GetRoleNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRoleNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BLLWS_RoleSoap">
+    <wsdl:operation name="InsertRoles">
+      <wsdl:input message="tns:InsertRolesSoapIn" />
+      <wsdl:output message="tns:InsertRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectRoles">
+      <wsdl:input message="tns:SelectRolesSoapIn" />
+      <wsdl:output message="tns:SelectRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleName">
+      <wsdl:input message="tns:GetRoleNameSoapIn" />
+      <wsdl:output message="tns:GetRoleNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BLLWS_RoleSoap" type="tns:BLLWS_RoleSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRoles">
+      <soap:operation soapAction="http://tempuri.org/InsertRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRoles">
+      <soap:operation soapAction="http://tempuri.org/SelectRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleName">
+      <soap:operation soapAction="http://tempuri.org/GetRoleName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BLLWS_RoleSoap12" type="tns:BLLWS_RoleSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRoles">
+      <soap12:operation soapAction="http://tempuri.org/InsertRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectRoles">
+      <soap12:operation soapAction="http://tempuri.org/SelectRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleName">
+      <soap12:operation soapAction="http://tempuri.org/GetRoleName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BLLWS_Role">
+    <wsdl:port name="BLLWS_RoleSoap" binding="tns:BLLWS_RoleSoap">
+      <soap:address location="http://localhost:2542/BLLWS_Role.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BLLWS_RoleSoap12" binding="tns:BLLWS_RoleSoap12">
+      <soap12:address location="http://localhost:2542/BLLWS_Role.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
