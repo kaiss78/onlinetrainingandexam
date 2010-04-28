@@ -8,10 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_PaperDetail : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Paper paperService = new BLLWS_Paper();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷详细信息";
@@ -24,7 +27,7 @@ public partial class Web_PaperDetail : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
 
@@ -39,31 +42,31 @@ public partial class Web_PaperDetail : System.Web.UI.Page
         int paperID = Convert.ToInt32(Request.QueryString["PaperID"].ToString());
 
         string type = "单选题";
-        DataSet ds1 = PaperManager.GetAllPaperSing(paperID, type); //单选题绑定
+        DataSet ds1 = paperService.GetAllPaperSing(paperID, type); //单选题绑定
         GridView1.DataSource = ds1;
         GridView1.DataBind();
 
 
 
         type = "多选题";
-        DataSet ds2 = PaperManager.GetAllPaperMult(paperID, type);//多选题绑定
+        DataSet ds2 = paperService.GetAllPaperMult(paperID, type);//多选题绑定
         GridView2.DataSource = ds2;
         GridView2.DataBind();
 
 
 
         type = "判断题";
-        DataSet ds3 = PaperManager.GetAllPaperJudg(paperID, type);//判断题绑定
+        DataSet ds3 = paperService.GetAllPaperJudg(paperID, type);//判断题绑定
         GridView3.DataSource = ds3;
         GridView3.DataBind();
 
         type = "填空题";
-        DataSet ds4 = PaperManager.GetAllPaperFill(paperID, type);//填空题绑定
+        DataSet ds4 = paperService.GetAllPaperFill(paperID, type);//填空题绑定
         GridView4.DataSource = ds4;
         GridView4.DataBind();
 
         type = "问答题";
-        DataSet ds5 = PaperManager.GetAllPaperQues(paperID, type);//问答题绑定
+        DataSet ds5 = paperService.GetAllPaperQues(paperID, type);//问答题绑定
         GridView5.DataSource = ds5;
         GridView5.DataBind();
 
