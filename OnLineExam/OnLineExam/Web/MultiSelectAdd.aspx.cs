@@ -9,12 +9,14 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Collections.Generic;
-using OnLineExamModel;
-using OnLineExamDAL;
-using OnLineExamBLL;
+using localhost;
 
 public partial class Web_MultiSelectAdd : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_MultiProblem multiProblemService = new BLLWS_MultiProblem();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "增加试题";
@@ -28,7 +30,7 @@ public partial class Web_MultiSelectAdd : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
 
@@ -36,9 +38,9 @@ public partial class Web_MultiSelectAdd : System.Web.UI.Page
                 //展示绑定的数据并将它展示在下拉列表中
                 ddlCourse.Items.Clear();
                 Course course = new Course();
-                List<Course> list = SingleSelectedService.ListCourse();
+                Course[] list = singleSelectedService.ListCourse();
 
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < list.Length; i++)
                 {
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
@@ -66,7 +68,7 @@ public partial class Web_MultiSelectAdd : System.Web.UI.Page
             }
         }
 
-        if (MultiProblemManager.multiProblemInsert(pro))
+        if (multiProblemService.multiProblemInsert(pro))
         {
             lblMessage.Text = "添加成功！";
             txtTitle.Text = string.Empty;
