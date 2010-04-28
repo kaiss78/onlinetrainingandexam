@@ -8,11 +8,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using OnLineExamBLL;
-using OnLineExamModel;
+using localhost;
 
 public partial class Web_RoleAdd : System.Web.UI.Page
 {
+    BLLWS_User userService = new BLLWS_User();
+    BLLWS_Role roleService = new BLLWS_Role();
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -26,7 +28,7 @@ public partial class Web_RoleAdd : System.Web.UI.Page
             else
             {
                 string userId = Session["userID"].ToString();
-                string userName = UserManager.GetUserName(userId);
+                string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
             }
@@ -38,7 +40,7 @@ public partial class Web_RoleAdd : System.Web.UI.Page
 
         role.RoleName = txtRoleName.Text;
 
-        if (RoleManager.InsertRoles(role))
+        if (roleService.InsertRoles(role))
         {
             this.lblMessage.Text = "添加成功！";
         }
