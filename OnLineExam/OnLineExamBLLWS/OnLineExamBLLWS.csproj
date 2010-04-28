@@ -53,6 +53,10 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BLLWS_Course.asmx" />
+    <Content Include="BLLWS_FillBlankProblem.asmx" />
+    <Content Include="BLLWS_JudgeProblem.asmx" />
+    <Content Include="BLLWS_MultiProblem.asmx" />
     <Content Include="BLLWS_Paper.asmx" />
     <Content Include="BLLWS_QuestionProblem.asmx" />
     <Content Include="BLLWS_Role.asmx" />
@@ -61,6 +65,38 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_Course\Course.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_Course\DALWS_Course.wsdl" />
+    <None Include="Web References\DALWS_Course\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_FillBlankProblem\DALWS_FillBlankProblem.wsdl" />
+    <None Include="Web References\DALWS_FillBlankProblem\FillBlankProblem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_FillBlankProblem\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_JudgeProblem\DALWS_JudgeProblem.wsdl" />
+    <None Include="Web References\DALWS_JudgeProblem\JudgeProblem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_JudgeProblem\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_MultiProblem\DALWS_MultiProblem.wsdl" />
+    <None Include="Web References\DALWS_MultiProblem\MultiProblem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_MultiProblem\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\DALWS_Paper\DALWS_Paper.wsdl" />
     <None Include="Web References\DALWS_Paper\Reference.map">
@@ -113,9 +149,29 @@
     <None Include="Web References\DALWS_Role\DALWS_Role.disco" />
     <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.disco" />
     <None Include="Web References\DALWS_Paper\DALWS_Paper.disco" />
+    <None Include="Web References\DALWS_MultiProblem\DALWS_MultiProblem.disco" />
+    <None Include="Web References\DALWS_JudgeProblem\DALWS_JudgeProblem.disco" />
+    <None Include="Web References\DALWS_FillBlankProblem\DALWS_FillBlankProblem.disco" />
+    <None Include="Web References\DALWS_Course\DALWS_Course.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLWS_Course.asmx.cs">
+      <DependentUpon>BLLWS_Course.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_FillBlankProblem.asmx.cs">
+      <DependentUpon>BLLWS_FillBlankProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_JudgeProblem.asmx.cs">
+      <DependentUpon>BLLWS_JudgeProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_MultiProblem.asmx.cs">
+      <DependentUpon>BLLWS_MultiProblem.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BLLWS_Paper.asmx.cs">
       <DependentUpon>BLLWS_Paper.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -141,6 +197,26 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_Course\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_FillBlankProblem\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_JudgeProblem\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_MultiProblem\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\DALWS_Paper\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -172,6 +248,50 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_Course.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_Course\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_Course.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Course_DALWS_Course</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_FillBlankProblem.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_FillBlankProblem\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_FillBlankProblem.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_FillBlankProblem_DALWS_FillBlankProblem</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_JudgeProblem.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_JudgeProblem\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_JudgeProblem.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:2535/DALWS_MultiProblem.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_MultiProblem\</RelPath>
+      <UpdateFromURL>http://localhost:2535/DALWS_MultiProblem.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:2535/DALWS_Paper.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_Paper\</RelPath>
