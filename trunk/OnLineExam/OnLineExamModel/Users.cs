@@ -9,8 +9,8 @@ namespace OnLineExamModel
     public class Users
     {
         public Users()
-        { 
-            
+        {
+
         }
         public Users(string userId, string userName, string nickName, Role role)
         {
@@ -23,10 +23,11 @@ namespace OnLineExamModel
         private string _userID;                                               //用户编号
         private string _userPwd;                                         //用户密码
         private string _userName;                                             //用户姓名        
-        //private int _department;	                    //用户部门
         private int _roleid;		                     //用户角色
         private string _rolename;
         private ArrayList _duties = new ArrayList();	//用户所有的权限
+        private string _phone;
+        private string _address;
         Role role;
 
         public Role Role
@@ -72,7 +73,7 @@ namespace OnLineExamModel
                 return this._userName;
             }
         }
-        
+
         public int RoleId
         {
             set
@@ -104,6 +105,28 @@ namespace OnLineExamModel
             get
             {
                 return this._duties;
+            }
+        }
+        public string Phone
+        {
+            set
+            {
+                this._phone = value;
+            }
+            get
+            {
+                return this._phone;
+            }
+        }
+        public string Address
+        {
+            set
+            {
+                this._address = value;
+            }
+            get
+            {
+                return this._address;
             }
         }
         #endregion 属性

@@ -11,7 +11,6 @@ namespace OnLineExamModel
 
         private int _roleId;			//角色（职务）ID
         private string _roleName;		//角色（职务）名
-        private int _HasDuty_DepartmentManage;
         private int _HasDuty_UserManage;
         private int _HasDuty_RoleManage;
         private int _HasDuty_Role;
@@ -52,17 +51,6 @@ namespace OnLineExamModel
             get
             {
                 return this._roleName;
-            }
-        }
-        public int HasDuty_DepartmentManage
-        {
-            set
-            {
-                this._HasDuty_DepartmentManage = value;
-            }
-            get
-            {
-                return this._HasDuty_DepartmentManage;
             }
         }
         public int HasDuty_UserManage
