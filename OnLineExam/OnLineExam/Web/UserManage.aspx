@@ -47,7 +47,7 @@
                                     <asp:BoundField DataField="RoleName" SortExpression="RoleName" HeaderText="角色名">
                                     </asp:BoundField>
                                     <asp:BoundField DataField="Phone" SortExpression="Phone" HeaderText="电话号码" />
-                                    <asp:BoundField DataField="Address" SortExpression="Address" HeaderText="住址" />
+                                    <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="邮箱" />
                                 </Columns>
                                 <RowStyle ForeColor="#333333" BackColor="#F7F6F3"></RowStyle>
                                 <SelectedRowStyle BackColor="#E2DED6" ForeColor="#333333" Font-Bold="True"></SelectedRowStyle>
