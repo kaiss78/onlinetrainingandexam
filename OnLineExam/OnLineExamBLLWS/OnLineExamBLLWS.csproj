@@ -131,7 +131,6 @@
     <None Include="Web References\DALWS_SingleSelected\SingleProblem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\DALWS_StudentAnalysis\DALWS_StudentAnalysis.disco" />
     <None Include="Web References\DALWS_StudentAnalysis\DALWS_StudentAnalysis.wsdl" />
     <None Include="Web References\DALWS_StudentAnalysis\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -143,9 +142,6 @@
     <None Include="Web References\DALWS_StudentAnalysis\Users.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\DALWS_Course\DALWS_Course.disco" />
-    <None Include="Web References\DALWS_MultiProblem\DALWS_MultiProblem.disco" />
-    <None Include="Web References\DALWS_JudgeProblem\DALWS_JudgeProblem.disco" />
     <None Include="Web References\DALWS_User\DALWS_User.disco" />
     <None Include="Web References\DALWS_User\DALWS_User.wsdl" />
     <None Include="Web References\DALWS_User\Reference.map">
@@ -161,11 +157,15 @@
     <None Include="Web References\DALWS_User\Users.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\DALWS_Paper\DALWS_Paper.disco" />
-    <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.disco" />
-    <None Include="Web References\DALWS_Role\DALWS_Role.disco" />
-    <None Include="Web References\DALWS_FillBlankProblem\DALWS_FillBlankProblem.disco" />
+    <None Include="Web References\DALWS_StudentAnalysis\DALWS_StudentAnalysis.disco" />
     <None Include="Web References\DALWS_SingleSelected\DALWS_SingleSelected.disco" />
+    <None Include="Web References\DALWS_Role\DALWS_Role.disco" />
+    <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.disco" />
+    <None Include="Web References\DALWS_Paper\DALWS_Paper.disco" />
+    <None Include="Web References\DALWS_MultiProblem\DALWS_MultiProblem.disco" />
+    <None Include="Web References\DALWS_JudgeProblem\DALWS_JudgeProblem.disco" />
+    <None Include="Web References\DALWS_FillBlankProblem\DALWS_FillBlankProblem.disco" />
+    <None Include="Web References\DALWS_Course\DALWS_Course.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
