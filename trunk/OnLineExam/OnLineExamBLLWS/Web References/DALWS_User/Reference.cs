@@ -45,8 +45,6 @@ namespace OnLineExamBLLWS.DALWS_User {
         
         private System.Threading.SendOrPostCallback UpdateOperationCompleted;
         
-        private System.Threading.SendOrPostCallback Update1OperationCompleted;
-        
         private System.Threading.SendOrPostCallback delUserIdOperationCompleted;
         
         private System.Threading.SendOrPostCallback selectUserPaperListOperationCompleted;
@@ -125,9 +123,6 @@ namespace OnLineExamBLLWS.DALWS_User {
         
         /// <remarks/>
         public event UpdateCompletedEventHandler UpdateCompleted;
-        
-        /// <remarks/>
-        public event Update1CompletedEventHandler Update1Completed;
         
         /// <remarks/>
         public event delUserIdCompletedEventHandler delUserIdCompleted;
@@ -335,10 +330,11 @@ namespace OnLineExamBLLWS.DALWS_User {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Update", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void Update(string UserPwd, string UserId) {
-            this.Invoke("Update", new object[] {
+        public bool Update(string UserPwd, string UserId) {
+            object[] results = this.Invoke("Update", new object[] {
                         UserPwd,
                         UserId});
+            return ((bool)(results[0]));
         }
         
         /// <remarks/>
@@ -359,38 +355,7 @@ namespace OnLineExamBLLWS.DALWS_User {
         private void OnUpdateOperationCompleted(object arg) {
             if ((this.UpdateCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Update1", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool Update1(string UserId, string UserPwd) {
-            object[] results = this.Invoke("Update1", new object[] {
-                        UserId,
-                        UserPwd});
-            return ((bool)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Update1Async(string UserId, string UserPwd) {
-            this.Update1Async(UserId, UserPwd, null);
-        }
-        
-        /// <remarks/>
-        public void Update1Async(string UserId, string UserPwd, object userState) {
-            if ((this.Update1OperationCompleted == null)) {
-                this.Update1OperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdate1OperationCompleted);
-            }
-            this.InvokeAsync("Update1", new object[] {
-                        UserId,
-                        UserPwd}, this.Update1OperationCompleted, userState);
-        }
-        
-        private void OnUpdate1OperationCompleted(object arg) {
-            if ((this.Update1Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Update1Completed(this, new Update1CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.UpdateCompleted(this, new UpdateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1029,8 +994,6 @@ namespace OnLineExamBLLWS.DALWS_User {
         
         private string roleNameField;
         
-        private int hasDuty_DepartmentManageField;
-        
         private int hasDuty_UserManageField;
         
         private int hasDuty_RoleManageField;
@@ -1074,16 +1037,6 @@ namespace OnLineExamBLLWS.DALWS_User {
             }
             set {
                 this.roleNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int HasDuty_DepartmentManage {
-            get {
-                return this.hasDuty_DepartmentManageField;
-            }
-            set {
-                this.hasDuty_DepartmentManageField = value;
             }
         }
         
@@ -1240,6 +1193,10 @@ namespace OnLineExamBLLWS.DALWS_User {
         
         private object[] dutiesField;
         
+        private string phoneField;
+        
+        private string addressField;
+        
         /// <remarks/>
         public Role Role {
             get {
@@ -1307,6 +1264,26 @@ namespace OnLineExamBLLWS.DALWS_User {
             }
             set {
                 this.dutiesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Phone {
+            get {
+                return this.phoneField;
+            }
+            set {
+                this.phoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
             }
         }
     }
@@ -1469,21 +1446,17 @@ namespace OnLineExamBLLWS.DALWS_User {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
-    public delegate void UpdateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
-    public delegate void Update1CompletedEventHandler(object sender, Update1CompletedEventArgs e);
+    public delegate void UpdateCompletedEventHandler(object sender, UpdateCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Update1CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class UpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal Update1CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal UpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

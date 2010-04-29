@@ -61,13 +61,14 @@
           <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Duties" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Role">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="RoleId" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="HasDuty_DepartmentManage" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="HasDuty_UserManage" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="HasDuty_RoleManage" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="HasDuty_Role" type="s:int" />
@@ -150,20 +151,9 @@
         </s:complexType>
       </s:element>
       <s:element name="UpdateResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="Update1">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Update1Response">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="Update1Result" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -377,12 +367,6 @@
   <wsdl:message name="UpdateSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateResponse" />
   </wsdl:message>
-  <wsdl:message name="Update1SoapIn">
-    <wsdl:part name="parameters" element="tns:Update1" />
-  </wsdl:message>
-  <wsdl:message name="Update1SoapOut">
-    <wsdl:part name="parameters" element="tns:Update1Response" />
-  </wsdl:message>
   <wsdl:message name="delUserIdSoapIn">
     <wsdl:part name="parameters" element="tns:delUserId" />
   </wsdl:message>
@@ -471,10 +455,6 @@
     <wsdl:operation name="Update">
       <wsdl:input message="tns:UpdateSoapIn" />
       <wsdl:output message="tns:UpdateSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Update1">
-      <wsdl:input message="tns:Update1SoapIn" />
-      <wsdl:output message="tns:Update1SoapOut" />
     </wsdl:operation>
     <wsdl:operation name="delUserId">
       <wsdl:input message="tns:delUserIdSoapIn" />
@@ -575,15 +555,6 @@
     </wsdl:operation>
     <wsdl:operation name="Update">
       <soap:operation soapAction="http://tempuri.org/Update" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Update1">
-      <soap:operation soapAction="http://tempuri.org/Update1" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -740,15 +711,6 @@
     </wsdl:operation>
     <wsdl:operation name="Update">
       <soap12:operation soapAction="http://tempuri.org/Update" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Update1">
-      <soap12:operation soapAction="http://tempuri.org/Update1" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
