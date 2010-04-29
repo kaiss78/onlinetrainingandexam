@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EFEA1010-A1FC-45B7-8238-E9322759ADF0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -66,6 +66,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="BLLWS_StudentAnalysis.asmx" />
     <None Include="Web References\DALWS_Course\Course.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -130,6 +131,21 @@
     <None Include="Web References\DALWS_SingleSelected\SingleProblem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\DALWS_StudentAnalysis\DALWS_StudentAnalysis.disco" />
+    <None Include="Web References\DALWS_StudentAnalysis\DALWS_StudentAnalysis.wsdl" />
+    <None Include="Web References\DALWS_StudentAnalysis\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_StudentAnalysis\Scores.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_StudentAnalysis\Users.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_Course\DALWS_Course.disco" />
+    <None Include="Web References\DALWS_MultiProblem\DALWS_MultiProblem.disco" />
+    <None Include="Web References\DALWS_JudgeProblem\DALWS_JudgeProblem.disco" />
     <None Include="Web References\DALWS_User\DALWS_User.disco" />
     <None Include="Web References\DALWS_User\DALWS_User.wsdl" />
     <None Include="Web References\DALWS_User\Reference.map">
@@ -145,14 +161,11 @@
     <None Include="Web References\DALWS_User\Users.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\DALWS_SingleSelected\DALWS_SingleSelected.disco" />
-    <None Include="Web References\DALWS_Role\DALWS_Role.disco" />
-    <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.disco" />
     <None Include="Web References\DALWS_Paper\DALWS_Paper.disco" />
-    <None Include="Web References\DALWS_MultiProblem\DALWS_MultiProblem.disco" />
-    <None Include="Web References\DALWS_JudgeProblem\DALWS_JudgeProblem.disco" />
+    <None Include="Web References\DALWS_QuestionProblem\DALWS_QuestionProblem.disco" />
+    <None Include="Web References\DALWS_Role\DALWS_Role.disco" />
     <None Include="Web References\DALWS_FillBlankProblem\DALWS_FillBlankProblem.disco" />
-    <None Include="Web References\DALWS_Course\DALWS_Course.disco" />
+    <None Include="Web References\DALWS_SingleSelected\DALWS_SingleSelected.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +203,10 @@
     </Compile>
     <Compile Include="BLLWS_User.asmx.cs">
       <DependentUpon>BLLWS_User.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_StudentAnalysis.asmx.cs">
+      <DependentUpon>BLLWS_StudentAnalysis.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +255,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\DALWS_StudentAnalysis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\DALWS_User\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -248,10 +270,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_Course.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_Course.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_Course\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_Course.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_Course.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -259,10 +281,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Course_DALWS_Course</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_FillBlankProblem.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_FillBlankProblem.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_FillBlankProblem\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_FillBlankProblem.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_FillBlankProblem.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -270,10 +292,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_FillBlankProblem_DALWS_FillBlankProblem</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_JudgeProblem.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_JudgeProblem.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_JudgeProblem\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_JudgeProblem.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_JudgeProblem.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -281,10 +303,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_MultiProblem.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_MultiProblem.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_MultiProblem\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_MultiProblem.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_MultiProblem.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -292,10 +314,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_Paper.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_Paper.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_Paper\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_Paper.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_Paper.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -303,10 +325,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Paper_DALWS_Paper</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_QuestionProblem.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_QuestionProblem.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_QuestionProblem\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_QuestionProblem.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_QuestionProblem.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -314,10 +336,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_Role.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_Role.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_Role\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_Role.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_Role.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -325,10 +347,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Role_DALWS_Role</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_SingleSelected.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_SingleSelected.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_SingleSelected\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_SingleSelected.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_SingleSelected.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -336,10 +358,21 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_SingleSelected_DALWS_SingleSelected</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:2535/DALWS_User.asmx">
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_StudentAnalysis.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_StudentAnalysis\</RelPath>
+      <UpdateFromURL>http://localhost:6833/DALWS_StudentAnalysis.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_StudentAnalysis_WebService1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:6833/DALWS_User.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_User\</RelPath>
-      <UpdateFromURL>http://localhost:2535/DALWS_User.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:6833/DALWS_User.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -366,14 +399,11 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2542</DevelopmentServerPort>
+          <DevelopmentServerPort>6861</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
