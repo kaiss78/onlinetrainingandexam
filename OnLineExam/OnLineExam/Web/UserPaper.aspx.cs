@@ -120,7 +120,7 @@ public partial class Web_UserPaper : System.Web.UI.Page
             text = GridView5.Rows[k].FindControl("tbxqueScore") as TextBox;
             grade += Convert.ToInt32(text.Text);
         }
-        sumScore.Text = (Convert.ToInt32(sumScore.Text) + grade).ToString();
+        sumScore.Text = (Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"]) + grade).ToString();
     }
 
     int Mulcount = 0;
