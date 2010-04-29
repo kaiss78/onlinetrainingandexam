@@ -73,24 +73,24 @@
                 </a>
                 <br />
             </dd>
-            <%--<dt id="Dt1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312;">角色信息管理</dt>
+            <dt id="Dt1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312;">统计分析</dt>
             <dd id="Dd1">
-                <a href="RoleAdd.aspx">
+                <a href="UserAnalysis.aspx">
                     <menu>
-                        添加角色</menu>
+                        学生统计分析</menu>
                 </a>
                 <br />
-                <a href="Role.aspx">
+                <a href="UserAnalysis.aspx">
                     <menu>
-                        角色管理</menu>
+                        问题统计分析</menu>
                 </a>
                 <br />
-                <a href="RoleDel.aspx">
+                <a href=UserAnalysis.aspx">
                     <menu>
-                        删除角色</menu>
+                        试卷统计分析</menu>
                 </a>
                 <br />
-            </dd>--%>
+            </dd>
             <dt id="imgmenu2" onclick="showsubmenu(2)" style="font-family: 楷体_GB2312;">用户试卷管理</dt>
             <dd id="submenu2">
                 <a href="UserPaperList.aspx">
