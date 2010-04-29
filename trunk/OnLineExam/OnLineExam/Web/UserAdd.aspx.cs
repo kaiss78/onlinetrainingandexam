@@ -41,7 +41,7 @@ public partial class Web_UserAdd : System.Web.UI.Page
         Users user = new Users();
         user.UserID = txtUserID.Text;
         user.UserName = txtUserName.Text;
-        user.UserPwd = txtUserPwd.Text;
+        user.UserPwd = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(txtUserPwd.Text.Trim(), "MD5").ToString();
         user.RoleId = Convert.ToInt32(ddlRole.SelectedValue);
         if (userService.AddUsers(user))
         {
@@ -73,7 +73,7 @@ public partial class Web_UserAdd : System.Web.UI.Page
             list.Add(user);
             i++;
         }
-        string uid = list[i - 2].UserID.ToString();
+        string uid = list[i - 4].UserID.ToString();
 
 
         string temp = uid.Substring(0, 4);
