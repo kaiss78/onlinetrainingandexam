@@ -112,7 +112,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
-                string sql = @"select UserId,UserName,RoleName,Phone,Address from Users,[Role]where Users.roleId  = [Role].roleId and UserID='" + userID + "' ";
+                string sql = @"select UserId,UserName,RoleName,Phone,Email from Users,[Role]where Users.roleId  = [Role].roleId and UserID='" + userID + "' ";
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
 
@@ -133,7 +133,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
                     user.RoleName = role.RoleName;
 
                     user.Phone = sdr["Phone"].ToString();
-                    user.Address = sdr["Address"].ToString();
+                    user.Email = sdr["Email"].ToString();
 
                     list.Add(user);
                 }
@@ -151,7 +151,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
-                string sql = @"select UserId,UserName,RoleName,Phone,Address from Users,[Role]where Users.roleId  = [Role].roleId and UserName='" + userName + "' ";
+                string sql = @"select UserId,UserName,RoleName,Phone,Email from Users,[Role]where Users.roleId  = [Role].roleId and UserName='" + userName + "' ";
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
 
@@ -172,7 +172,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
                     user.RoleName = role.RoleName;
 
                     user.Phone = sdr["Phone"].ToString();
-                    user.Address = sdr["Address"].ToString();
+                    user.Email = sdr["Email"].ToString();
 
                     list.Add(user);
                 }
@@ -190,7 +190,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
-                string sql = @"select UserId,UserName,RoleName,Phone,Address from Users,[Role]where Users.roleId  = [Role].roleId";
+                string sql = @"select UserId,UserName,RoleName,Phone,Email from Users,[Role]where Users.roleId  = [Role].roleId";
 
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -212,7 +212,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
                     user.RoleName = role.RoleName;
 
                     user.Phone = sdr["Phone"].ToString();
-                    user.Address = sdr["Address"].ToString();
+                    user.Email = sdr["Email"].ToString();
 
                     list.Add(user);
                 }

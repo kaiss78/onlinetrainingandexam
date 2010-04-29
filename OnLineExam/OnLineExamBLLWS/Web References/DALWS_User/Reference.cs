@@ -1195,7 +1195,7 @@ namespace OnLineExamBLLWS.DALWS_User {
         
         private string phoneField;
         
-        private string addressField;
+        private string emailField;
         
         /// <remarks/>
         public Role Role {
@@ -1278,12 +1278,12 @@ namespace OnLineExamBLLWS.DALWS_User {
         }
         
         /// <remarks/>
-        public string Address {
+        public string Email {
             get {
-                return this.addressField;
+                return this.emailField;
             }
             set {
-                this.addressField = value;
+                this.emailField = value;
             }
         }
     }

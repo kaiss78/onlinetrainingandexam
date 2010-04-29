@@ -814,10 +814,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_Paper">
     <wsdl:port name="DALWS_PaperSoap" binding="tns:DALWS_PaperSoap">
-      <soap:address location="http://localhost:2535/DALWS_Paper.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_Paper.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_PaperSoap12" binding="tns:DALWS_PaperSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_Paper.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_Paper.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
