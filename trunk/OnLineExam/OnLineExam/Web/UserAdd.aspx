@@ -51,6 +51,37 @@
                     </td>
                 </tr>
                 <tr>
+                    <td bgcolor="#eeeeee" style="text-align: right;">
+                        确认密码：
+                    </td>
+                    <td>
+                        &nbsp;<div align="left">
+                            <asp:TextBox ID="txtPwdCfm" runat="server" MaxLength="20" TextMode="password" Width="124px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtPwdCfm"
+                                ErrorMessage="不能为空！"></asp:RequiredFieldValidator></div>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="请再次确认密码！" ControlToCompare="txtUserPwd" ControlToValidate="txtPwdCfm"></asp:CompareValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeee" style="text-align: right;">
+                        电话号码：
+                    </td>
+                    <td>
+                        &nbsp;<div align="left">
+                            <asp:TextBox ID="txtPhone" runat="server" MaxLength="20" Width="124px"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeee" style="text-align: right;">
+                        邮箱：
+                    </td>
+                    <td>
+                        &nbsp;<div align="left">
+                            <asp:TextBox ID="txtEmail" runat="server" MaxLength="20" Width="124px"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="请输入正确格式的邮箱地址" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    </td>
+                </tr>
+                <tr>
                     <td bgcolor="#eeeeee" style="text-align: right; height: 25px;">
                         角色：
                     </td>

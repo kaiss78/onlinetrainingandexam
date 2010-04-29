@@ -43,6 +43,8 @@ public partial class Web_UserAdd : System.Web.UI.Page
         user.UserName = txtUserName.Text;
         user.UserPwd = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(txtUserPwd.Text.Trim(), "MD5").ToString();
         user.RoleId = Convert.ToInt32(ddlRole.SelectedValue);
+        user.Phone = txtPhone.Text;
+        user.Email = txtEmail.Text;
         if (userService.AddUsers(user))
         {
             lblMessage.Text = "插入成功！";

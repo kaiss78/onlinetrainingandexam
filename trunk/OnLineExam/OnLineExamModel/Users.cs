@@ -27,7 +27,7 @@ namespace OnLineExamModel
         private string _rolename;
         private ArrayList _duties = new ArrayList();	//用户所有的权限
         private string _phone;
-        private string _address;
+        private string _email;
         Role role;
 
         public Role Role
@@ -118,15 +118,15 @@ namespace OnLineExamModel
                 return this._phone;
             }
         }
-        public string Address
+        public string Email
         {
             set
             {
-                this._address = value;
+                this._email = value;
             }
             get
             {
-                return this._address;
+                return this._email;
             }
         }
         #endregion 属性

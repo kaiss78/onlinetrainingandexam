@@ -62,7 +62,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="RoleName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Duties" type="tns:ArrayOfAnyType" />
           <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Role">
