@@ -527,10 +527,32 @@ paper.PaperID = Score.PaperID and Users.UserID = Score.UserID and Score.UserID='
                         return false;
                     }
                 }
-
             }
-            return false;
+            else
+            {
+                using (SqlConnection con = DBHelp.GetConnection())
+                {
+                    string sql = @"update Score set Score=@Score, JudgeTime=@JudgeTime where UserID=@UserId and PaperID=@PaperID";
 
+                    SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@Score",score.Score),
+                    new SqlParameter("@JudgeTime",score.JudgeTime),
+                    new SqlParameter("@UserId",score.UserID),
+                    new SqlParameter("@PaperID",paperId)
+                };
+
+                    int i = DBHelp.ExecuteCommand(sql, para);
+                    if (i > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
         }
 
         [WebMethod]
