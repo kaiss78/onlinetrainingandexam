@@ -32,7 +32,7 @@ public partial class Web_Default : System.Web.UI.Page
                 Response.Redirect("UserManage.aspx");
                 break;
             case "教师":
-                Response.Redirect("UserManage.aspx");
+                Response.Redirect("CourseManage.aspx");
                 break;
             case "学生":
                 Response.Redirect("StudentIndex.aspx");

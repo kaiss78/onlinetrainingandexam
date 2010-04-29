@@ -43,7 +43,7 @@ public partial class Web_UserManage : System.Web.UI.Page
         string userName = tbxUserName.Text;
         if (userID == "" && userName == "")
         {
-            Response.Write("<script language=javascript>alert('查询条件不能都为空！!')</script>");
+            //Response.Write("<script language=javascript>alert('查询条件不能都为空！!')</script>");
         }
         else
         {
@@ -95,7 +95,7 @@ public partial class Web_UserManage : System.Web.UI.Page
                     Users user = new Users();//创建Users对象user
                     string pwdMd5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(newPassword, "MD5").ToString();
                     user.UserPwd = pwdMd5.ToString().Trim();
-                    if (userService2.Update1(pwdMd5, UserID))//更改用户密码
+                    if (userService2.Update(pwdMd5, UserID))//更改用户密码
                     {
                         Response.Write("<Script language=JavaScript>alert('" + UserID + "的密码已经重置，新密码为【" + newPassword + "】。');</Script>");
                     }

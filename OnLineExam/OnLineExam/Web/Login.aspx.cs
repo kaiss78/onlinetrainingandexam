@@ -55,6 +55,7 @@ public partial class _Default : System.Web.UI.Page
                     }
                 }
                 Session["userID"] = txtUserID.Text.Trim();//存储用户编号
+                Session["roleID"] = u.RoleId.ToString();
                 Response.Redirect("Default.aspx");//转向管理员操作界面                      
             }
             else//密码错误，给出提示
@@ -64,7 +65,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else//用户不存在，给出提示
         {
-            lblMessage.Text = "该用户不存在！";
+            lblMessage.Text = "用户不存在或密码错误！";
         }
     }
     
