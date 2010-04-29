@@ -231,10 +231,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_Course">
     <wsdl:port name="DALWS_CourseSoap" binding="tns:DALWS_CourseSoap">
-      <soap:address location="http://localhost:2535/DALWS_Course.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_Course.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_CourseSoap12" binding="tns:DALWS_CourseSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_Course.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_Course.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

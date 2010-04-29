@@ -200,10 +200,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_QuestionProblem">
     <wsdl:port name="DALWS_QuestionProblemSoap" binding="tns:DALWS_QuestionProblemSoap">
-      <soap:address location="http://localhost:2535/DALWS_QuestionProblem.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_QuestionProblem.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_QuestionProblemSoap12" binding="tns:DALWS_QuestionProblemSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_QuestionProblem.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_QuestionProblem.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

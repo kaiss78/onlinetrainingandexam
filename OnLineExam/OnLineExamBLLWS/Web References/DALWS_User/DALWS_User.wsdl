@@ -811,10 +811,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_User">
     <wsdl:port name="DALWS_UserSoap" binding="tns:DALWS_UserSoap">
-      <soap:address location="http://localhost:2535/DALWS_User.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_User.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_UserSoap12" binding="tns:DALWS_UserSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_User.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_User.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

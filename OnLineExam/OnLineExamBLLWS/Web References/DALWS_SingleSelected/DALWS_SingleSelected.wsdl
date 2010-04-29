@@ -296,10 +296,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_SingleSelected">
     <wsdl:port name="DALWS_SingleSelectedSoap" binding="tns:DALWS_SingleSelectedSoap">
-      <soap:address location="http://localhost:2535/DALWS_SingleSelected.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_SingleSelected.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_SingleSelectedSoap12" binding="tns:DALWS_SingleSelectedSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_SingleSelected.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_SingleSelected.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

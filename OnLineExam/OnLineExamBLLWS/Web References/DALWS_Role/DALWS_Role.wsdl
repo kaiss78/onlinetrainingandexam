@@ -202,10 +202,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_Role">
     <wsdl:port name="DALWS_RoleSoap" binding="tns:DALWS_RoleSoap">
-      <soap:address location="http://localhost:2535/DALWS_Role.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_Role.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_RoleSoap12" binding="tns:DALWS_RoleSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_Role.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_Role.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

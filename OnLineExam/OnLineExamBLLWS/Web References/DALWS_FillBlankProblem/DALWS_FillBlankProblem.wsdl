@@ -243,10 +243,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_FillBlankProblem">
     <wsdl:port name="DALWS_FillBlankProblemSoap" binding="tns:DALWS_FillBlankProblemSoap">
-      <soap:address location="http://localhost:2535/DALWS_FillBlankProblem.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_FillBlankProblem.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_FillBlankProblemSoap12" binding="tns:DALWS_FillBlankProblemSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_FillBlankProblem.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_FillBlankProblem.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
