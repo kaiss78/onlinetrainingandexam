@@ -66,53 +66,53 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
             }
         }
 
-//        [WebMethod]
-//        public List<Scores> SelectAll()
-//        {
-//            using (SqlConnection conn = DBHelp.GetConnection())
-//            {
-//                string sql = @"select ID,Score.UserID,PaperID,Score,ExamTime,JudgeTime,Users.UserName from Score,Users 
-//where Score.UserID=Users.UserID";
-//                SqlCommand cmd = conn.CreateCommand();
-//                cmd.CommandText = sql;
+        //        [WebMethod]
+        //        public List<Scores> SelectAll()
+        //        {
+        //            using (SqlConnection conn = DBHelp.GetConnection())
+        //            {
+        //                string sql = @"select ID,Score.UserID,PaperID,Score,ExamTime,JudgeTime,Users.UserName from Score,Users 
+        //where Score.UserID=Users.UserID";
+        //                SqlCommand cmd = conn.CreateCommand();
+        //                cmd.CommandText = sql;
 
-//                conn.Open();
+        //                conn.Open();
 
-//                SqlDataReader dr = cmd.ExecuteReader();
+        //                SqlDataReader dr = cmd.ExecuteReader();
 
-//                List<Scores> list = new List<Scores>();
+        //                List<Scores> list = new List<Scores>();
 
-//                while (dr.Read())
-//                {
-//                    Users user = new Users();
-//                    Scores scores = new Scores();
+        //                while (dr.Read())
+        //                {
+        //                    Users user = new Users();
+        //                    Scores scores = new Scores();
 
-//                    scores.ID = Convert.ToInt32(dr["ID"]);
-//                    scores.UserID = dr["UserID"].ToString();
-//                    user.UserName = dr["UserName"].ToString();
-//                    scores.UserName = user.UserName;
-//                    scores.PaperID = Convert.ToInt32(dr["PaperID"]);
-//                    scores.Score = Convert.ToInt32(dr["Score"]);
-//                    scores.ExamTime = Convert.ToDateTime(dr["ExamTime"]);
-//                    scores.JudgeTime = Convert.ToDateTime(dr["JudgeTime"]);
+        //                    scores.ID = Convert.ToInt32(dr["ID"]);
+        //                    scores.UserID = dr["UserID"].ToString();
+        //                    user.UserName = dr["UserName"].ToString();
+        //                    scores.UserName = user.UserName;
+        //                    scores.PaperID = Convert.ToInt32(dr["PaperID"]);
+        //                    scores.Score = Convert.ToInt32(dr["Score"]);
+        //                    scores.ExamTime = Convert.ToDateTime(dr["ExamTime"]);
+        //                    scores.JudgeTime = Convert.ToDateTime(dr["JudgeTime"]);
 
-//                    list.Add(scores);
-//                }
+        //                    list.Add(scores);
+        //                }
 
-//                dr.Close();
+        //                dr.Close();
 
-//                conn.Close();
+        //                conn.Close();
 
-//                return list;
-//            }
-//        }
+        //                return list;
+        //            }
+        //        }
 
         [WebMethod]
         public List<Users> SelectUserID(string userID)
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
-                string sql = @"select UserId,UserName,RoleName from Users,[Role]where Users.roleId  = [Role].roleId and UserID='" + userID + "' ";
+                string sql = @"select UserId,UserName,RoleName,Phone,Address from Users,[Role]where Users.roleId  = [Role].roleId and UserID='" + userID + "' ";
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
 
@@ -131,6 +131,9 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
                     Role role = new Role();
                     role.RoleName = sdr["RoleName"].ToString();
                     user.RoleName = role.RoleName;
+
+                    user.Phone = sdr["Phone"].ToString();
+                    user.Address = sdr["Address"].ToString();
 
                     list.Add(user);
                 }
@@ -148,7 +151,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
-                string sql = @"select UserId,UserName,RoleName from Users,[Role]where Users.roleId  = [Role].roleId and UserName='" + userName + "' ";
+                string sql = @"select UserId,UserName,RoleName,Phone,Address from Users,[Role]where Users.roleId  = [Role].roleId and UserName='" + userName + "' ";
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
 
@@ -167,6 +170,9 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
                     Role role = new Role();
                     role.RoleName = sdr["RoleName"].ToString();
                     user.RoleName = role.RoleName;
+
+                    user.Phone = sdr["Phone"].ToString();
+                    user.Address = sdr["Address"].ToString();
 
                     list.Add(user);
                 }
@@ -184,7 +190,7 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
-                string sql = @"select UserId,UserName,RoleName from Users,[Role]where Users.roleId  = [Role].roleId";
+                string sql = @"select UserId,UserName,RoleName,Phone,Address from Users,[Role]where Users.roleId  = [Role].roleId";
 
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandText = sql;
@@ -204,6 +210,9 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
                     Role role = new Role();
                     role.RoleName = sdr["RoleName"].ToString();
                     user.RoleName = role.RoleName;
+
+                    user.Phone = sdr["Phone"].ToString();
+                    user.Address = sdr["Address"].ToString();
 
                     list.Add(user);
                 }
@@ -268,6 +277,7 @@ WHERE UserID ='{0}' AND UserPwd ='{1}' AND Users.RoleId = Role.RoleId";
                 }
 
                 Users u = PopUserFromDataReader(dr);
+                u.RoleId = u.Role.RoleId;
 
                 dr.Close();
 
@@ -296,7 +306,7 @@ WHERE UserID ='{0}' AND UserPwd ='{1}' AND Users.RoleId = Role.RoleId";
         }
 
         [WebMethod]
-        public void Update(string UserPwd, string UserId)//根椐用的帐号修改密码;
+        public bool Update(string UserPwd, string UserId)//根椐用的帐号修改密码;
         {
             using (SqlConnection conn = DBHelp.GetConnection())
             {
@@ -311,27 +321,28 @@ WHERE UserID ='{0}' AND UserPwd ='{1}' AND Users.RoleId = Role.RoleId";
 
                 conn.Close();
             }
-        }
-
-        [WebMethod]
-        public bool Update1(string UserId, string UserPwd)
-        {
-            using (SqlConnection conn = DBHelp.GetConnection())
-            {
-                string sql = "update Users set UserPwd='{0}' where UserID='{1}'";
-
-                SqlCommand cmd = conn.CreateCommand();
-                sql = string.Format(sql, UserPwd, UserId);
-                cmd.CommandText = sql;
-                conn.Open();
-
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
-            }
-
             return true;
         }
+
+        //[WebMethod]
+        //public bool Update1(string UserId, string UserPwd)
+        //{
+        //    using (SqlConnection conn = DBHelp.GetConnection())
+        //    {
+        //        string sql = "update Users set UserPwd='{0}' where UserID='{1}'";
+
+        //        SqlCommand cmd = conn.CreateCommand();
+        //        sql = string.Format(sql, UserPwd, UserId);
+        //        cmd.CommandText = sql;
+        //        conn.Open();
+
+        //        cmd.ExecuteNonQuery();
+
+        //        conn.Close();
+        //    }
+
+        //    return true;
+        //}
 
         [WebMethod]
         public bool delUserId(string UserId)
