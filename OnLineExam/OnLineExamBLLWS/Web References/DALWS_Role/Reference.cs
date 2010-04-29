@@ -232,8 +232,6 @@ namespace OnLineExamBLLWS.DALWS_Role {
         
         private string roleNameField;
         
-        private int hasDuty_DepartmentManageField;
-        
         private int hasDuty_UserManageField;
         
         private int hasDuty_RoleManageField;
@@ -277,16 +275,6 @@ namespace OnLineExamBLLWS.DALWS_Role {
             }
             set {
                 this.roleNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int HasDuty_DepartmentManage {
-            get {
-                return this.hasDuty_DepartmentManageField;
-            }
-            set {
-                this.hasDuty_DepartmentManageField = value;
             }
         }
         
