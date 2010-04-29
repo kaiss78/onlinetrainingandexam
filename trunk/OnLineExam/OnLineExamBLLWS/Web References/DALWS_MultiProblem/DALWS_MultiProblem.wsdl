@@ -204,10 +204,10 @@
   </wsdl:binding>
   <wsdl:service name="DALWS_MultiProblem">
     <wsdl:port name="DALWS_MultiProblemSoap" binding="tns:DALWS_MultiProblemSoap">
-      <soap:address location="http://localhost:2535/DALWS_MultiProblem.asmx" />
+      <soap:address location="http://localhost:6833/DALWS_MultiProblem.asmx" />
     </wsdl:port>
     <wsdl:port name="DALWS_MultiProblemSoap12" binding="tns:DALWS_MultiProblemSoap12">
-      <soap12:address location="http://localhost:2535/DALWS_MultiProblem.asmx" />
+      <soap12:address location="http://localhost:6833/DALWS_MultiProblem.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

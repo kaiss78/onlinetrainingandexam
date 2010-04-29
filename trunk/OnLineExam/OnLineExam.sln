@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamDALWS", "OnLineEx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamBLLWS", "OnLineExamBLLWS\OnLineExamBLLWS.csproj", "{EFEA1010-A1FC-45B7-8238-E9322759ADF0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{E44E13ED-3ADC-4F15-B6AE-B328F5D0DFE5}"
+	ProjectSection(SolutionItems) = preProject
+		Database\OnLineExam_Data.MDF = Database\OnLineExam_Data.MDF
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
