@@ -67,14 +67,35 @@
                         试卷维护</menu>
                 </a>
                 <br />
+            </dd>
+            <dt id="imgmenu2" onclick="showsubmenu(2)" style="font-family: 楷体_GB2312;">科目考试管理</dt>
+            <dd id="submenu2">
                 <a href="CourseManage.aspx">
                     <menu>
-                        考试科目</menu>
+                        科目管理</menu>
+                </a>
+                <br />
+                <a href="ExamManage.aspx">
+                    <menu>
+                        考试管理</menu>
                 </a>
                 <br />
             </dd>
-            <dt id="Dt1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312;">统计分析</dt>
-            <dd id="Dd1">
+            <dt id="imgmenu3" onclick="showsubmenu(3)" style="font-family: 楷体_GB2312;">用户试卷管理</dt>
+            <dd id="submenu3">
+                <a href="UserPaperList.aspx">
+                    <menu>
+                        试卷评阅</menu>
+                </a>
+                <br />
+                <a href="UserScore.aspx">
+                    <menu>
+                        用户成绩</menu>
+                </a>
+                <br />
+            </dd>
+            <dt id="imgmenu4" onclick="showsubmenu(4)" style="font-family: 楷体_GB2312;">统计分析</dt>
+            <dd id="submenu4">
                 <a href="UserAnalysis.aspx">
                     <menu>
                         学生统计分析</menu>
@@ -91,21 +112,8 @@
                 </a>
                 <br />
             </dd>
-            <dt id="imgmenu2" onclick="showsubmenu(2)" style="font-family: 楷体_GB2312;">用户试卷管理</dt>
-            <dd id="submenu2">
-                <a href="UserPaperList.aspx">
-                    <menu>
-                        试卷评阅</menu>
-                </a>
-                <br />
-                <a href="UserScore.aspx">
-                    <menu>
-                        用户成绩</menu>
-                </a>
-                <br />
-            </dd>
-            <dt id="imgmenu3" onclick="showsubmenu(3)" style="font-family: 楷体_GB2312;">用户信息管理</dt>
-            <dd id="submenu3">
+            <dt id="imgmenu5" onclick="showsubmenu(5)" style="font-family: 楷体_GB2312;">用户信息管理</dt>
+            <dd id="submenu5">
                 <a href="UserAdd.aspx">
                     <menu>
                         添加用户</menu>
@@ -117,8 +125,8 @@
                 </a>
                 <br />
             </dd>
-            <dt id="imgmenu4" onclick="showsubmenu(4)" style="font-family: 楷体_GB2312;">个人信息管理</dt>
-            <dd id="submenu4">
+            <dt id="imgmenu6" onclick="showsubmenu(6)" style="font-family: 楷体_GB2312;">个人信息管理</dt>
+            <dd id="submenu6">
                 <a href="PwdModify.aspx">
                     <menu>
                         修改密码</menu>

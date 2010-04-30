@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DALWS_Course.asmx" />
+    <Content Include="DALWS_Exam.asmx" />
     <Content Include="DALWS_FillBlankProblem.asmx" />
     <Content Include="DALWS_JudgeProblem.asmx" />
     <Content Include="DALWS_MultiProblem.asmx" />
@@ -68,6 +69,10 @@
   <ItemGroup>
     <Compile Include="DALWS_Course.asmx.cs">
       <DependentUpon>DALWS_Course.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DALWS_Exam.asmx.cs">
+      <DependentUpon>DALWS_Exam.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DALWS_FillBlankProblem.asmx.cs">

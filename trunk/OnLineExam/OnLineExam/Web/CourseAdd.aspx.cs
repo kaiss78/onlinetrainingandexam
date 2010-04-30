@@ -17,7 +17,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Page.Title = "添加考试科目";
+        this.Page.Title = "添加科目";
 
         if (!Page.IsPostBack)
         {
@@ -39,10 +39,12 @@ public partial class _Default : System.Web.UI.Page
     {
         Course course = new Course();
         course.DepartmentName = txtName.Text;
-        if (courseService.courseInsert(course))
+        string userId = txtTeacher.Text;
+        if (courseService.courseInsert(course, userId))
         {
             lblMessage.Text = "添加成功！";
             txtName.Text = string.Empty;
+            txtTeacher.Text = string.Empty;
         }
         else
         {
