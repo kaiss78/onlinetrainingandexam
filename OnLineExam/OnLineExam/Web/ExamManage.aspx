@@ -1,4 +1,4 @@
-Ôªø<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="ExamManage.aspx.cs" Inherits="Web_CourseManage1" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -7,8 +7,8 @@
             <td style="width: 4px; background: url(../Images/line.gif) repeat-y;">
             </td>
             <td valign="top" align="left">
-                <h4 style="font-family: Ê•∑‰Ωì_GB2312">
-                    >>ËÄÉËØïÁÆ°ÁêÜ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h4 style="font-family: ø¨ÃÂ_GB2312">
+                    >>øº ‘π‹¿Ì&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblMessger" runat="server" ForeColor="Red"></asp:Label>
                 </h4>
                 <hr />
@@ -16,11 +16,11 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" 
                     onrowdatabound="GridView1_RowDataBound1" onrowdeleting="GridView1_RowDeleting1" 
-                    Width="547px" onrowediting="GridView1_RowEditing">
+                    Width="547px">
                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     <Columns>
-                        <asp:BoundField DataField="DepartmentId" HeaderText="ÁºñÂè∑" Visible="False" />
-                        <asp:TemplateField HeaderText="Â∫èÂè∑">
+                        <asp:BoundField DataField="ExamId" HeaderText="±‡∫≈" Visible="False" />
+                        <asp:TemplateField HeaderText="–Ú∫≈">
                             <EditItemTemplate>
                                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                             </EditItemTemplate>
@@ -28,9 +28,11 @@
                                 <asp:Label ID="Label1" runat="server"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="DepartmentName" HeaderText="ÁßëÁõÆ" />
-                        <asp:CommandField ShowEditButton="True" />
-                        <asp:CommandField HeaderText="Âà†Èô§" ShowDeleteButton="True" />
+                        <asp:BoundField DataField="CourseName" HeaderText="ø∆ƒø" />
+                        <asp:BoundField DataField="PaperName" HeaderText=" ‘æÌ" />
+                        <asp:BoundField DataField="StartTime" HeaderText="ø™ º ±º‰" />
+                        <asp:BoundField DataField="EndTime" HeaderText="Ω· ¯ ±º‰" />
+                        <asp:CommandField HeaderText="…æ≥˝" ShowDeleteButton="True" />
                     </Columns>
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
@@ -40,8 +42,8 @@
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 </asp:GridView>
                 <br />
-                <a href="ExamAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: Ê•∑‰Ωì_GB2312">
-                    <u>Ê∑ªÂä†ËÄÉËØï</u></font></a>
+                <a href="ExamAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: ø¨ÃÂ_GB2312">
+                    <u>ÃÌº”øº ‘</u></font></a>
             </td>
         </tr>
     </table>

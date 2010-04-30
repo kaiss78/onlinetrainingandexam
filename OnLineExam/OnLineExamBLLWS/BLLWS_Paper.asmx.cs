@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Data;
+using OnLineExamBLLWS.DALWS_Paper;
 
 namespace OnLineExamBLLWS
 {
@@ -131,6 +132,12 @@ namespace OnLineExamBLLWS
         public string GetPaperType(int id)
         {
             return service.GetPaperType(id);
+        }
+
+        [WebMethod]
+        public List<Paper> SelectPaper()
+        {
+            return service.SelectPaper().ToList();
         }
     }
 }

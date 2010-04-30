@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Data.SqlClient;
 using System.Data;
+using OnLineExamModel;
 
 namespace OnLineExamDALWS
 {
@@ -349,6 +350,31 @@ namespace OnLineExamDALWS
                 adapter.Fill(dataset);
                 conn.Close();
                 return dataset;
+            }
+        }
+
+        [WebMethod]
+        public List<Paper> SelectPaper()
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select * from Paper";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                List<Paper> list = new List<Paper>();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Paper p = new Paper();
+                    p.PaperID = Convert.ToInt32(dr["PaperID"].ToString());
+                    p.CourseID = Convert.ToInt32(dr["CourseID"].ToString());
+                    p.PaperName = dr["PaperName"].ToString();
+                    list.Add(p);
+                }
+                dr.Close();
+                con.Close();
+                return list;
             }
         }
     }

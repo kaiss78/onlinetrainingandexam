@@ -23,7 +23,9 @@ namespace OnLineExamModel
         #region 属性
         public int ExamID { get; set; }
         public int CourseID { get; set; }
+        public string CourseName { get; set; }
         public int PaperID { get; set; }
+        public string PaperName { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         #endregion 属性

@@ -30,5 +30,11 @@ namespace OnLineExamBLLWS
         {
             service.DelExam(examID);
         }
+
+        [WebMethod]
+        public List<Exam> ListExam()
+        {
+            return service.ListExam().ToList();
+        }
     }
 }
