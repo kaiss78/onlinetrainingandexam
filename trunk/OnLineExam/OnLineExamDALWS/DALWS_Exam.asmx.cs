@@ -22,12 +22,11 @@ namespace OnLineExamDALWS
         [WebMethod]
         public bool AddExam(Exam exam)
         {
-            string sql = @"insert into Exam (ExamID, CourseID, PaperID, StartTime, EndTime) 
-VALUES (@ExamID, @CourseID, @PaperID, @StartTime, @EndTime)";
+            string sql = @"insert into Exam (CourseID, PaperID, StartTime, EndTime) 
+VALUES (@CourseID, @PaperID, @StartTime, @EndTime)";
 
             SqlParameter[] para = new SqlParameter[]
             {
-                new SqlParameter("@ExamID", exam.ExamID),
                 new SqlParameter("@CourseID", exam.CourseID),
                 new SqlParameter("@PaperID", exam.PaperID),
                 new SqlParameter("@StartTime", exam.StartTime),
@@ -60,6 +59,35 @@ VALUES (@ExamID, @CourseID, @PaperID, @StartTime, @EndTime)";
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
+            }
+        }
+
+        [WebMethod]
+        public List<Exam> ListExam()
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select Exam.ExamID, Exam.CourseID, Exam.PaperID, StartTime, EndTime, Course.Name, PaperName from Exam, Course, Paper where Course.ID = Paper.CourseID and Exam.PaperID = Paper.PaperID";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                List<Exam> list = new List<Exam>();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Exam e = new Exam();
+                    e.ExamID = Convert.ToInt32(dr["ExamID"].ToString());
+                    //e.CourseID = Convert.ToInt32(dr["CourseID"].ToString());
+                    //e.PaperID = Convert.ToInt32(dr["PaperID"].ToString());
+                    e.CourseName = dr["Name"].ToString();
+                    e.PaperName = dr["PaperName"].ToString();
+                    e.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                    e.EndTime = Convert.ToDateTime(dr["EndTime"]);
+                    list.Add(e);
+                }
+                dr.Close();
+                con.Close();
+                return list;
             }
         }
     }

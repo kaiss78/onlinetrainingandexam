@@ -14,11 +14,11 @@ using localhost;
 public partial class Web_CourseManage1 : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    BLLWS_Course courseService = new BLLWS_Course();
+    BLLWS_Exam examService = new BLLWS_Exam();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Page.Title = "考试科目管理";
+        this.Page.Title = "考试管理";
        
         if (!Page.IsPostBack)
         {
@@ -32,8 +32,8 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
                 string userName = userService.GetUserName(userId);
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
-                GridView1.DataSource = courseService.GetSelect();
-                GridView1.DataKeyNames = new string[] { "DepartmentId" };
+                GridView1.DataSource = examService.ListExam();
+                GridView1.DataKeyNames = new string[] { "ExamId" };
                 GridView1.DataBind();
             }
         }
@@ -54,21 +54,17 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
     }
     protected void GridView1_RowDeleting1(object sender, GridViewDeleteEventArgs e)
     {
-        Course c = new Course();
-        c.DepartmentId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+        Exam exam = new Exam();
+        exam.ExamID = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
         try
         {
-            courseService.GetDeleteCourse(c);
+            examService.DelExam(exam.ExamID);
             lblMessger.Text = "删除成功！";
         }
         catch (Exception)
         {
-            Response.Redirect("CourseManage.aspx");
+            Response.Redirect("ExamManage.aspx");
         }
 
-    }
-    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        Response.Write("<Script language=JavaScript>alert('FUCK!');</Script>");
     }
 }
