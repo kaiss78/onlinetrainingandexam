@@ -228,15 +228,17 @@ where Score.UserID=Users.UserID and PaperID='" + PaperID + "'";
         [WebMethod]
         public bool insertUsers(Users user)
         {
-            string sql = @"insert into Users (UserId,UserName,UserPwd,RoleId) 
-VALUES (@UserId,@UserName,@UserPwd,@RoleId)";
+            string sql = @"insert into Users (UserId,UserName,UserPwd,RoleId,Phone,Email) 
+VALUES (@UserId,@UserName,@UserPwd,@RoleId,@Phone,@Email)";
 
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@UserId",user.UserID),
                 new SqlParameter("@UserName",user.UserName),
                 new SqlParameter("@UserPwd",user.UserPwd),
-                new SqlParameter("@RoleId",user.RoleId)
+                new SqlParameter("@RoleId",user.RoleId),
+                new SqlParameter("@Phone",user.Phone),
+                new SqlParameter("@Email",user.Email)
             };
 
             int i = DBHelp.ExecuteCommand(sql, para);

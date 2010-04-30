@@ -10,7 +10,7 @@
                     <td bgcolor="#eeeeee" style="text-align: right; width: 100%;" colspan="2">
                         <div class="title" align="left">
                             <h4 style="font-family: 楷体_GB2312">
-                                >>添加考试科目</h4>
+                                >>添加科目</h4>
                         </div>
                     </td>
                 </tr>
@@ -22,6 +22,17 @@
                         &nbsp;<div align="left">
                             <asp:TextBox ID="txtName" runat="server" MaxLength="20" Width="128px"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName"
+                                ErrorMessage="不能为空！"></asp:RequiredFieldValidator></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#eeeeee" style="text-align: right; height: 25px;">
+                        授课教师：
+                    </td>
+                    <td style="height: 25px">
+                        &nbsp;<div align="left">
+                            <asp:TextBox ID="txtTeacher" runat="server" MaxLength="20" Width="128px"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTeacher"
                                 ErrorMessage="不能为空！"></asp:RequiredFieldValidator></div>
                     </td>
                 </tr>

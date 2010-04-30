@@ -27,9 +27,9 @@ namespace OnLineExamBLLWS
         }
 
         [WebMethod]
-        public bool courseInsert(Course ci)
+        public bool courseInsert(Course ci, string userID)
         {
-            return service.insertCourse(ci);
+            return service.insertCourse(ci, userID);
         }
 
         [WebMethod]

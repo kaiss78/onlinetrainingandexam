@@ -39,7 +39,7 @@ namespace OnLineExamDALWS
         }
 
         [WebMethod]
-        public bool insertCourse(Course ic)
+        public bool insertCourse(Course ic, string userID)
         {
             string sql = "insert into Course ([Name]) values(@Name)";
             SqlParameter[] para = new SqlParameter[]
@@ -47,6 +47,32 @@ namespace OnLineExamDALWS
                 new SqlParameter("@Name",ic.DepartmentName)
             };
             int i = DBHelp.ExecuteCommand(sql, para);
+            if (i <= 0)
+            {
+                return false;
+            }
+
+            sql = "select ID from Course where Name = '" + ic.DepartmentName + "'";
+            SqlConnection con = DBHelp.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            int courseID = 0;
+            while (dr.Read())
+            {
+                courseID = Convert.ToInt32(dr["ID"].ToString());
+            }
+            dr.Close();
+            con.Close();
+
+            sql = "insert into Course_User (CourseID, UserID) values(@CourseID, @UserID)";
+            para = new SqlParameter[]
+            {
+                new SqlParameter("@CourseID", courseID),
+                new SqlParameter("@UserID", userID)
+            };
+            i = DBHelp.ExecuteCommand(sql, para);
             if (i > 0)
             {
                 return true;
@@ -67,8 +93,14 @@ namespace OnLineExamDALWS
                 {
                     new SqlParameter("@id",id.DepartmentId),
                 };
-                int i = DBHelp.ExecuteCommand(sql, sp);
-                if (i > 0)
+
+                string sql2 = "delete from Course_User where CourseID=@id";
+                SqlParameter[] sp2 = new SqlParameter[] 
+                {
+                    new SqlParameter("@id",id.DepartmentId),
+                };
+                
+                if (DBHelp.ExecuteCommand(sql, sp) > 0 && DBHelp.ExecuteCommand(sql2, sp2) > 0)
                 {
                     return true;
                 }

@@ -32,5 +32,8 @@
     <Setting Name="OnLineExamBLLWS_DALWS_Course_DALWS_Course" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:6833/DALWS_Course.asmx</Value>
     </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_Exam_DALWS_Exam" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:6833/DALWS_Exam.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

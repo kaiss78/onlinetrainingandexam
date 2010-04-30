@@ -122,5 +122,15 @@ namespace OnLineExamBLLWS.Properties {
                 return ((string)(this["OnLineExamBLLWS_DALWS_Course_DALWS_Course"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:6833/DALWS_Exam.asmx")]
+        public string OnLineExamBLLWS_DALWS_Exam_DALWS_Exam {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_Exam_DALWS_Exam"]));
+            }
+        }
     }
 }
