@@ -13,7 +13,7 @@
     <form id="Form1" method="post" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
-    <table border="0" cellpadding="0" cellspacing="0" width="100px">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td style="height: 4px;" colspan="3">
                 <img src="../Images/logo.jpg" style="border: 0px; left: 0px; position: relative;

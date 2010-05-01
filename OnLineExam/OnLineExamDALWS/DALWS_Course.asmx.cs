@@ -99,7 +99,7 @@ namespace OnLineExamDALWS
                 {
                     new SqlParameter("@id",id.DepartmentId),
                 };
-                
+
                 if (DBHelp.ExecuteCommand(sql, sp) > 0 && DBHelp.ExecuteCommand(sql2, sp2) > 0)
                 {
                     return true;
@@ -140,6 +140,96 @@ namespace OnLineExamDALWS
         {
             DBHelp DB = new DBHelp();
             return DB.GetDataSets("Proc_CourseList");
+        }
+
+        [WebMethod]
+        public List<Users> SelectUser(int courseID)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select Users.UserID, UserName, RoleId from Course_User, Users where Course_User.UserID = Users.UserID and CourseID = " + courseID.ToString();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                List<Users> list = new List<Users>();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Users u = new Users();
+                    u.UserID = dr["UserID"].ToString();
+                    u.UserName = dr["UserName"].ToString();
+                    u.RoleId = Convert.ToInt32(dr["RoleId"].ToString());
+                    list.Add(u);
+                }
+                dr.Close();
+                con.Close();
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public List<Users> SelectOtherUser(int courseID)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select UserID, UserName, RoleId from Users where RoleId=3 and UserID not in (select UserID from Course_User where CourseID = " + courseID.ToString() + ")";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                List<Users> list = new List<Users>();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Users u = new Users();
+                    u.UserID = dr["UserID"].ToString();
+                    u.UserName = dr["UserName"].ToString();
+                    u.RoleId = Convert.ToInt32(dr["RoleId"].ToString());
+                    list.Add(u);
+                }
+                dr.Close();
+                con.Close();
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public bool AddUser(string courseID, string userID)
+        {
+            string sql = "insert into Course_User (CourseID, UserID) values(@CourseID, @UserID)";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@CourseID", courseID),
+                new SqlParameter("@UserID", userID)
+            };
+            int i = DBHelp.ExecuteCommand(sql, para);
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [WebMethod]
+        public bool DelUser(string courseID, string userID)
+        {
+            string sql = "delete from Course_User where CourseID=@CourseID and UserID=@UserID";
+            SqlParameter[] sp = new SqlParameter[] 
+                {
+                    new SqlParameter("@CourseID", courseID),
+                    new SqlParameter("@UserID", userID)
+                };
+
+            if (DBHelp.ExecuteCommand(sql, sp) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -33,7 +33,7 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
                 GridView1.DataSource = courseService.GetSelect();
-                GridView1.DataKeyNames = new string[] { "DepartmentId" };
+                GridView1.DataKeyNames = new string[] { "DepartmentId", "DepartmentName" };
                 GridView1.DataBind();
             }
         }
@@ -60,11 +60,19 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
         {
             courseService.GetDeleteCourse(c);
             lblMessger.Text = "删除成功！";
+            Response.Redirect("CourseManage.aspx");
         }
         catch (Exception)
         {
             Response.Redirect("CourseManage.aspx");
         }
 
+    }
+    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        Course c = new Course();
+        c.DepartmentId = Convert.ToInt32(GridView1.DataKeys[e.NewEditIndex].Values[0]);
+        c.DepartmentName = GridView1.DataKeys[e.NewEditIndex].Values[1].ToString();
+        Response.Redirect("CourseEdit.aspx?CourseID=" + c.DepartmentId.ToString() + "&CourseName=" + c.DepartmentName);
     }
 }

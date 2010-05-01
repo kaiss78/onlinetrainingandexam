@@ -60,6 +60,7 @@ public partial class Web_CourseManage1 : System.Web.UI.Page
         {
             examService.DelExam(exam.ExamID);
             lblMessger.Text = "删除成功！";
+            Response.Redirect("ExamManage.aspx");
         }
         catch (Exception)
         {
