@@ -101,12 +101,12 @@
                         学生统计分析</menu>
                 </a>
                 <br />
-                <a href="UserAnalysis.aspx">
+                <a href="QuestionAnalysis.aspx">
                     <menu>
                         问题统计分析</menu>
                 </a>
                 <br />
-                <a href=UserAnalysis.aspx">
+                <a href="PaperAnalysis.aspx">
                     <menu>
                         试卷统计分析</menu>
                 </a>
