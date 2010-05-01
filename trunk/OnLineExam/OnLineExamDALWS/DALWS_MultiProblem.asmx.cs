@@ -77,12 +77,12 @@ AnswerB=@AnswerB,AnswerC=@AnswerC,AnswerD=@AnswerD,Answer=@Answer where ID=@ID";
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = "select * from MultiProblem where CourseID='" + selectvalue + "'";
+                string sql = "select * from MultiProblem where CourseID=" + selectvalue;
                 SqlCommand cmd = new SqlCommand(sql, con);
                 con.Open();
                 List<MultiProblem> list = new List<MultiProblem>();
                 SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                while (dr.Read())
                 {
                     MultiProblem mul = new MultiProblem();
                     mul.ID = Convert.ToInt32(dr["ID"]);

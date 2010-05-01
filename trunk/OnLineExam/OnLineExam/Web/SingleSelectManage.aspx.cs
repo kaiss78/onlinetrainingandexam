@@ -43,6 +43,10 @@ public partial class Web_SingleSelectManage : System.Web.UI.Page
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
                 }
+
+                string courseID = this.ddlCourse.SelectedValue;
+                this.GridView1.DataSource = singleSelectedService2.GetSingleProblemList(courseID);
+                this.GridView1.DataBind();
             }
         }
 
@@ -50,8 +54,7 @@ public partial class Web_SingleSelectManage : System.Web.UI.Page
 
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
-        string alert = @"window.onload=function(){confirm('确认要删除吗?');}";
-        Page.ClientScript.RegisterStartupScript(this.GetType(), "hhh", alert, true);
+        
     }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {

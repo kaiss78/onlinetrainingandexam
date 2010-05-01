@@ -45,6 +45,10 @@ public partial class Web_FillBlankManage : System.Web.UI.Page
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
                 }
+
+                string selectvalue = this.ddlCourse.SelectedValue;
+                this.GridView1.DataSource = fillBlankProblemService.GeFillBlankProblemList(selectvalue);
+                this.GridView1.DataBind();
             }
         }
     }

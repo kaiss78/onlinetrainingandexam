@@ -56,11 +56,6 @@ public partial class Web_PaperLists : System.Web.UI.Page
         InitData();
 
     }
-    protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-    {
-        GridView1.EditIndex = -1;
-        InitData();
-    }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         string javasc = @"window.onload=function(){alert('删除成功')}";
@@ -71,41 +66,18 @@ public partial class Web_PaperLists : System.Web.UI.Page
         }
         Response.Redirect("PaperLists.aspx");
     }
-    protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-    {
-        GridView1.EditIndex = e.NewEditIndex;  //GridView编辑项索引等于单击行的索引
-        InitData();
-    }
-    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-    {
-        string javasc = @"window.onload=function(){alert('更新修改成功')}";
-        int ID = int.Parse(GridView1.DataKeys[e.RowIndex].Values[0].ToString()); //取出要修改记录的主键值
-        byte ddlpaper = byte.Parse(((DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddlPaperState")).SelectedValue);
-        if (ddlpaper == 0)
-        {
-            if (paperService.UpdatePate(ID))
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
-                Response.Redirect("PaperLists.aspx");
-            }
-        }
-        if (ddlpaper == 1)
-        {
-            if (paperService.UpdatePate1(ID))
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
-                Response.Redirect("PaperLists.aspx");
-            }
-        }
-
-    }
+    //protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+    //{
+    //    //GridView1.EditIndex = e.NewEditIndex;  //GridView编辑项索引等于单击行的索引
+    //    InitData();
+    //}
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
             {
-                ((LinkButton)e.Row.Cells[6].Controls[0]).Attributes.Add("onclick", "javascript:return confirm('你确认要删除吗?')");
+                ((LinkButton)e.Row.Cells[4].Controls[0]).Attributes.Add("onclick", "javascript:return confirm('你确认要删除吗?')");
             }
 
         }

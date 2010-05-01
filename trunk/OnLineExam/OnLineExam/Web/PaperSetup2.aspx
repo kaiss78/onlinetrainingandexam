@@ -18,7 +18,7 @@
             </td>
             <td>
                 &nbsp;<div align="left">
-                    <asp:DropDownList ID="ddlCourse" runat="server" Font-Size="9pt" Width="88px">
+                    <asp:DropDownList ID="ddlCourse" runat="server" Font-Size="9pt" Width="88px" OnSelectedIndexChanged="ddlCourse_SelectedIndexChanged" AutoPostBack="true">
                     </asp:DropDownList>
                 </div>
             </td>
@@ -212,7 +212,7 @@
                                                         </ItemTemplate>
                                                         <ItemStyle Width="20px" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="四、问答题">
+                                                    <asp:TemplateField HeaderText="五、问答题">
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label22" runat="server" Text='<%# Eval("Title","{0}") %>'></asp:Label>
                                                             <br />

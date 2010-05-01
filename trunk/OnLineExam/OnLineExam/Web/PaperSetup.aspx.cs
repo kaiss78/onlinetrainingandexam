@@ -39,24 +39,25 @@ public partial class Web_PaperSetup : System.Web.UI.Page
     protected void imgBtnConfirm_Click(object sender, ImageClickEventArgs e)
     {
         Panel1.Visible = true;
+        string courseID = ddlCourse.SelectedValue;
         DBHelp db = new DBHelp();//创建DBHelp类对象
-        string GridView1Str = "select top " + int.Parse(txtSingleNum.Text.Trim()) + " * from SingleProblem order by newid()";//根据参数设置查询单选题Sql语句
+        string GridView1Str = "select top " + int.Parse(txtSingleNum.Text.Trim()) + " * from SingleProblem where CourseID=" + courseID + " order by newid()";//根据参数设置查询单选题Sql语句
         DataSet ds1 = db.GetDataSetSql(GridView1Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView1.DataSource = ds1.Tables[0].DefaultView;//为单选题GridView控件指名数据源
         GridView1.DataBind();//绑定数据
-        string GridView2Str = "select top " + int.Parse(txtMultiNum.Text.Trim()) + " * from MultiProblem order by newid()";//根据参数设置查询多选题Sql语句
+        string GridView2Str = "select top " + int.Parse(txtMultiNum.Text.Trim()) + " * from MultiProblem where CourseID=" + courseID + " order by newid()";//根据参数设置查询多选题Sql语句
         DataSet ds2 = db.GetDataSetSql(GridView2Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView2.DataSource = ds2.Tables[0].DefaultView;//为多选题GridView控件指名数据源
         GridView2.DataBind();//绑定数据
-        string GridView3Str = "select top " + int.Parse(txtJudgeNum.Text.Trim()) + " * from JudgeProblem order by newid()";//根据参数设置查询判断题Sql语句
+        string GridView3Str = "select top " + int.Parse(txtJudgeNum.Text.Trim()) + " * from JudgeProblem where CourseID=" + courseID + " order by newid()";//根据参数设置查询判断题Sql语句
         DataSet ds3 = db.GetDataSetSql(GridView3Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView3.DataSource = ds3.Tables[0].DefaultView;//为判断题GridView控件指名数据源
         GridView3.DataBind();//绑定数据
-        string GridView4Str = "select top " + int.Parse(txtFillNum.Text.Trim()) + " * from FillBlankProblem order by newid()";//根据参数设置查询填空题Sql语句
+        string GridView4Str = "select top " + int.Parse(txtFillNum.Text.Trim()) + " * from FillBlankProblem where CourseID=" + courseID + " order by newid()";//根据参数设置查询填空题Sql语句
         DataSet ds4 = db.GetDataSetSql(GridView4Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView4.DataSource = ds4.Tables[0].DefaultView;//为填空题GridView控件指名数据源
         GridView4.DataBind();//绑定数据
-        string GridView5Str = "select top " + int.Parse(txtQuestionNum.Text.Trim()) + " * from QuestionProblem order by newid()";//根据参数设置查询填空题Sql语句
+        string GridView5Str = "select top " + int.Parse(txtQuestionNum.Text.Trim()) + " * from QuestionProblem where CourseID=" + courseID + " order by newid()";//根据参数设置查询填空题Sql语句
         DataSet ds5 = db.GetDataSetSql(GridView5Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView5.DataSource = ds5.Tables[0].DefaultView;//为填空题GridView控件指名数据源
         GridView5.DataBind();//绑定数据

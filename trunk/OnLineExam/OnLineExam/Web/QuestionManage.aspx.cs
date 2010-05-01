@@ -43,6 +43,10 @@ public partial class Web_QuestionManage : System.Web.UI.Page
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
                 }
+
+                string selectvalue = this.ddlCourse.SelectedValue;
+                this.GridView1.DataSource = questionProblemService.GetQuestionProblem(selectvalue);
+                this.GridView1.DataBind();
             }
         }
     }

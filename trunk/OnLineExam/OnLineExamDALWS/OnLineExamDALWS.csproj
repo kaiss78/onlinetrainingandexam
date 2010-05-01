@@ -59,6 +59,7 @@
     <Content Include="DALWS_JudgeProblem.asmx" />
     <Content Include="DALWS_MultiProblem.asmx" />
     <Content Include="DALWS_Paper.asmx" />
+    <Content Include="DALWS_QuestionAnalysis.asmx" />
     <Content Include="DALWS_QuestionProblem.asmx" />
     <Content Include="DALWS_Role.asmx" />
     <Content Include="DALWS_SingleSelected.asmx" />
@@ -89,6 +90,10 @@
     </Compile>
     <Compile Include="DALWS_Paper.asmx.cs">
       <DependentUpon>DALWS_Paper.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DALWS_QuestionAnalysis.asmx.cs">
+      <DependentUpon>DALWS_QuestionAnalysis.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DALWS_QuestionProblem.asmx.cs">

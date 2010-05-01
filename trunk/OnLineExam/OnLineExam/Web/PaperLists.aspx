@@ -13,9 +13,8 @@
                     <ContentTemplate>
                         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging"
                             PageSize="12" OnRowDataBound="GridView1_RowDataBound" Width="100%" AutoGenerateColumns="False"
-                            DataKeyNames="PaperID" CellPadding="4" Font-Size="13px" OnRowCancelingEdit="GridView1_RowCancelingEdit"
-                            OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating"
-                            ForeColor="#333333" GridLines="None">
+                            DataKeyNames="PaperID" CellPadding="4" Font-Size="13px" OnRowDeleting="GridView1_RowDeleting"
+                            ForeColor="#333333" GridLines="None" RowStyle-HorizontalAlign="Center">
                             <Columns>
                                 <asp:TemplateField HeaderText="编号" Visible="False">
                                     <ItemTemplate>
@@ -34,25 +33,10 @@
                                     </ItemTemplate>
                                     <HeaderStyle Wrap="False" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="试卷状态">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label4" runat="server"><%# Eval("state") %></asp:Label>
-                                    </ItemTemplate>
-                                    <EditItemTemplate>
-                                        <asp:DropDownList ID="ddlPaperState" AutoPostBack="true" runat="server">
-                                            <asp:ListItem Value="1">可用</asp:ListItem>
-                                            <asp:ListItem Value="0">不可用</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </EditItemTemplate>
-                                    <HeaderStyle Wrap="False" />
-                                </asp:TemplateField>
                                 <asp:HyperLinkField DataNavigateUrlFields="PaperID" DataNavigateUrlFormatString="PaperDetail.aspx?PaperID={0}"
                                     HeaderText="详细..." Text="详细...">
                                     <HeaderStyle Wrap="False" />
                                 </asp:HyperLinkField>
-                                <asp:CommandField ShowEditButton="True" HeaderText="编辑">
-                                    <HeaderStyle Wrap="False" />
-                                </asp:CommandField>
                                 <asp:CommandField ShowDeleteButton="True" HeaderText="删除">
                                     <HeaderStyle Wrap="False" />
                                 </asp:CommandField>

@@ -91,7 +91,7 @@ values(@CourseID,@FrontTitle,@BackTitle,@Answer)";
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = "select * from FillBlankProblem where CourseID='" + selectvalue + "'";
+                string sql = "select * from FillBlankProblem where CourseID=" + selectvalue;
                 SqlCommand cmd = new SqlCommand(sql, con);
                 con.Open();
                 List<FillBlankProblem> list = new List<FillBlankProblem>();

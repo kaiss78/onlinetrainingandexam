@@ -34,24 +34,25 @@ public partial class Web_PaperSetup2 : System.Web.UI.Page
 
     private void GVbind()
     {
+        string courseID = ddlCourse.SelectedValue;
         DBHelp db = new DBHelp();//创建DBHelp类对象
-        string GridView1Str = "select * from SingleProblem";//根据参数设置查询单选题Sql语句
+        string GridView1Str = "select * from SingleProblem where CourseID=" + courseID;//根据参数设置查询单选题Sql语句
         DataSet ds1 = db.GetDataSetSql(GridView1Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView1.DataSource = ds1.Tables[0].DefaultView;//为单选题GridView控件指名数据源
         GridView1.DataBind();//绑定数据
-        string GridView2Str = "select * from MultiProblem";//根据参数设置查询多选题Sql语句
+        string GridView2Str = "select * from MultiProblem where CourseID=" + courseID;//根据参数设置查询多选题Sql语句
         DataSet ds2 = db.GetDataSetSql(GridView2Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView2.DataSource = ds2.Tables[0].DefaultView;//为多选题GridView控件指名数据源
         GridView2.DataBind();//绑定数据
-        string GridView3Str = "select * from JudgeProblem";//根据参数设置查询判断题Sql语句
+        string GridView3Str = "select * from JudgeProblem where CourseID=" + courseID;//根据参数设置查询判断题Sql语句
         DataSet ds3 = db.GetDataSetSql(GridView3Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView3.DataSource = ds3.Tables[0].DefaultView;//为判断题GridView控件指名数据源
         GridView3.DataBind();//绑定数据
-        string GridView4Str = "select * from FillBlankProblem";//根据参数设置查询填空题Sql语句
+        string GridView4Str = "select * from FillBlankProblem where CourseID=" + courseID;//根据参数设置查询填空题Sql语句
         DataSet ds4 = db.GetDataSetSql(GridView4Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView4.DataSource = ds4.Tables[0].DefaultView;//为填空题GridView控件指名数据源
         GridView4.DataBind();//绑定数据
-        string GridView5Str = "select * from QuestionProblem";//根据参数设置查询问答题Sql语句
+        string GridView5Str = "select * from QuestionProblem where CourseID=" + courseID;//根据参数设置查询问答题Sql语句
         DataSet ds5 = db.GetDataSetSql(GridView5Str);//调用DBHelp类方法GetDataSetSql方法查询数据
         GridView5.DataSource = ds5.Tables[0].DefaultView;//为问答题GridView控件指名数据源
         GridView5.DataBind();//绑定数据
@@ -87,6 +88,10 @@ public partial class Web_PaperSetup2 : System.Web.UI.Page
         {
             ((CheckBox)GridView5.Rows[i].FindControl("chkSelect5")).Checked = this.chkSelectAll.Checked;
         }
+    }
+    protected void ddlCourse_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GVbind();
     }
     protected void imgBtnSave_Click(object sender, ImageClickEventArgs e)
     {
