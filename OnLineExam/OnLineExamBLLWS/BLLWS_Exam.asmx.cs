@@ -36,5 +36,23 @@ namespace OnLineExamBLLWS
         {
             return service.ListExam().ToList();
         }
+
+        [WebMethod]
+        public List<Exam> ListUserExam(string userID)
+        {
+            return service.ListUserExam(userID).ToList();
+        }
+
+        [WebMethod]
+        public DateTime GetServerTime()
+        {
+            return service.GetServerTime();
+        }
+
+        [WebMethod]
+        public Exam GetExam(int examID)
+        {
+            return service.GetExam(examID);
+        }
     }
 }

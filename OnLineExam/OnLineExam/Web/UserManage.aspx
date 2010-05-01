@@ -22,7 +22,7 @@
                             <br />
                             <asp:GridView ID="GridView1" runat="server" Width="100%" Font-Size="13px" CellPadding="4"
                                 PageSize="8" AllowPaging="True" AutoGenerateColumns="False" ForeColor="#333333"
-                                GridLines="None" OnRowDataBound="GridView1_RowDataBound">
+                                GridLines="None" OnRowDataBound="GridView1_RowDataBound" RowStyle-HorizontalAlign="Center">
                                 <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True"></FooterStyle>
                                 <Columns>
                                     <asp:TemplateField>

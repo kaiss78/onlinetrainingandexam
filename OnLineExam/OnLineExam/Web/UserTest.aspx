@@ -182,7 +182,7 @@
                     <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
-                    <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick">
+                    <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="360000">
                     </asp:Timer>
                    
                     <a style="font-family: 楷体_GB2312; font-size: 15px;font-weight: bold;">

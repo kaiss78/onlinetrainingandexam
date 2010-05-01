@@ -13,6 +13,8 @@ using localhost;
 public partial class Web_UserTest : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
+    BLLWS_Exam examService = new BLLWS_Exam();
+    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
 
     protected int singeCount = 1;
     protected void Page_Load(object sender, EventArgs e)
@@ -31,6 +33,11 @@ public partial class Web_UserTest : System.Web.UI.Page
                 i1.Text = userName;
 
                 lblPaperName.Text = Session["PaperName"].ToString();
+                
+                Exam exam = examService.GetExam(Convert.ToInt32(Session["ExamID"]));
+                DateTime now = examService.GetServerTime();
+                Timer1.Interval = Convert.ToInt32((exam.EndTime - now).TotalMilliseconds);
+
                 GetParperAll();
             }
         }
@@ -77,6 +84,11 @@ public partial class Web_UserTest : System.Web.UI.Page
 
     private void NewMethod()
     {
+        if (!(singleSelectedService.Getitem(Session["userID"].ToString(), Request["PaperID"].ToString())))
+        {
+            Response.Write("<script language=javascript>alert('您已经考过!');window.close();</script>");
+            return;
+        }
         string Label = labSingle.Text;//单选分数
         string paperid = Session["PaperID"].ToString();
         string UserId = Session["userID"].ToString();
