@@ -129,12 +129,12 @@ AnswerC =@AnswerC, AnswerD =@AnswerD, Answer =@Answer where ID=@ID";
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = "select * from SingleProblem where CourseID='" + selectvalue + "'";
+                string sql = "select * from SingleProblem where CourseID=" + selectvalue;
                 SqlCommand cmd = new SqlCommand(sql, con);
                 con.Open();
                 List<SingleProblem> list = new List<SingleProblem>();
                 SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                while (dr.Read())
                 {
                     SingleProblem sing = new SingleProblem();
                     sing.ID = Convert.ToInt32(dr["ID"]);

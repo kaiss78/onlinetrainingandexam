@@ -67,12 +67,12 @@ namespace OnLineExamDALWS
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = "Select * from QuestionProblem where CourseID='" + selectvalue + "'";
+                string sql = "Select * from QuestionProblem where CourseID=" + selectvalue;
                 SqlCommand cmd = new SqlCommand(sql,con);
                 con.Open();
                 List<QuestionProblem> list = new List<QuestionProblem>();
                 SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
+                while (dr.Read())
                 {
                     QuestionProblem ques = new QuestionProblem();
                     ques.ID = Convert.ToInt32(dr["ID"]);

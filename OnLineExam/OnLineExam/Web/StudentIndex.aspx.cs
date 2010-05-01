@@ -27,7 +27,6 @@ public partial class Web_StudentIndex : System.Web.UI.Page
             }
             else
             {
-                InitData();
                 string userId = Session["userID"].ToString();
                 string userName = userService.GetUserName(userId);
                 labUser.Text = userId;
@@ -40,25 +39,6 @@ public partial class Web_StudentIndex : System.Web.UI.Page
                 GridView2.DataBind();
             }
         }
-    }
-
-    private void InitData()
-    {
-        //DataSet ds = paperService.QueryPaper();  //查询所有可用试卷
-        //if (ds.Tables[0].Rows.Count >= 1)
-        //{
-        //    ddlPaper.DataSource = ds;           //指名考试科目列表框数据源
-        //    ddlPaper.DataTextField = "PaperName";   //DataTextField显示Name字段值
-        //    ddlPaper.DataValueField = "PaperID";    //DataValueField显示ID字段值
-        //    ddlPaper.DataBind();                //绑定数据
-
-        //}
-        //else
-        //{
-        //    ddlPaper.Enabled = false;
-        //    Button1.Enabled = false;
-        //    lblMessage.Text = "没有试卷！";
-        //}
     }
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {

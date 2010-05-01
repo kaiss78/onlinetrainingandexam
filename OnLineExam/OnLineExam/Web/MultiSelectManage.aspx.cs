@@ -44,6 +44,10 @@ public partial class Web_MultiSelectManage : System.Web.UI.Page
                     ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
                     ddlCourse.Items.Add(item);
                 }
+
+                string selectvalue = this.ddlCourse.SelectedValue;
+                this.GridView1.DataSource = multiProblemService.GetMultiProblemList(selectvalue);
+                this.GridView1.DataBind();
             }
         }
 

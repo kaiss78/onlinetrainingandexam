@@ -21,26 +21,33 @@ public partial class Web_JudgeManage : System.Web.UI.Page
     {
         this.Page.Title = "单选题管理";
 
-        if (Session["userID"] == null)
+        if (!IsPostBack)
         {
-            Response.Redirect("Login.aspx");
-        }
-        else
-        {
-            string userId = Session["userID"].ToString();
-            string userName = userService.GetUserName(userId);
-            Label i1 = (Label)Page.Master.FindControl("labUser");
-            i1.Text = userName;
-
-            //展示绑定的数据并将它展示在下拉列表中
-            ddlCourse.Items.Clear();
-            Course course = new Course();
-            Course[] list = singleSelectedService.ListCourse();
-
-            for (int i = 0; i < list.Length; i++)
+            if (Session["userID"] == null)
             {
-                ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
-                ddlCourse.Items.Add(item);
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                string userId = Session["userID"].ToString();
+                string userName = userService.GetUserName(userId);
+                Label i1 = (Label)Page.Master.FindControl("labUser");
+                i1.Text = userName;
+
+                //展示绑定的数据并将它展示在下拉列表中
+                ddlCourse.Items.Clear();
+                Course course = new Course();
+                Course[] list = singleSelectedService.ListCourse();
+
+                for (int i = 0; i < list.Length; i++)
+                {
+                    ListItem item = new ListItem(list[i].DepartmentName.ToString(), list[i].DepartmentId.ToString());
+                    ddlCourse.Items.Add(item);
+                }
+
+                string selectvalue = this.ddlCourse.SelectedValue;
+                this.GridView1.DataSource = judgeProblemService.GetJudgeProblemList(selectvalue);
+                this.GridView1.DataBind();
             }
         }
     }

@@ -17,7 +17,7 @@
                         </p>
                         <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False"
                             AllowPaging="True" PageSize="12" DataKeyNames="ID" CellPadding="4" Font-Size="13px"
-                            OnRowDataBound="GridView1_RowDataBound" DataSourceID="SqlDataSource1" ForeColor="#333333"
+                            OnRowDataBound="GridView1_RowDataBound" ForeColor="#333333"
                             GridLines="None">
                             <RowStyle ForeColor="#333333" BackColor="#F7F6F3"></RowStyle>
                             <Columns>
@@ -57,12 +57,6 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 &nbsp;
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                    SelectCommand="SELECT MultiProblem.* FROM MultiProblem" DeleteCommand="DELETE FROM MultiProblem Where ID=@ID">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ID" />
-                    </DeleteParameters>
-                </asp:SqlDataSource>
                 <br />
                 <a href="MultiSelectAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: 楷体_GB2312">
                     <u>添加多选题</u></font></a>

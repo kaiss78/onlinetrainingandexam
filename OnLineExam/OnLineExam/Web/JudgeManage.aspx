@@ -16,7 +16,7 @@
                             </asp:DropDownList>
                         </p>
                         <asp:GridView ID="GridView1" runat="server" Width="100%" OnRowDataBound="GridView1_RowDataBound"
-                            DataSourceID="SqlDataSource1" DataKeyNames="ID" AllowPaging="True" AutoGenerateColumns="False"
+                            DataKeyNames="ID" AllowPaging="True" AutoGenerateColumns="False"
                             CellPadding="4" ForeColor="#333333" GridLines="None">
                             <RowStyle ForeColor="#333333" BackColor="#F7F6F3"></RowStyle>
                             <Columns>
@@ -47,12 +47,6 @@
                         </asp:GridView>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                    SelectCommand="SELECT JudgeProblem.* FROM JudgeProblem" DeleteCommand="DELETE FROM JudgeProblem Where ID=@ID">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ID" />
-                    </DeleteParameters>
-                </asp:SqlDataSource>
                 <br />
                 <a href="JudgeAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: 楷体_GB2312">
                     <u>添加判断题</u></font></a>

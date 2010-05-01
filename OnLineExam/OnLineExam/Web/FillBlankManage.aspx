@@ -15,7 +15,7 @@
                                 AutoPostBack="True">
                             </asp:DropDownList>
                         </p>
-                        <asp:GridView ID="GridView1" runat="server" Width="100%" DataSourceID="SqlDataSource1"
+                        <asp:GridView ID="GridView1" runat="server" Width="100%" 
                             Font-Size="13px" CellPadding="4" DataKeyNames="ID" PageSize="12" AllowPaging="True"
                             AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" ForeColor="#333333"
                             GridLines="None">
@@ -51,12 +51,6 @@
                         </asp:GridView>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                    SelectCommand="SELECT FillBlankProblem.* FROM FillBlankProblem" DeleteCommand="DELETE FROM FillBlankProblem WHERE (ID = @ID)">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ID" />
-                    </DeleteParameters>
-                </asp:SqlDataSource>
                 &nbsp; &nbsp;&nbsp;
                 <br />
                 <a href="FillBlankAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: 楷体_GB2312">

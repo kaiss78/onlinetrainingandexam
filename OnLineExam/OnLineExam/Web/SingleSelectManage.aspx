@@ -17,10 +17,10 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="Label2" runat="server" ForeColor="Red"></asp:Label>
                         </p>
-                        <asp:GridView ID="GridView1" runat="server" Width="100%" DataSourceID="SqlDataSource1"
-                            OnRowDeleting="GridView1_RowDeleting" Font-Size="13px" CellPadding="4" DataKeyNames="ID"
-                            OnRowDataBound="GridView1_RowDataBound" PageSize="12" AllowPaging="True" AutoGenerateColumns="False"
-                            ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="GridView1" runat="server" Width="100%" OnRowDeleting="GridView1_RowDeleting"
+                            Font-Size="13px" CellPadding="4" DataKeyNames="ID" OnRowDataBound="GridView1_RowDataBound"
+                            PageSize="12" AllowPaging="True" AutoGenerateColumns="False" ForeColor="#333333"
+                            GridLines="None">
                             <RowStyle ForeColor="#333333" BackColor="#F7F6F3"></RowStyle>
                             <Columns>
                                 <asp:TemplateField HeaderText="序号" InsertVisible="False" SortExpression="ID">
@@ -46,8 +46,7 @@
                                 </asp:BoundField>
                                 <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="SingleSelectUpdate.aspx?ID={0}"
                                     Text="详细" HeaderText="详细"></asp:HyperLinkField>
-                                <asp:CommandField
-                                    ShowDeleteButton="True" HeaderText="删除"></asp:CommandField>
+                                <asp:CommandField ShowDeleteButton="True" HeaderText="删除"></asp:CommandField>
                             </Columns>
                             <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True"></FooterStyle>
                             <PagerStyle HorizontalAlign="Center" BackColor="#284775" ForeColor="White"></PagerStyle>
@@ -58,12 +57,12 @@
                         </asp:GridView>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
                     SelectCommand="SELECT SingleProblem.* FROM SingleProblem" DeleteCommand="DELETE FROM SingleProblem WHERE ID = @ID">
                     <DeleteParameters>
                         <asp:Parameter Name="ID" />
                     </DeleteParameters>
-                </asp:SqlDataSource>
+                </asp:SqlDataSource>--%>
                 <br />
                 <a href="SingleSelectAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: 楷体_GB2312">
                     <u>添加单选题</u></font></a>
