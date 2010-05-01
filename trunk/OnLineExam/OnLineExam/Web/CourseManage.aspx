@@ -16,7 +16,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" 
                     onrowdatabound="GridView1_RowDataBound1" onrowdeleting="GridView1_RowDeleting1" 
-                    Width="547px">
+                    Width="547px" onrowediting="GridView1_RowEditing">
                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     <Columns>
                         <asp:BoundField DataField="DepartmentId" HeaderText="编号" Visible="False" />
@@ -29,6 +29,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="DepartmentName" HeaderText="科目" />
+                        <asp:CommandField HeaderText="编辑" ShowEditButton="True" />
                         <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
                     </Columns>
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

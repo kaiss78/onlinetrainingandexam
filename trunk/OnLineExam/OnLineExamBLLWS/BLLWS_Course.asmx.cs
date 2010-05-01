@@ -49,5 +49,29 @@ namespace OnLineExamBLLWS
         {
             return service.SelectCourse().ToList();
         }
+
+        [WebMethod]
+        public List<Users> SelectUser(int courseID)
+        {
+            return service.SelectUser(courseID).ToList();
+        }
+
+        [WebMethod]
+        public List<Users> SelectOtherUser(int courseID)
+        {
+            return service.SelectOtherUser(courseID).ToList();
+        }
+
+        [WebMethod]
+        public bool AddUser(string courseID, string userID)
+        {
+            return service.AddUser(courseID, userID);
+        }
+
+        [WebMethod]
+        public bool DelUser(string courseID, string userID)
+        {
+            return service.DelUser(courseID, userID);
+        }
     }
 }

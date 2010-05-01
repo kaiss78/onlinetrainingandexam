@@ -71,8 +71,16 @@ public partial class _Default : System.Web.UI.Page
         Exam exam = new Exam();
         exam.CourseID = Convert.ToInt32(ddlCourse.Text);
         exam.PaperID = Convert.ToInt32(ddlPaper.Text);
-        exam.StartTime = DateTime.Now;
-        exam.EndTime = DateTime.Now;
+        try
+        {
+            exam.StartTime = new DateTime(Convert.ToInt32(txtStartYear.Text), Convert.ToInt32(txtStartMonth.Text), Convert.ToInt32(txtStartDay.Text), Convert.ToInt32(txtStartHour.Text), Convert.ToInt32(txtStartMinute.Text), 0);
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            lblMessage.Text = "请输入合法的开始时间！";
+            return;
+        }
+        exam.EndTime = exam.StartTime.AddMinutes(60 * Convert.ToInt32(txtHour.Text) + Convert.ToInt32(txtMinute.Text));
         if (examService.AddExam(exam))
         {
             lblMessage.Text = "添加成功！";

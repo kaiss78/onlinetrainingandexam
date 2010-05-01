@@ -76,6 +76,9 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\DALWS_Course\Users.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\DALWS_Exam\DALWS_Exam.wsdl" />
     <None Include="Web References\DALWS_Exam\Exam.datasource">
       <DependentUpon>Reference.map</DependentUpon>
