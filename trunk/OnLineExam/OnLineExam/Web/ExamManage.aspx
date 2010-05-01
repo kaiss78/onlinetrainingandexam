@@ -16,7 +16,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                     CellPadding="4" ForeColor="#333333" GridLines="None" 
                     onrowdatabound="GridView1_RowDataBound1" onrowdeleting="GridView1_RowDeleting1" 
-                    Width="547px">
+                    Width="547px" RowStyle-HorizontalAlign="Center">
                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                     <Columns>
                         <asp:BoundField DataField="ExamId" HeaderText="±àºÅ" Visible="False" />

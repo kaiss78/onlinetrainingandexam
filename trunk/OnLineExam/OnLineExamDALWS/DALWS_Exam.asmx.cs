@@ -90,5 +90,65 @@ VALUES (@CourseID, @PaperID, @StartTime, @EndTime)";
                 return list;
             }
         }
+
+        [WebMethod]
+        public List<Exam> ListUserExam(string userID)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select Exam.*, Course.Name, PaperName from Exam, Course_User, Course, Paper where Exam.CourseID = Course.ID and Exam.PaperID = Paper.PaperID and Exam.CourseID = Course_User.CourseID and UserID = '" + userID + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                List<Exam> list = new List<Exam>();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Exam e = new Exam();
+                    e.ExamID = Convert.ToInt32(dr["ExamID"].ToString());
+                    e.CourseID = Convert.ToInt32(dr["CourseID"].ToString());
+                    e.PaperID = Convert.ToInt32(dr["PaperID"].ToString());
+                    e.CourseName = dr["Name"].ToString();
+                    e.PaperName = dr["PaperName"].ToString();
+                    e.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                    e.EndTime = Convert.ToDateTime(dr["EndTime"]);
+                    list.Add(e);
+                }
+                dr.Close();
+                con.Close();
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public DateTime GetServerTime()
+        {
+            return DateTime.Now;
+        }
+
+        [WebMethod]
+        public Exam GetExam(int examID)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select * from Exam where ExamID = " + examID.ToString();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                Exam e = new Exam();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    e.ExamID = Convert.ToInt32(dr["ExamID"].ToString());
+                    e.CourseID = Convert.ToInt32(dr["CourseID"].ToString());
+                    e.PaperID = Convert.ToInt32(dr["PaperID"].ToString());
+                    e.StartTime = Convert.ToDateTime(dr["StartTime"]);
+                    e.EndTime = Convert.ToDateTime(dr["EndTime"]);
+                }
+                dr.Close();
+                con.Close();
+                return e;
+            }
+        }
     }
 }
