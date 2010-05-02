@@ -63,6 +63,7 @@
     <Content Include="DALWS_QuestionProblem.asmx" />
     <Content Include="DALWS_Role.asmx" />
     <Content Include="DALWS_SingleSelected.asmx" />
+    <Content Include="DALWS_DbBackup.asmx" />
     <Content Include="DALWS_User.asmx" />
     <Content Include="Web.config" />
     <Content Include="DALWS_StudentAnalysis.asmx" />
@@ -106,6 +107,10 @@
     </Compile>
     <Compile Include="DALWS_SingleSelected.asmx.cs">
       <DependentUpon>DALWS_SingleSelected.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DALWS_DbBackup.asmx.cs">
+      <DependentUpon>DALWS_DbBackup.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DALWS_User.asmx.cs">

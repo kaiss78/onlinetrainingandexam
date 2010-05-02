@@ -142,5 +142,15 @@ namespace OnLineExamBLLWS.Properties {
                 return ((string)(this["OnLineExamBLLWS_DALWS_QuestionAnalysis_DALWS_QuestionAnalysis"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:3282/DALWS_DbBackup.asmx")]
+        public string OnLineExamBLLWS_DALWS_DbBackup_DALWS_DbBackup {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_DbBackup_DALWS_DbBackup"]));
+            }
+        }
     }
 }

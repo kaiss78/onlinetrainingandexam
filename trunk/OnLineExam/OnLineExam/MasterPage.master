@@ -125,8 +125,16 @@
                 </a>
                 <br />
             </dd>
-            <dt id="imgmenu6" onclick="showsubmenu(6)" style="font-family: 楷体_GB2312;">个人信息管理</dt>
+            <dt id="imgmenu6" onclick="showsubmenu(6)" style="font-family: 楷体_GB2312;">数据库管理</dt>
             <dd id="submenu6">
+                <a href="DbBackup.aspx">
+                    <menu>
+                        备份恢复</menu>
+                </a>
+                <br />
+            </dd>
+            <dt id="imgmenu7" onclick="showsubmenu(7)" style="font-family: 楷体_GB2312;">个人信息管理</dt>
+            <dd id="submenu7">
                 <a href="PwdModify.aspx">
                     <menu>
                         修改密码</menu>
