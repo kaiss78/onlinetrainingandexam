@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BLLWS_Course.asmx" />
+    <Content Include="BLLWS_DbBackup.asmx" />
     <Content Include="BLLWS_Exam.asmx" />
     <Content Include="BLLWS_FillBlankProblem.asmx" />
     <Content Include="BLLWS_JudgeProblem.asmx" />
@@ -79,6 +80,11 @@
     </None>
     <None Include="Web References\DALWS_Course\Users.datasource">
       <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_DbBackup\DALWS_DbBackup.wsdl" />
+    <None Include="Web References\DALWS_DbBackup\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\DALWS_Exam\DALWS_Exam.wsdl" />
     <None Include="Web References\DALWS_Exam\Exam.datasource">
@@ -204,11 +210,16 @@
     <None Include="Web References\DALWS_Course\DALWS_Course.disco" />
     <None Include="Web References\DALWS_Exam\DALWS_Exam.disco" />
     <None Include="Web References\DALWS_QuestionAnalysis\DALWS_QuestionAnalysis.disco" />
+    <None Include="Web References\DALWS_DbBackup\DALWS_DbBackup.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLWS_Course.asmx.cs">
       <DependentUpon>BLLWS_Course.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_DbBackup.asmx.cs">
+      <DependentUpon>BLLWS_DbBackup.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BLLWS_Exam.asmx.cs">
@@ -262,6 +273,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Web References\DALWS_Course\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_DbBackup\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -336,6 +352,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Course_DALWS_Course</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:3282/DALWS_DbBackup.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_DbBackup\</RelPath>
+      <UpdateFromURL>http://localhost:3282/DALWS_DbBackup.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_DbBackup_DALWS_DbBackup</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:3282/DALWS_Exam.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>

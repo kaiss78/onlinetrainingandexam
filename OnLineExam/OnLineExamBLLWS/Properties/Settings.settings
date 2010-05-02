@@ -38,5 +38,8 @@
     <Setting Name="OnLineExamBLLWS_DALWS_QuestionAnalysis_DALWS_QuestionAnalysis" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:3282/DALWS_QuestionAnalysis.asmx</Value>
     </Setting>
+    <Setting Name="OnLineExamBLLWS_DALWS_DbBackup_DALWS_DbBackup" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3282/DALWS_DbBackup.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
