@@ -90,7 +90,7 @@ public partial class Web_UserPaper : System.Web.UI.Page
 
                 sumScore.Text = (Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"])).ToString();
                 Xpaperid.Text = paperService.GetPaperType(paperid);
-                lblExamtime.Text = userService.GetTime(Convert.ToInt32(userid));
+                lblExamtime.Text = userService.GetTime(userid);
                 //List<UserAnswer> ans = new List<UserAnswer>();
                 //UserService user = new UserService();
 

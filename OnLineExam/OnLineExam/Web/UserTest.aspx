@@ -105,8 +105,9 @@
                 <td style="height: 25;" colspan="3">
                     &nbsp;&nbsp;&nbsp;欢迎您：<asp:Label ID="labUser" runat="server" Text="Label" Width="70px"></asp:Label>&nbsp;&nbsp;
                     <%--<input type="text" name="time_spent" id="timeBox" runat="server" onfocus="this.blur()" />--%>
-                    <asp:TextBox ID="timeBox" runat="server" BackColor="White" BorderColor="White" 
-                        BorderStyle="None"></asp:TextBox>
+                    <asp:TextBox ID="timeBox" runat="server" BackColor="White" BorderColor="White" BorderStyle="None"></asp:TextBox>
+                    结束时间：
+                    <asp:Label ID="lbEndTime" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -182,86 +183,90 @@
                     <br />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
-                    <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="360000">
+                    <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="3600000">
                     </asp:Timer>
-                   
-                    <a style="font-family: 楷体_GB2312; font-size: 15px;font-weight: bold;">
-                        一.单选（每题<asp:Label ID="labSingle" runat="server" Text="Label"></asp:Label>分）
-                    </a>
+                    <asp:Timer ID="Timer2" runat="server" OnTick="Timer2_Tick" Interval="60000">
+                    </asp:Timer>
+                    <asp:Timer ID="Timer3" runat="server" OnTick="Timer3_Tick" Interval="1000">
+                    </asp:Timer>
+                    <a style="font-family: 楷体_GB2312; font-size: 15px; font-weight: bold;">一.单选题（每题<asp:Label
+                        ID="labSingle" runat="server" Text="Label"></asp:Label>分） </a>
                     <br />
-                
                     <asp:Repeater runat="server" ID="singleRep" DataSourceID="sqlSingle">
                         <ItemTemplate>
-                            <a>
-                               &nbsp; <%# singeCount++ %>
+                            <a>&nbsp;
+                                <%# singeCount++ %>
                                 .<%# Eval("Title") %>
                                 <asp:HiddenField runat="server" Value='<%# Eval("ID") %>' ID="titleId" />
                             </a>
                             <div>
-                                &nbsp; &nbsp;&nbsp; &nbsp;A.<asp:RadioButton ID="rbA" GroupName="option" runat="server" Text='<%# Eval("AnswerA") %>' />
+                                &nbsp; &nbsp;&nbsp; &nbsp;A.<asp:RadioButton ID="rbA" GroupName="option" runat="server"
+                                    Text='<%# Eval("AnswerA") %>' />
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;B.<asp:RadioButton ID="rbB" GroupName="option" runat="server" Text='<%# Eval("AnswerB") %>' />
+                                &nbsp; &nbsp;&nbsp; &nbsp;B.<asp:RadioButton ID="rbB" GroupName="option" runat="server"
+                                    Text='<%# Eval("AnswerB") %>' />
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;C.<asp:RadioButton ID="rbC" GroupName="option" runat="server" Text='<%# Eval("AnswerC") %>' />
+                                &nbsp; &nbsp;&nbsp; &nbsp;C.<asp:RadioButton ID="rbC" GroupName="option" runat="server"
+                                    Text='<%# Eval("AnswerC") %>' />
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;D.<asp:RadioButton ID="rbD" GroupName="option" runat="server" Text='<%# Eval("AnswerD") %>' />
+                                &nbsp; &nbsp;&nbsp; &nbsp;D.<asp:RadioButton ID="rbD" GroupName="option" runat="server"
+                                    Text='<%# Eval("AnswerD") %>' />
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <a style="font-family: 楷体_GB2312; font-size: 15px;font-weight: bold;">
+                    <a style="font-family: 楷体_GB2312; font-size: 15px; font-weight: bold;">
+                        <br />
+                        二.多选题（每题<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>分） </a>
                     <br />
-                        二.多单选（每题<asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>分）
-                    </a>
-                    <br />
-                    
                     <asp:Repeater runat="server" ID="Repeater2" DataSourceID="sqlMulti">
                         <ItemTemplate>
-                            <a>
-                                &nbsp;<%# singeCount++ %>
+                            <a>&nbsp;<%# singeCount++ %>
                                 .<%# Eval("Title") %>
                                 <asp:HiddenField runat="server" Value='<%# Eval("ID") %>' ID="titleId" />
                             </a>
                             <div>
-                                &nbsp; &nbsp;&nbsp; &nbsp;A.<asp:CheckBox ID="CheckBox1" runat="server" Text='<%# Eval("AnswerA") %>'></asp:CheckBox>
+                                &nbsp; &nbsp;&nbsp; &nbsp;A.<asp:CheckBox ID="CheckBox1" runat="server" Text='<%# Eval("AnswerA") %>'>
+                                </asp:CheckBox>
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;B.<asp:CheckBox ID="CheckBox2" runat="server" Text='<%# Eval("AnswerB") %>'></asp:CheckBox>
+                                &nbsp; &nbsp;&nbsp; &nbsp;B.<asp:CheckBox ID="CheckBox2" runat="server" Text='<%# Eval("AnswerB") %>'>
+                                </asp:CheckBox>
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;C.<asp:CheckBox ID="CheckBox3" runat="server" Text='<%# Eval("AnswerC") %>'></asp:CheckBox>
+                                &nbsp; &nbsp;&nbsp; &nbsp;C.<asp:CheckBox ID="CheckBox3" runat="server" Text='<%# Eval("AnswerC") %>'>
+                                </asp:CheckBox>
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;D.<asp:CheckBox ID="CheckBox4" runat="server" Text='<%# Eval("AnswerD") %>'></asp:CheckBox>
+                                &nbsp; &nbsp;&nbsp; &nbsp;D.<asp:CheckBox ID="CheckBox4" runat="server" Text='<%# Eval("AnswerD") %>'>
+                                </asp:CheckBox>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <a style="font-family: 楷体_GB2312; font-size: 15px;font-weight: bold;">
-                    <br />
-                        三.判断选（每题<asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>分）
-                    </a>
+                    <a style="font-family: 楷体_GB2312; font-size: 15px; font-weight: bold;">
+                        <br />
+                        三.判断题（每题<asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>分） </a>
                     <br />
                     <asp:Repeater runat="server" ID="Repeater3" DataSourceID="sqlJudge">
                         <ItemTemplate>
-                            <a>
-                                &nbsp;<%# singeCount++ %>
+                            <a>&nbsp;<%# singeCount++ %>
                                 .<%# Eval("Title") %>
                                 <asp:HiddenField runat="server" Value='<%# Eval("ID") %>' ID="titleId" />
                             </a>
                             <div>
                                 <%--<asp:Label ID="Label10" runat="server" Text='<%# Eval("Title","{0}") %>'>--%>
-                                &nbsp; &nbsp;&nbsp; &nbsp;<asp:RadioButton ID="rbA" GroupName="option" runat="server" Text="正确" />
+                                &nbsp; &nbsp;&nbsp; &nbsp;<asp:RadioButton ID="rbA" GroupName="option" runat="server"
+                                    Text="正确" />
                                 <br />
-                                &nbsp; &nbsp;&nbsp; &nbsp;<asp:RadioButton ID="rbB" GroupName="option" runat="server" Text="错误" />
+                                &nbsp; &nbsp;&nbsp; &nbsp;<asp:RadioButton ID="rbB" GroupName="option" runat="server"
+                                    Text="错误" />
                                 <%--<asp:CheckBox ID="CheckBox5" runat="server" Text="正确"></asp:CheckBox>--%>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <a style="font-family: 楷体_GB2312; font-size: 15px;font-weight: bold;">
-                    <br />
-                        四.填空选（每题<asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>分）
-                    </a>
+                    <a style="font-family: 楷体_GB2312; font-size: 15px; font-weight: bold;">
+                        <br />
+                        四.填空题（每题<asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>分） </a>
                     <br />
                     <asp:Repeater runat="server" ID="Repeater1" DataSourceID="sqlFillBlank">
                         <ItemTemplate>
-                            <a>
-                                &nbsp;<%# singeCount++ %>
+                            <a>&nbsp;<%# singeCount++ %>
                                 .<%# Eval("FrontTitle") %>
                                 <asp:HiddenField runat="server" Value='<%# Eval("ID") %>' ID="titleId" />
                             </a>
@@ -273,15 +278,13 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <a style="font-family: 楷体_GB2312; font-size: 15px;font-weight: bold;">
-                    <br />
-                        五.问答选（每题<asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>分）
-                    </a>
+                    <a style="font-family: 楷体_GB2312; font-size: 15px; font-weight: bold;">
+                        <br />
+                        五.问答题（每题<asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>分） </a>
                     <br />
                     <asp:Repeater runat="server" ID="Repeater4" DataSourceID="sqlQuestion">
                         <ItemTemplate>
-                            <a>
-                                &nbsp;<%# singeCount++ %>
+                            <a>&nbsp;<%# singeCount++ %>
                                 .<%# Eval("Title") %>
                                 <asp:HiddenField runat="server" Value='<%# Eval("ID") %>' ID="titleId" />
                             </a>
@@ -292,8 +295,9 @@
                     </asp:Repeater>
                     <br />
                     <br />
-                    <div align="center"><a href="#top">返回顶端</a> &nbsp; &nbsp;<asp:ImageButton ID="imgBtnSubmit" runat="server"
-                        ImageUrl="~/Images/Submit.GIF" OnClick="imgBtnSubmit_Click"  align="center"/></div>
+                    <div align="center">
+                        <a href="#top">返回顶端</a> &nbsp; &nbsp;<asp:ImageButton ID="imgBtnSubmit" runat="server"
+                            ImageUrl="~/Images/Submit.GIF" OnClick="imgBtnSubmit_Click" align="center" /></div>
                 </td>
             </tr>
         </table>
