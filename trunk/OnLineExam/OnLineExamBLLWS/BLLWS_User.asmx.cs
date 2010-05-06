@@ -32,7 +32,7 @@ namespace OnLineExamBLLWS
         }
 
         [WebMethod]
-        public string GetTime(int id)
+        public string GetTime(string id)
         {
             return service.GetTime(id);
         }

@@ -558,12 +558,12 @@ paper.PaperID = Score.PaperID and Users.UserID = Score.UserID and Score.UserID='
         }
 
         [WebMethod]
-        public string GetTime(int id)
+        public string GetTime(string id)
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
                 string time = string.Empty;
-                string sql = "select * from UserAnswer where UserID=" + id + "";
+                string sql = "select * from UserAnswer where UserID='" + id + "'";
                 SqlCommand cmd = new SqlCommand(sql, con);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
