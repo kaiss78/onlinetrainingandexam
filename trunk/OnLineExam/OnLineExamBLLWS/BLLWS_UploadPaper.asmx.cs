@@ -29,7 +29,7 @@ namespace OnLineExamBLLWS
         {
             DataSet ds = service.importExcelToDataSet(FilePath);
             if (!updatepaper(ds)) return null;
-            else 
+           else 
             return ds;
         }
 
@@ -101,6 +101,9 @@ namespace OnLineExamBLLWS
                         {
                             string question = ds.Tables[0].Rows[0][i].ToString().Trim();
                             string answer = ds.Tables[0].Rows[1][i].ToString().Trim();
+                            if (answer.Equals("正确"))
+                                answer = "true";
+                            else answer = "false";
                             insert("insert into judgeproblem(courseid,title,answer) values('" + id + "','" + question  + "','" + answer + "')");
                             DataSet da2 = select("select ID from judgeproblem where title='" + question + "'");
                             string titleid = da2.Tables[0].Rows[0][0].ToString();

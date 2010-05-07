@@ -15,10 +15,17 @@ using localhost;
 public partial class Web_cs : System.Web.UI.Page
 {
     BLLWS_UploadPaper up = new BLLWS_UploadPaper();
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Button1.Visible = false;
+    }
     protected void Upload_Click(object sender, EventArgs e)
     {
         try
         {
+            Button1.Visible = true;
+            Button1.Text = "回试卷管理";
             if (FileUpload1.PostedFile.FileName == "")
             {
                 this.lblMessage.Text = "请选择文件！";
@@ -44,5 +51,9 @@ public partial class Web_cs : System.Web.UI.Page
         }
     }
 
-   
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaperLists.aspx");
+    }
 }
