@@ -42,5 +42,17 @@ namespace OnLineExamBLLWS
         {
             return service.selectSingQuestion(UsersID, PaperID).ToList();
         }
+
+        [WebMethod]
+        public List<Course> ListCourse()
+        {
+            return service.ListCourse().ToList();
+        }
+
+        [WebMethod]
+        public bool Getitem(string a, string b)
+        {
+            return service.Getitem(a, b);
+        }
     }
 }

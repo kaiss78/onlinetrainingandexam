@@ -8,7 +8,7 @@
                 <tr>
                     <td valign="top" align="left" width="960px">
                         <h4 style="font-family: 楷体_GB2312">
-                            >>用户试卷评阅</h4>
+                            &nbsp;</h4>
                         <hr />
                         <asp:GridView ID="GridView1" runat="server" Width="100%" AllowPaging="True" DataKeyNames="UserID,PaperID"
                             OnRowDataBound="GridView1_RowDataBound" PageSize="8" AutoGenerateColumns="False"

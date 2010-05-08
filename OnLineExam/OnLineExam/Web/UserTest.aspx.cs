@@ -14,7 +14,6 @@ public partial class Web_UserTest : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
     BLLWS_Exam examService = new BLLWS_Exam();
-    DALWS_SingleSelected singleSelectedService2 = new DALWS_SingleSelected();
     BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
 
     protected int singeCount = 1;
@@ -86,7 +85,7 @@ public partial class Web_UserTest : System.Web.UI.Page
 
     private void NewMethod()
     {
-        if (!(singleSelectedService2.Getitem(Session["userID"].ToString(), Request["PaperID"].ToString())))
+        if (!(singleSelectedService.Getitem(Session["userID"].ToString(), Request["PaperID"].ToString())))
         {
             Response.Write("<script language=javascript>alert('您已经考过!');window.close();</script>");
             return;

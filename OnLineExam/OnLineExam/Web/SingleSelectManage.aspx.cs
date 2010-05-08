@@ -14,8 +14,7 @@ using localhost;
 public partial class Web_SingleSelectManage : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
-    BLLWS_SingleSelected singleSelectedService2 = new BLLWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -45,7 +44,7 @@ public partial class Web_SingleSelectManage : System.Web.UI.Page
                 }
 
                 string courseID = this.ddlCourse.SelectedValue;
-                this.GridView1.DataSource = singleSelectedService2.GetSingleProblemList(courseID);
+                this.GridView1.DataSource = singleSelectedService.GetSingleProblemList(courseID);
                 this.GridView1.DataBind();
             }
         }
@@ -65,7 +64,7 @@ public partial class Web_SingleSelectManage : System.Web.UI.Page
         }
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#cbe2fa'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }
@@ -73,7 +72,7 @@ public partial class Web_SingleSelectManage : System.Web.UI.Page
     {
         this.GridView1.DataSourceID = null;
         string selectvaule = this.ddlCourse.SelectedValue;
-        this.GridView1.DataSource = singleSelectedService2.GetSingleProblemList(selectvaule);
+        this.GridView1.DataSource = singleSelectedService.GetSingleProblemList(selectvaule);
         this.GridView1.DataBind();
     }
 }

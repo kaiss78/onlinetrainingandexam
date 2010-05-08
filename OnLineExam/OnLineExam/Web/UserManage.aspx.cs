@@ -13,7 +13,6 @@ using localhost;
 public partial class Web_UserManage : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_User userService2 = new DALWS_User();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -95,7 +94,7 @@ public partial class Web_UserManage : System.Web.UI.Page
                     Users user = new Users();//创建Users对象user
                     string pwdMd5 = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(newPassword, "MD5").ToString();
                     user.UserPwd = pwdMd5.ToString().Trim();
-                    if (userService2.Update(pwdMd5, UserID))//更改用户密码
+                    if (userService.Update(pwdMd5, UserID))//更改用户密码
                     {
                         Response.Write("<Script language=JavaScript>alert('" + UserID + "的密码已经重置，新密码为【" + newPassword + "】。');</Script>");
                     }
@@ -122,7 +121,7 @@ public partial class Web_UserManage : System.Web.UI.Page
             {
                 string userID = ((Label)GridView1.Rows[i].FindControl("Label1")).Text;
                 Users user = new Users();//创建Users类对象user
-                if (userService2.delUserId(userID))//根据主键使用DeleteByProc方法删除用户
+                if (userService.delUserId(userID))//根据主键使用DeleteByProc方法删除用户
                 {
                     Response.Write("<script language=javascript>alert('删除成功!')</script>");
                 }
@@ -162,7 +161,7 @@ public partial class Web_UserManage : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#cbe2fa'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }

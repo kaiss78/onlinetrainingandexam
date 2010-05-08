@@ -6,7 +6,7 @@
         <tr>
             <td valign="top" align="left" width="960px" style="height: 26px">
                 <h4 style="font-family: 楷体_GB2312">
-                    >>判断题管理</h4>
+                    &nbsp;</h4>
                 <hr />
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
@@ -35,7 +35,7 @@
                                     Visible="False"></asp:CheckBoxField>
                                 <asp:HyperLinkField DataNavigateUrlFields="ID" DataNavigateUrlFormatString="JudgeUpdate.aspx?ID={0}"
                                     Text="详细" HeaderText="详细"></asp:HyperLinkField>
-                                <asp:CommandField DeleteText="&lt;div onclick=&quot;return confirm('确定要删除吗？')&quot;&gt;删除&lt;/div&gt;"
+                                <asp:CommandField HeaderText="删除" DeleteText="&lt;div onclick=&quot;return confirm('确定要删除吗？')&quot;&gt;删除&lt;/div&gt;"
                                     ShowDeleteButton="True"></asp:CommandField>
                             </Columns>
                             <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True"></FooterStyle>

@@ -13,7 +13,7 @@ using localhost;
 
 public partial class Web_QuestionAdd : System.Web.UI.Page
 {
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
     BLLWS_QuestionProblem questionProblemService = new BLLWS_QuestionProblem();
 
     protected void Page_Load(object sender, EventArgs e)

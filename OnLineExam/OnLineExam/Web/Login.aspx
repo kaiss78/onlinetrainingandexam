@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
-    <title>在线考试系统</title>
+    <title>在线练习考试系统</title>
         <style type="text/css">
         div.RoundedCorner{background: #BAD4F7; width:350px;}
         b.rtop, b.rbottom{display:block;background: #FFF}
@@ -32,7 +32,7 @@
 				 border="1" bgColor="#ffffff" bordercolor="#BAD4F7">
 				<tr height=40>
 					<td colspan="3" align="center">	<br />					
-						<font color=#4D2600><h4 style="font-family: 楷体_GB2312">在线考试系统登陆</h4></font>
+						<font color=#4D2600><h4 style="font-family: 楷体_GB2312; font-size: 16px;">在线练习考试系统登陆</h4></font>
 					</td>
 				</tr>							
 				<tr>

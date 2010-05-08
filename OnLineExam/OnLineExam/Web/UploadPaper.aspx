@@ -6,16 +6,15 @@
             <table cellpadding="0" cellspacing="0" border="1" style="border-collapse: collapse"
                 width="100%" frame="below">
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right; width: 100%;" colspan="2">
+                    <td style="text-align: right; width: 100%;" colspan="2">
                         <div class="title" align="left">
                             <h4 style="font-family: 楷体_GB2312">
-                                &gt;&gt;上传试卷</h4>
+                                </h4>
                         </div>
-                        <hr />
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right;">
+                    <td style="text-align: right;">
                         上传试卷：
                     </td>
                     <td style="width: 80%">

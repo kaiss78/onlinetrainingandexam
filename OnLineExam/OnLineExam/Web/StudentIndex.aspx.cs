@@ -15,7 +15,7 @@ public partial class Web_StudentIndex : System.Web.UI.Page
     BLLWS_User userService = new BLLWS_User();
     BLLWS_Paper paperService = new BLLWS_Paper();
     BLLWS_Exam examService = new BLLWS_Exam();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -48,7 +48,7 @@ public partial class Web_StudentIndex : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#cbe2fa'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }

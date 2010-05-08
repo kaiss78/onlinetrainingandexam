@@ -15,7 +15,7 @@ using localhost;
 public partial class Web_FillBlankUpdate : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
     BLLWS_FillBlankProblem fillBlankProblemService = new BLLWS_FillBlankProblem();
 
     protected void Page_Load(object sender, EventArgs e)

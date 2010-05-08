@@ -14,8 +14,7 @@ using localhost;
 public partial class Web_SingleSelectAdd : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
-    BLLWS_SingleSelected singleSelectedService2 = new BLLWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -57,7 +56,7 @@ public partial class Web_SingleSelectAdd : System.Web.UI.Page
         sp.AnswerC = txtAnswerC.Text;
         sp.AnswerD = txtAnswerD.Text;
         sp.Answer = ddlAnswer.SelectedValue;
-        if (singleSelectedService2.AddSingleSelected(sp))
+        if (singleSelectedService.AddSingleSelected(sp))
         {
             lblMessage.Text = "添加成功！";
             txtTitle.Text = string.Empty;

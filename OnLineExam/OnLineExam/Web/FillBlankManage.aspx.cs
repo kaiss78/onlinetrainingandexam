@@ -14,7 +14,7 @@ using localhost;
 public partial class Web_FillBlankManage : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
     BLLWS_FillBlankProblem fillBlankProblemService = new BLLWS_FillBlankProblem();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -68,7 +68,7 @@ public partial class Web_FillBlankManage : System.Web.UI.Page
         }
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#cbe2fa'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }

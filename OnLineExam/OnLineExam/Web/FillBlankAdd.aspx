@@ -7,15 +7,15 @@
             <table cellpadding="0" cellspacing="0" border="1" bordercolor="#cccccc" style="border-collapse: collapse"
                 width="100%" frame="below">
                 <tr>
-                    <td bgcolor="#eeeeee" colspan="2">
+                    <td colspan="2">
                         <div class="title" align="left">
                             <h4 style="font-family: 楷体_GB2312">
-                                >>填空题</h4>
+                                </h4>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right;" width="80px">
+                    <td style="text-align: right;" width="80px">
                         科目：
                     </td>
                     <td>
@@ -26,8 +26,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right;">
-                        前描述：
+                    <td style="text-align: right;">
+                        空格前内容：
                     </td>
                     <td>
                         &nbsp;<div align="left">
@@ -37,8 +37,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right;">
-                        后描述：
+                    <td style="text-align: right;">
+                        空格后内容：
                     </td>
                     <td>
                         &nbsp;<div align="left">
@@ -46,7 +46,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right;">
+                    <td style="text-align: right;">
                         答案
                     </td>
                     <td>

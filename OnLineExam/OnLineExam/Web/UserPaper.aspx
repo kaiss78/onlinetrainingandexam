@@ -9,7 +9,7 @@
                     width="100%" border="1" frame="below">
                     <tbody>
                         <tr>
-                            <td style="text-align: right" bgcolor="#eeeeee">
+                            <td style="text-align: right">
                                 试卷：</td>
                             <td colspan="3">
                                 &nbsp; &nbsp; &nbsp; 
@@ -23,7 +23,7 @@
                                 <b>评卷说明：单选题、多选题、判断题、填空题是系统自动判分的，问答题需要在每道题后面输入分数。</b></td>
                         </tr>
                         <tr>
-                            <td style="text-align: right" bgcolor="#eeeeee">
+                            <td style="text-align: right">
                                 单选题得分：</td>
                             <td>
                                 &nbsp;<div align="left">
@@ -32,7 +32,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right" bgcolor="#eeeeee">
+                            <td style="text-align: right">
                                 多选题得分：</td>
                             <td>
                                 &nbsp;<div align="left">
@@ -41,7 +41,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right" bgcolor="#eeeeee">
+                            <td style="text-align: right">
                                 判断题得分：</td>
                             <td>
                                 &nbsp;<div align="left">
@@ -50,7 +50,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right" bgcolor="#eeeeee">
+                            <td style="text-align: right">
                                 填空题得分：</td>
                             <td>
                                 &nbsp;<div align="left">
@@ -59,7 +59,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="text-align: right" bgcolor="#eeeeee">
+                            <td style="text-align: right">
                                 问答题得分：</td>
                             <td>
                                 &nbsp;<div align="left">
@@ -70,7 +70,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="height: 25px; text-align: right" bgcolor="#eeeeee">
+                            <td style="height: 25px; text-align: right">
                                 总分：</td>
                             <td style="height: 25px">
                                 <div align="left">
@@ -79,7 +79,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td bgcolor="#eeeeee">
+                            <td>
                             </td>
                             <td>
                                 &nbsp;<div align="left">
@@ -109,14 +109,14 @@
                     cellpadding="0" width="100%" border="1" frame="below">
                     <tbody>
                         <tr>
-                            <td style="width: 89px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 89px; text-align: right">
                                 试卷：</td>
                             <td colspan="5">
                                 <asp:Label ID="Label35" runat="server" Text=""></asp:Label>
                                 <asp:Label ID="Label36" runat="server" Text="" Visible="false"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; height: 25px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; height: 25px; text-align: right">
                             </td>
                             <td style="width: 70px; height: 25px">
                                 &nbsp;<strong>正确</strong></td>
@@ -128,7 +128,7 @@
                                 <strong>总分</strong></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; text-align: right">
                                 单选题：</td>
                             <td style="width: 70px">
                                 &nbsp;<asp:Label ID="Label34" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
@@ -140,7 +140,7 @@
                                 <asp:Label ID="Label53" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; text-align: right">
                                 多选题：</td>
                             <td style="width: 70px">
                                 &nbsp;<asp:Label ID="Label39" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
@@ -152,7 +152,7 @@
                                 <asp:Label ID="Label54" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; height: 25px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; height: 25px; text-align: right">
                                 判断题：</td>
                             <td style="width: 70px; height: 25px">
                                 &nbsp;<asp:Label ID="Label52" runat="server" Text="0" Font-Bold="True"></asp:Label>&nbsp;&nbsp;
@@ -165,7 +165,7 @@
                                 <asp:Label ID="Label55" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; height: 25px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; height: 25px; text-align: right">
                                 填空题：</td>
                             <td style="width: 70px">
                                 &nbsp;<asp:Label ID="Label49" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
@@ -177,7 +177,7 @@
                                 <asp:Label ID="Label56" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; text-align: right">
                                 总成绩：</td>
                             <td style="width: 70px">
                             </td>
@@ -189,7 +189,7 @@
                                 <asp:Label ID="Label57" runat="server" Text="0" Font-Bold="True"></asp:Label></td>
                         </tr>
                         <tr>
-                            <td style="width: 70px; text-align: right" bgcolor="#eeeeee">
+                            <td style="width: 70px; text-align: right">
                             </td>
                             <td colspan="4">
                                 <asp:ImageButton ID="ImageButton1" OnClick="imgBtnReturn_Click" runat="server" CausesValidation="false"

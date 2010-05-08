@@ -16,7 +16,6 @@ public partial class Web_Userscore1 : System.Web.UI.Page
 {
 
     BLLWS_User userService = new BLLWS_User();
-    DALWS_User userService2 = new DALWS_User();
     BLLWS_StudentAnalysis service = new BLLWS_StudentAnalysis();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -102,7 +101,7 @@ public partial class Web_Userscore1 : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#cbe2fa'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }

@@ -7,15 +7,13 @@
             <table cellpadding="0" cellspacing="0" border="1" style="border-collapse: collapse"
                 width="100%" frame="below">
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right; width: 100%;" colspan="2">
-                        <div class="title" align="left">
-                            <h4 style="font-family: 楷体_GB2312">
-                                >>添加科目</h4>
-                        </div>
+                    <td>
+                    </td>
+                    <td>
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right; height: 25px;">
+                    <td bgcolor="#ffffff" style="text-align: right; height: 25px;">
                         科目名称：
                     </td>
                     <td style="height: 25px">
@@ -26,7 +24,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td bgcolor="#eeeeee" style="text-align: right; height: 25px;">
+                    <td bgcolor="#ffffff" style="text-align: right; height: 25px;">
                         授课教师：
                     </td>
                     <td style="height: 25px">
