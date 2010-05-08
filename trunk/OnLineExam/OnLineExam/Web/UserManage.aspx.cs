@@ -136,27 +136,6 @@ public partial class Web_UserManage : System.Web.UI.Page
         GridView1.DataBind();
     }
 
-    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
-    {
-        for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
-        {
-            ((CheckBox)GridView1.Rows[i].FindControl("chkSelected")).Checked = RadioButton1.Checked;
-        }
-    }
-    protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
-    {
-        for (int i = 0; i <= GridView1.Rows.Count - 1; i++)
-        {
-            if (((CheckBox)GridView1.Rows[i].FindControl("chkSelected")).Checked == true)
-            {
-                ((CheckBox)GridView1.Rows[i].FindControl("chkSelected")).Checked = false;
-            }
-            else
-            {
-                ((CheckBox)GridView1.Rows[i].FindControl("chkSelected")).Checked = true;
-            }
-        }
-    }
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
         if (e.Row.RowType == DataControlRowType.DataRow)

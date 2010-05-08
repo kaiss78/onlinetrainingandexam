@@ -18,7 +18,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; height: 25px; width: 70px;">
+                        <td style="text-align: right; height: 25px; width: 70px;">
                         </td>
                         <td style="height: 25px; width: 70px;">
                             &nbsp;正确
@@ -34,7 +34,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; width: 70px;">
+                        <td style="text-align: right; width: 70px;">
                             单选题：
                         </td>
                         <td style="width: 70px">
@@ -50,7 +50,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; width: 70px;">
+                        <td style="text-align: right; width: 70px;">
                             多选题：
                         </td>
                         <td style="width: 70px">
@@ -66,7 +66,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; width: 70px; height: 25px;">
+                        <td style="text-align: right; width: 70px; height: 25px;">
                             判断题：
                         </td>
                         <td style="width: 70px; height: 25px;">
@@ -82,7 +82,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; width: 70px; height: 25px">
+                        <td style="text-align: right; width: 70px; height: 25px">
                             填空题：
                         </td>
                         <td style="width: 70px;">
@@ -98,7 +98,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; height: 31px; width: 70px;">
+                        <td style="text-align: right; height: 31px; width: 70px;">
                             问答题：<br />
                         </td>
                         <td style="height: 31px; width: 70px;">
@@ -113,7 +113,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#eeeeee" style="text-align: right; width: 70px;">
+                        <td style="text-align: right; width: 70px;">
                             总分：
                         </td>
                         <td style="width: 70px">

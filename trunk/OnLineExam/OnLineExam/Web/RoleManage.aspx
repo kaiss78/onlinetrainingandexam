@@ -31,7 +31,7 @@
                                         <asp:CheckBox ID="chkCourseManage" Visible="True" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="试卷制定维护">
+                                <asp:TemplateField HeaderText="试卷制定管理">
                                     <ItemTemplate>
                                         <asp:CheckBox ID="chkPaperSetup" Visible="True" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
