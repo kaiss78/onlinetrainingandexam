@@ -58,10 +58,6 @@
                             </asp:GridView>
                             <asp:Label ID="LabelPageInfo" runat="server"></asp:Label>&nbsp;<br />
                             &nbsp;
-                            <asp:RadioButton ID="RadioButton1" runat="server" Width="54px" Text="全选" OnCheckedChanged="RadioButton1_CheckedChanged"
-                                AutoPostBack="true" GroupName="radio"></asp:RadioButton>
-                            <asp:RadioButton ID="RadioButton2" runat="server" Width="54px" Text="反选" OnCheckedChanged="RadioButton2_CheckedChanged"
-                                AutoPostBack="true" GroupName="radio"></asp:RadioButton>
                         </td>
                     </tr>
                 </tbody>
