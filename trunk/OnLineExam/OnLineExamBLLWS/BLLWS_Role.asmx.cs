@@ -37,5 +37,11 @@ namespace OnLineExamBLLWS
         {
             return service.GetRoleName(UserID);
         }
+
+        [WebMethod]
+        public bool Delect(string RoleID)
+        {
+            return service.Delect(RoleID);
+        }
     }
 }

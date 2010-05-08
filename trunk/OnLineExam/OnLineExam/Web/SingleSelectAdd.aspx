@@ -8,15 +8,15 @@
     <table cellpadding="0" cellspacing="0" border="1" bordercolor="#cccccc" style="border-collapse: collapse"
         width="100%" frame="below">
         <tr>
-            <td bgcolor="#eeeeee" colspan="2">
+            <td colspan="2">
                 <div class="title" align="left">
                     <h4 style="font-family: 楷体_GB2312">
-                        >>单选题</h4>
+                        </h4>
                 </div>
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right; height: 25px;" width="80px">
+            <td style="text-align: right; height: 25px;" width="80px">
                 科目：</td>
             <td style="height: 25px">
                 &nbsp;<div align="left">
@@ -25,7 +25,7 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right;">
+            <td style="text-align: right;">
                 题目：</td>
             <td>
                 &nbsp;<div align="left">
@@ -35,7 +35,7 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right;">
+            <td style="text-align: right;">
                 答案A：</td>
             <td>
                 &nbsp;<div align="left">
@@ -45,7 +45,7 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right;">
+            <td style="text-align: right;">
                 答案B：</td>
             <td>
                 &nbsp;<div align="left">
@@ -55,7 +55,7 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right; height: 24px;">
+            <td style="text-align: right; height: 24px;">
                 答案C：</td>
             <td style="height: 24px">
                 &nbsp;<div align="left">
@@ -65,7 +65,7 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right;">
+            <td style="text-align: right;">
                 答案D：</td>
             <td>
                 &nbsp;<div align="left">
@@ -75,7 +75,7 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#eeeeee" style="text-align: right;">
+            <td style="text-align: right;">
                 答案</td>
             <td>
                 &nbsp;<div align="left">

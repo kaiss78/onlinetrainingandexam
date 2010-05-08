@@ -15,8 +15,7 @@ using localhost;
 public partial class Web_SingleSelectUpdate : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
-    BLLWS_SingleSelected singleSelectedService2 = new BLLWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -85,7 +84,7 @@ public partial class Web_SingleSelectUpdate : System.Web.UI.Page
         singleProble.AnswerC = txtAnswerC.Text;
         singleProble.AnswerD = txtAnswerD.Text;
         singleProble.Answer = ddlAnswer.SelectedValue;
-        if (singleSelectedService2.UpdateSingleSelected(singleProble))
+        if (singleSelectedService.UpdateSingleSelected(singleProble))
         {
             lblMessage.Text = "修改成功!";
             txtTitle.Text = string.Empty;

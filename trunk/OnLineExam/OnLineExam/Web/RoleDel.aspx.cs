@@ -13,7 +13,7 @@ using localhost;
 public partial class Web_RoleDel : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_Role roleService = new DALWS_Role();
+    BLLWS_Role roleService = new BLLWS_Role();
 
     protected void Page_Load(object sender, EventArgs e)
     {

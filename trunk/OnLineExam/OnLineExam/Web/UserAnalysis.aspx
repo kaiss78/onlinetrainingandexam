@@ -7,7 +7,7 @@
                 <tr>
                     <td valign="top" align="left" width="750px">
                         <h4 style="font-family: 楷体_GB2312">
-                            &gt;&gt;学生统计分析</h4>
+                            &nbsp;</h4>
                         <hr />
                         请选择学生姓名：<asp:DropDownList ID="DropDownList1" runat="server"
                             DataTextField="PaperID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"

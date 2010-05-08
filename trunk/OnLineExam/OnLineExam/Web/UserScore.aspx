@@ -8,7 +8,7 @@
                 <tr>
                     <td valign="top" align="left" width="750px">
                         <h4 style="font-family: 楷体_GB2312">
-                            >>成绩管理</h4>
+                            &nbsp;</h4>
                         <hr />
                         请选择试卷的编号：<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1"
                             DataTextField="PaperID" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"

@@ -8,7 +8,7 @@
                 <tr>
                     <td valign="top" align="left" width="960px">
                         <h4 style="font-family: 楷体_GB2312">
-                            >>权限管理</h4>
+                            </h4>
                         <hr />
                         <asp:GridView ID="GV" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                             PageSize="12" OnPageIndexChanging="GV_PageIndexChanging" OnRowDataBound="GV_RowDataBound"

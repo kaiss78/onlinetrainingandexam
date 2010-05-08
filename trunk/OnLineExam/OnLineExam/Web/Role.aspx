@@ -6,7 +6,7 @@
         <tr>
             <td valign="top" align="left">
                 <h4 style="font-family: 楷体_GB2312">
-                    >>角色管理</h4>
+                    &nbsp;</h4>
                 <hr />
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AllowPaging="True"
                     PageSize="12" CellPadding="4" Font-Size="13px" Width="100%" DataKeyNames="RoleId"

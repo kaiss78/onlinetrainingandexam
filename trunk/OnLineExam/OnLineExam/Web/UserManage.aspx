@@ -9,7 +9,7 @@
                     <tr>
                         <td style="height: 25px" valign="top" align="left" width="960">
                             <h4 style="font-family: 楷体_GB2312">
-                                >>用户管理</h4>
+                                &nbsp;</h4>
                             <hr />
                             ※用户ID：
                             <asp:TextBox ID="tbxUserID" runat="server" Width="66px"></asp:TextBox>

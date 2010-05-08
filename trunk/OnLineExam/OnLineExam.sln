@@ -22,7 +22,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OnLineExam", "OnLineExam\",
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "4628"
+		VWDPort = "4354"
+		VWDDynamicPort = "true"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLineExamModel", "OnLineExamModel\OnLineExamModel.csproj", "{BD72F5B9-F917-4F82-ABCD-47925BF6660F}"

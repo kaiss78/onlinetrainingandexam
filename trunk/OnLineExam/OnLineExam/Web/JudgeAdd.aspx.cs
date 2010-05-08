@@ -14,7 +14,7 @@ using localhost;
 public partial class Web_JudgeAdd : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    DALWS_SingleSelected singleSelectedService = new DALWS_SingleSelected();
+    BLLWS_SingleSelected singleSelectedService = new BLLWS_SingleSelected();
     BLLWS_JudgeProblem judgeProblemService = new BLLWS_JudgeProblem();
 
     protected void Page_Load(object sender, EventArgs e)

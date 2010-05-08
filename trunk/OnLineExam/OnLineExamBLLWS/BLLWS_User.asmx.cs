@@ -115,5 +115,23 @@ namespace OnLineExamBLLWS
         {
             return service.SelectPwd(Pwd);
         }
+
+        [WebMethod]
+        public bool Update(string UserPwd, string UserId)
+        {
+            return service.Update(UserPwd, UserId);
+        }
+
+        [WebMethod]
+        public bool delScores(string UserID)
+        {
+            return service.delScores(UserID);
+        }
+
+        [WebMethod]
+        public bool delUserId(string UserId)
+        {
+            return service.delUserId(UserId);
+        }
     }
 }

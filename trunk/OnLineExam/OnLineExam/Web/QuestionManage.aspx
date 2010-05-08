@@ -6,7 +6,7 @@
         <tr>
             <td valign="top" align="left" width="960px">
                 <h4 style="font-family: 楷体_GB2312">
-                    >>问答题管理</h4>
+                    &nbsp;</h4>
                 <hr />
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>

@@ -39,7 +39,7 @@
                         <table cellpadding="0" cellspacing="0" border="1" bordercolor="#cccccc" style="border-collapse: collapse"
                             width="100%" frame="below">
                             <tr>
-                                <td bgcolor="#EDF1F6" style="text-align: right; width: 100%;" colspan="2">
+                                <td style="text-align: right; width: 100%;" colspan="2">
                                     <div class="title" align="left">
                                         <h4>
                                             考试：<asp:Label ID="lblMessage" runat="server" ForeColor="red"></asp:Label></h4>
@@ -71,7 +71,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td bgcolor="#EDF1F6" style="text-align: right; width: 100%; height: 25px;" colspan="2">
+                                <td style="text-align: right; width: 100%; height: 25px;" colspan="2">
                                     <div class="title" align="left">
                                         <h4>
                                             考试记录：<asp:Label ID="lblScore" runat="server" Text="" Width="126px"></asp:Label>
@@ -135,7 +135,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td bgcolor="#EDF1F6" style="text-align: right; width: 100%;" colspan="2">
+                                <td style="text-align: right; width: 100%;" colspan="2">
                                     <div class="title" align="left">
                                         <h4>
                                             修改密码</h4>
@@ -143,7 +143,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td bgcolor="#EDF1F6" style="text-align: right;">
+                                <td style="text-align: right;">
                                     原密码：
                                 </td>
                                 <td>
@@ -154,7 +154,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td bgcolor="#EDF1F6" style="text-align: right;">
+                                <td style="text-align: right;">
                                     新密码：
                                 </td>
                                 <td>
@@ -165,7 +165,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td bgcolor="#EDF1F6" style="text-align: right;">
+                                <td style="text-align: right;">
                                     确认密码：
                                 </td>
                                 <td>
