@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EFEA1010-A1FC-45B7-8238-E9322759ADF0}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -56,11 +56,11 @@
     <Content Include="BLLWS_Course.asmx" />
     <Content Include="BLLWS_DbBackup.asmx" />
     <Content Include="BLLWS_Exam.asmx" />
+    <Content Include="BLLWS_Exercise.asmx" />
     <Content Include="BLLWS_FillBlankProblem.asmx" />
     <Content Include="BLLWS_JudgeProblem.asmx" />
     <Content Include="BLLWS_MultiProblem.asmx" />
     <Content Include="BLLWS_Paper.asmx" />
-    <Content Include="BLLWS_PaperAnalysis.asmx" />
     <Content Include="BLLWS_QuestionAnalysis.asmx" />
     <Content Include="BLLWS_QuestionProblem.asmx" />
     <Content Include="BLLWS_Role.asmx" />
@@ -95,6 +95,14 @@
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\DALWS_Exercise\DALWS_Exercise.wsdl" />
+    <None Include="Web References\DALWS_Exercise\Exercise.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\DALWS_Exercise\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Web References\DALWS_FillBlankProblem\DALWS_FillBlankProblem.wsdl" />
     <None Include="Web References\DALWS_FillBlankProblem\FillBlankProblem.datasource">
       <DependentUpon>Reference.map</DependentUpon>
@@ -116,11 +124,6 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\DALWS_MultiProblem\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\DALWS_PaperAnalysis\DALWS_PaperAnalysis.wsdl" />
-    <None Include="Web References\DALWS_PaperAnalysis\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -224,7 +227,7 @@
     <None Include="Web References\DALWS_User\Users.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\DALWS_PaperAnalysis\DALWS_PaperAnalysis.disco" />
+    <None Include="Web References\DALWS_Exercise\DALWS_Exercise.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +241,10 @@
     </Compile>
     <Compile Include="BLLWS_Exam.asmx.cs">
       <DependentUpon>BLLWS_Exam.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_Exercise.asmx.cs">
+      <DependentUpon>BLLWS_Exercise.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BLLWS_FillBlankProblem.asmx.cs">
@@ -254,10 +261,6 @@
     </Compile>
     <Compile Include="BLLWS_Paper.asmx.cs">
       <DependentUpon>BLLWS_Paper.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BLLWS_PaperAnalysis.asmx.cs">
-      <DependentUpon>BLLWS_PaperAnalysis.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BLLWS_QuestionAnalysis.asmx.cs">
@@ -309,6 +312,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\DALWS_Exercise\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\DALWS_FillBlankProblem\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -320,11 +328,6 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\DALWS_MultiProblem\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\DALWS_PaperAnalysis\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -407,6 +410,17 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Exam_DALWS_Exam</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:4630/DALWS_Exercise.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_Exercise\</RelPath>
+      <UpdateFromURL>http://localhost:4630/DALWS_Exercise.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Exercise_DALWS_Exercise</CachedSettingsPropName>
+    </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:4630/DALWS_FillBlankProblem.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\DALWS_FillBlankProblem\</RelPath>
@@ -450,17 +464,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Paper_DALWS_Paper</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:4630/DALWS_PaperAnalysis.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\DALWS_PaperAnalysis\</RelPath>
-      <UpdateFromURL>http://localhost:4630/DALWS_PaperAnalysis.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_PaperAnalysis_DALWS_PaperAnalysis</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:4630/DALWS_QuestionAnalysis.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -541,12 +544,6 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OnLineExamModel\OnLineExamModel.csproj">
-      <Project>{BD72F5B9-F917-4F82-ABCD-47925BF6660F}</Project>
-      <Name>OnLineExamModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -569,6 +566,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

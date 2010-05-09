@@ -19,7 +19,7 @@ public partial class Web_JudgeManage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Page.Title = "单选题管理";
+        this.Page.Title = "判断题管理";
 
         if (!IsPostBack)
         {
@@ -60,8 +60,11 @@ public partial class Web_JudgeManage : System.Web.UI.Page
         }
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
-            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#D9E480'");
+            if (e.Row.RowIndex % 2 == 0)
+                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#F7F7DE'");
+            else
+                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }
     protected void ddlCourse_SelectedIndexChanged(object sender, EventArgs e)

@@ -18,18 +18,20 @@
         <img src="<%=ResolveClientUrl("~/Images/logo.jpg")%>" style="border: 0px; left: 0px;
             position: relative; top: 0px;" title="" width="100%" alt="" />
     </div>
-    <div style="color: #99CCFF; background: url(../Images/lineS.jpg) repeat-x;">
+    <div style="color: #BAD1A4; background: url(../Images/lineS.jpg) repeat-x;">
         &nbsp;&nbsp;&nbsp;欢迎您：<asp:Label ID="labUser" runat="server" Text="Label" Width="70px"></asp:Label>&nbsp;&nbsp;
         <script type="text/javascript">            getDate();</script>
 
         <span id="ShowTime"></span>&nbsp;&nbsp;&nbsp;
-        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" ForeColor="#99CCFF">退出</asp:LinkButton>
+        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" 
+            ForeColor="#BAD1A4">退出</asp:LinkButton>
     </div>
     <div style="float: left; width: 15%">
         <dl>
                     <% if (RedirectPage() == 0)
                {%>
-            <dt id="imgmenu5" onclick="showsubmenu(5)" style="font-family: 楷体_GB2312;">用户管理</dt>
+            <dt id="imgmenu5" onclick="showsubmenu(5)" 
+                        style="font-family: 楷体_GB2312; color: #BAD1A4;">用户管理</dt>
             <dd id="submenu5">
                 <a href="UserAdd.aspx">
                     <menu>
@@ -48,7 +50,7 @@
                 <br />
             </dd>
             <%} %>
-            <dt id="imgmenu2" onclick="showsubmenu(2)" style="font-family: 楷体_GB2312;">考试管理</dt>
+            <dt id="imgmenu2" onclick="showsubmenu(2)" style="font-family: 楷体_GB2312; color: #BAD1A4;">考试管理</dt>
             <dd id="submenu2">
                 <a href="CourseManage.aspx">
                     <menu>
@@ -61,7 +63,7 @@
                 </a>
                 <br />
             </dd>
-            <dt id="imgmenu1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312;">试卷管理</dt>
+            <dt id="imgmenu1" onclick="showsubmenu(1)" style="font-family: 楷体_GB2312; color: #BAD1A4;">试卷管理</dt>
             <dd id="submenu1">
                  <a href="UploadPaper.aspx">
                     <menu>
@@ -89,7 +91,20 @@
                 </a>
                 <br />
             </dd>
-            <dt id="imgmenu0" onclick="showsubmenu(0)" style="font-family: 楷体_GB2312;">题目管理</dt>
+            <dt id="imgmenu7" onclick="showsubmenu(7)" style="font-family: 楷体_GB2312; color: #BAD1A4;">练习管理</dt>
+            <dd id="submenu7">
+                <a href="ExerciseSetup.aspx">
+                    <menu>
+                        练习制定</menu>
+                </a>
+                <br />
+                <a href="ExerciseLists.aspx">
+                    <menu>
+                        练习维护</menu>
+                </a>
+                <br />
+            </dd>
+            <dt id="imgmenu0" onclick="showsubmenu(0)" style="font-family: 楷体_GB2312; color: #BAD1A4;">题目管理</dt>
             <dd id="submenu0">
                 <a href="SingleSelectManage.aspx">
                     <menu>
@@ -117,7 +132,7 @@
                 </a>
                 <br />
             </dd>
-            <dt id="imgmenu4" onclick="showsubmenu(4)" style="font-family: 楷体_GB2312;">统计分析</dt>
+            <dt id="imgmenu4" onclick="showsubmenu(4)" style="font-family: 楷体_GB2312; color: #BAD1A4;">统计分析</dt>
             <dd id="submenu4">
                 <a href="UserAnalysis.aspx">
                     <menu>
@@ -137,7 +152,7 @@
             </dd>
             <% if (RedirectPage() == 0)
                {%>
-            <dt id="imgmenu6" onclick="showsubmenu(6)" style="font-family: 楷体_GB2312;">数据库管理</dt>
+            <dt id="imgmenu6" onclick="showsubmenu(6)" style="font-family: 楷体_GB2312; color: #BAD1A4;">数据库管理</dt>
             <dd id="submenu6">
                 <a href="DbBackup.aspx">
                     <menu>

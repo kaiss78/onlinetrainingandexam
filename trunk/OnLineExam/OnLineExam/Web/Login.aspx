@@ -8,7 +8,7 @@
         <style type="text/css">
         div.RoundedCorner{background: #BAD4F7; width:350px;}
         b.rtop, b.rbottom{display:block;background: #FFF}
-        b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #99FF33}
+        b.rtop b, b.rbottom b{display:block;height: 1px;overflow: hidden; background: #CCFF99}
         b.r1{margin: 0 5px}
         b.r2{margin: 0 3px}
         b.r3{margin: 0 2px}
@@ -29,7 +29,7 @@
     <div align="center"><br /><br /><br /><br /><br /><br /><br /><div class="RoundedCorner">
     <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
                 <table class="content" style="FONT-SIZE: 12px; FONT-FAMILY: Tahoma; BORDER-COLLAPSE: collapse; " cellspacing="0" cellpadding="1" width=350 align="center"
-				 border="1" bgColor="#ffffff" bordercolor="#99FF33">
+				 border="1" bgColor="#ffffff" bordercolor="#CCFF99">
 				<tr height=40>
 					<td colspan="3" align="center">	<br />					
 						<font color=#4D2600><h4 style="font-family: 楷体_GB2312; font-size: 16px;">在线练习考试系统登陆</h4></font>

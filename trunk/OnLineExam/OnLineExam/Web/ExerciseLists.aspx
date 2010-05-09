@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="PaperLists.aspx.cs" Inherits="Web_PaperLists" Title="Untitled Page" %>
+    CodeFile="ExerciseLists.aspx.cs" Inherits="Web_PaperLists" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
@@ -13,28 +13,28 @@
                     <ContentTemplate>
                         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging"
                             PageSize="12" OnRowDataBound="GridView1_RowDataBound" Width="100%" AutoGenerateColumns="False"
-                            DataKeyNames="PaperID" CellPadding="4" Font-Size="13px" OnRowDeleting="GridView1_RowDeleting"
+                            DataKeyNames="ExerciseID" CellPadding="4" Font-Size="13px" OnRowDeleting="GridView1_RowDeleting"
                             ForeColor="Black" GridLines="Vertical" RowStyle-HorizontalAlign="Center" 
                             BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
                             <Columns>
                                 <asp:TemplateField HeaderText="编号" Visible="False">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label1" runat="server"><%# Eval("PaperID") %></asp:Label>
+                                        <asp:Label ID="Label1" runat="server"><%# Eval("ExerciseID")%></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="考试科目">
+                                <asp:TemplateField HeaderText="练习科目">
                                     <ItemTemplate>
                                         <asp:Label ID="Label2" runat="server"><%# Eval("Name") %></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle Wrap="False" />
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="试卷名称">
+                                <asp:TemplateField HeaderText="练习名称">
                                     <ItemTemplate>
-                                        <asp:Label ID="Label3" runat="server"><%# Eval("PaperName") %></asp:Label>
+                                        <asp:Label ID="Label3" runat="server"><%# Eval("ExerciseName")%></asp:Label>
                                     </ItemTemplate>
                                     <HeaderStyle Wrap="False" />
                                 </asp:TemplateField>
-                                <asp:HyperLinkField DataNavigateUrlFields="PaperID" DataNavigateUrlFormatString="PaperDetail.aspx?PaperID={0}"
+                                <asp:HyperLinkField DataNavigateUrlFields="ExerciseID" DataNavigateUrlFormatString="ExerciseDetail.aspx?ExerciseID={0}"
                                     HeaderText="详细..." Text="详细...">
                                     <HeaderStyle Wrap="False" />
                                 </asp:HyperLinkField>

@@ -16,7 +16,7 @@
                 </tr>
                 <tr>
                     <td style="text-align: right;">
-                        编号：
+                        帐号：
                     </td>
                     <td>
                         &nbsp;<div align="left">

@@ -1,4 +1,4 @@
-Ôªø<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="UserManage.aspx.cs" Inherits="Web_UserManage" Title="Untitled Page" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -8,12 +8,12 @@
                 <tbody>
                     <tr>
                         <td style="height: 25px" valign="top" align="left" width="960">
-                            <h4 style="font-family: Ê•∑‰Ωì_GB2312">
+                            <h4 style="font-family: ø¨ÃÂ_GB2312">
                                 &nbsp;</h4>
                             <hr />
-                            ‚ÄªÁî®Êà∑IDÔºö
+                            °˘”√ªßID£∫
                             <asp:TextBox ID="tbxUserID" runat="server" Width="66px"></asp:TextBox>
-                            ‚ÄªÂßìÂêçÔºö
+                            °˘–’√˚£∫
                             <asp:TextBox ID="tbxUserName" runat="server" Width="66px"></asp:TextBox>
                             <asp:ImageButton ID="ImageButtonQuery" OnClick="ImageButtonQuery_Click" runat="server"
                                 ImageUrl="../Images/BtnQuery.gif"></asp:ImageButton>
@@ -21,40 +21,41 @@
                                 ImageUrl="../Images/BtnBack.gif"></asp:ImageButton>
                             <br />
                             <asp:GridView ID="GridView1" runat="server" Width="100%" Font-Size="13px" CellPadding="4"
-                                PageSize="8" AllowPaging="True" AutoGenerateColumns="False" ForeColor="#333333"
-                                GridLines="None" OnRowDataBound="GridView1_RowDataBound" RowStyle-HorizontalAlign="Center">
-                                <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True"></FooterStyle>
+                                PageSize="8" AllowPaging="True" AutoGenerateColumns="False" ForeColor="Black"
+                                GridLines="Vertical" OnRowDataBound="GridView1_RowDataBound" 
+                                RowStyle-HorizontalAlign="Center" BackColor="White" BorderColor="#DEDFDE" 
+                                BorderStyle="None" BorderWidth="1px">
+                                <FooterStyle BackColor="#CCCC99"></FooterStyle>
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:CheckBox ID="chkSelected" runat="server" Checked="False" Visible="True" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Áî®Êà∑ID">
+                                    <asp:TemplateField HeaderText="”√ªßID">
                                         <ItemTemplate>
                                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("UserID") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <%--<asp:TemplateField HeaderText="Áî®Êà∑ÂßìÂêç"><ItemTemplate>                                
+                                    <%--<asp:TemplateField HeaderText="”√ªß–’√˚"><ItemTemplate>                                
        <asp:TextBox runat="server" ID="UserName" Text = '<%# Eval("UserName") %>'></asp:TextBox>                     
 </ItemTemplate>
 </asp:TemplateField>
-<asp:TemplateField HeaderText="ËßíËâ≤Âêç"><ItemTemplate>                                
+<asp:TemplateField HeaderText="Ω«…´√˚"><ItemTemplate>                                
           <asp:TextBox runat="server" ID="RoleName" Text = '<%# Eval("RoleName") %>'></asp:TextBox>
 </ItemTemplate>
 </asp:TemplateField>--%>
-                                    <asp:BoundField DataField="UserName" SortExpression="UserName" HeaderText="ÂßìÂêç"></asp:BoundField>
-                                    <asp:BoundField DataField="RoleName" SortExpression="RoleName" HeaderText="ËßíËâ≤Âêç">
+                                    <asp:BoundField DataField="UserName" SortExpression="UserName" HeaderText="–’√˚"></asp:BoundField>
+                                    <asp:BoundField DataField="RoleName" SortExpression="RoleName" HeaderText="Ω«…´√˚">
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="Phone" SortExpression="Phone" HeaderText="ÁîµËØùÂè∑Á†Å" />
-                                    <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="ÈÇÆÁÆ±" />
+                                    <asp:BoundField DataField="Phone" SortExpression="Phone" HeaderText="µÁª∞∫≈¬Î" />
+                                    <asp:BoundField DataField="Email" SortExpression="Email" HeaderText="” œ‰" />
                                 </Columns>
-                                <RowStyle ForeColor="#333333" BackColor="#F7F6F3"></RowStyle>
-                                <SelectedRowStyle BackColor="#E2DED6" ForeColor="#333333" Font-Bold="True"></SelectedRowStyle>
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center"></PagerStyle>
-                                <HeaderStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True"></HeaderStyle>
-                                <EditRowStyle BackColor="#999999" />
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                <RowStyle ForeColor="#333333" BackColor="#F7F7DE"></RowStyle>
+                                <SelectedRowStyle BackColor="#CE5D5A" ForeColor="White" Font-Bold="True"></SelectedRowStyle>
+                                <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right"></PagerStyle>
+                                <HeaderStyle BackColor="#90BBC5" ForeColor="White" Font-Bold="True"></HeaderStyle>
+                                <AlternatingRowStyle BackColor="White" />
                             </asp:GridView>
                             <asp:Label ID="LabelPageInfo" runat="server"></asp:Label>&nbsp;<br />
                             &nbsp;
@@ -64,7 +65,7 @@
             </table>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:HyperLink ID="HyperLinkAdd" runat="server" ImageUrl="../Images/BtnAdd.gif" NavigateUrl="UserAdd.aspx">Ê∑ªÂä†</asp:HyperLink>
+    <asp:HyperLink ID="HyperLinkAdd" runat="server" ImageUrl="../Images/BtnAdd.gif" NavigateUrl="UserAdd.aspx">ÃÌº”</asp:HyperLink>
     <asp:ImageButton ID="ImageButtonResetPassword" runat="server" ImageUrl="../Images/BtnResetPassword.gif"
         OnClick="ImageButtonResetPassword_Click"></asp:ImageButton>&nbsp;<asp:ImageButton
             ID="ImageButtonDelete" runat="server" ImageUrl="../Images/BtnDelete.gif" OnClick="ImageButtonDelete_Click">
