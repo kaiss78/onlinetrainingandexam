@@ -5,15 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Untitled Page</title>
-    <style type="text/css">
-    body
-    {
-        topmargin="0";
-        bottommargin="0"; 
-        leftmargin="0"; 
-        rightmargin="0";
-    }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">

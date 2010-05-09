@@ -61,6 +61,19 @@
                       </div>
                     </td>
 				</TR>
+				<TR>
+					<TD align="center" height="30">验证码：</TD>
+					<TD height="30"><div align="left">
+						<asp:TextBox ID="Validator" runat="server" Width="150px" ></asp:TextBox>                        
+                        </div>
+                     </TD>
+                     <td>
+                       <div align="left">
+                          <asp:ImageButton ID="ChangeCode" runat="server" Width="55px" ToolTip="看不清楚？点击图片换一个验证码"  ImageUrl="ValidateImage.aspx"  CausesValidation="false" OnClick="ChangeCode_Click" />
+                         
+                       </div>
+                     </td>
+				</TR>
 				<tr height=50>
 					<td align=center colspan="3">
                         <asp:Label ID="lblMessage" runat="server" ForeColor=red></asp:Label><br />

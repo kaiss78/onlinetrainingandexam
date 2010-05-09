@@ -43,6 +43,7 @@ public partial class ValidateImage : System.Web.UI.Page
             temp = t;
             randomNum += allCharArray[t];
         }
+        Response.Cookies.Add(new HttpCookie("yzmcode", randomNum));
         return randomNum;
     }
     private void CreateImage(string validateNum)

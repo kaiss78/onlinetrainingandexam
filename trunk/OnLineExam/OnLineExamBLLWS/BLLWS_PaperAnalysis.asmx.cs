@@ -8,7 +8,6 @@ using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.Xml.Linq;
 using OnLineExamBLLWS.DALWS_PaperAnalysis;
-using OnLineExamModel;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 
