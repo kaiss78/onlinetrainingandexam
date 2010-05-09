@@ -8,18 +8,20 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using System.IO;
+using System.Data.OleDb;
 using localhost;
 
 public partial class Web_PaperAnalysis : System.Web.UI.Page
 {
-
     BLLWS_User userService = new BLLWS_User();
-    BLLWS_Paper paperService = new BLLWS_Paper();
+    BLLWS_StudentAnalysis service = new BLLWS_StudentAnalysis();
+    BLLWS_PaperAnalysis pa = new BLLWS_PaperAnalysis();
 
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "试卷统计分析";
-      if (!Page.IsPostBack)
+        if (!Page.IsPostBack)
         {
             if (Session["userID"] == null)
             {
@@ -32,108 +34,89 @@ public partial class Web_PaperAnalysis : System.Web.UI.Page
                 Label i = (Label)Page.Master.FindControl("labUser");
                 i.Text = userName;
 
-                InitData();
+                initdata();
             }
         }
-
     }
 
-    protected void InitData()
-    {
-        DataSet ds = paperService.QueryAllPaper();
-      //  DataTable[] table = new DataTable[1];
-      //  table[0].Columns.Add("平均成绩");
-      //  DataRow row = table[0].NewRow();
-      //  row[0] = "ss";
-      //  table[0].Rows.Add(row);
-      //  ds.Tables.AddRange(table);
-        if (ds.Tables[0].Rows.Count > 0)
+
+
+
+    public void initdata()
+    { 
+        DataSet da = pa.GetPaperName();
+        string[,] pn = new string[100,2];
+        int i = 0;
+        while (i < da.Tables[0].Rows.Count)
         {
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            pn[i,0] = da.Tables[0].Rows[i][0].ToString();
+            pn[i,1] = da.Tables[0].Rows[i][1].ToString();
+            i++;
         }
-        else
+        i=0;
+         while (pn[i,0]!=null)
         {
-            lblMessage.Text = "没有试卷!";
+            if (!DropDownList1.Items.Contains(new ListItem(pn[i, 1], pn[i, 0])))
+                DropDownList1.Items.Add(new ListItem(pn[i, 1], pn[i, 0]));
+            i++;
         }
-    }
-    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-    {
-        GridView1.PageIndex = e.NewPageIndex;
-        InitData();
+         updatescore();
 
     }
-    //protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-    //{
-    //    GridView1.EditIndex = -1;
-    //    InitData();
-    //}
-    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        string javasc = @"window.onload=function(){alert('删除成功')}";
-        int ID = int.Parse(GridView1.DataKeys[e.RowIndex].Values[0].ToString()); //取出要删除记录的主键值
-        if (paperService.DeletePaper(ID) || paperService.DeletePaperDetail(ID))
-        {
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
-        }
-        Response.Redirect("PaperLists.aspx");
-    }
-    //protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-    //{
-    //    GridView1.EditIndex = e.NewEditIndex;  //GridView编辑项索引等于单击行的索引
-    //    InitData();
-    //}
-    //protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-    //{
-    //    string javasc = @"window.onload=function(){alert('更新修改成功')}";
-    //    int ID = int.Parse(GridView1.DataKeys[e.RowIndex].Values[0].ToString()); //取出要修改记录的主键值
-    //    byte ddlpaper = byte.Parse(((DropDownList)GridView1.Rows[e.RowIndex].FindControl("ddlPaperState")).SelectedValue);
-    //    if (ddlpaper == 0)
-    //    {
-    //        if (paperService.UpdatePate(ID))
-    //        {
-    //            Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
-    //            Response.Redirect("PaperLists.aspx");
-    //        }
-    //    }
-    //    if (ddlpaper == 1)
-    //    {
-    //        if (paperService.UpdatePate1(ID))
-    //        {
-    //            Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
-    //            Response.Redirect("PaperLists.aspx");
-    //        }
-    //    }
 
-    //}
+
+    public void updatescore()
+    {
+        Label1.Text = "0";
+        string PaperID = DropDownList1.SelectedValue;
+        string[] s = pa.GetPaperDetail(PaperID);
+        DataTable table = new DataTable();
+        table.Columns.Add("试卷编号");
+        table.Columns.Add("课程名称");
+        table.Columns.Add("试卷名称");
+        table.Columns.Add("学生姓名");
+        table.Columns.Add("学生成绩");
+        table.Columns.Add("考试时间");
+        table.Columns.Add("评卷时间");
+        int scores = 0;
+        int i = 0;
+        int j = 0;
+       while(s[i]!=null)
+        {
+            DataRow row = table.NewRow();
+            row[0] = s[i++];
+            row[1] = s[i++];
+            row[2] = s[i++];
+            row[3] = s[i++];
+            scores += Convert.ToInt32(s[i]);
+            row[4] = s[i++];
+            row[5] = s[i++];
+            row[6] = s[i++];
+            table.Rows.Add(row);
+            j++;
+        }
+       if (j != 0)
+       {
+           scores = scores / j;
+           Label1.Text = scores.ToString();
+       }
+        GridView1.DataSource = table;
+        GridView1.DataBind();
+    }
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+       updatescore();
+
+    }
+
+
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
-            {
-                ((LinkButton)e.Row.Cells[4].Controls[0]).Attributes.Add("onclick", "javascript:return confirm('你确认要删除吗?')");
-            }
-
-        }
-        int i;
-        //执行循环，保证每条数据都可以更新
-        for (i = 0; i < GridView1.Rows.Count; i++)
-        {
-            //首先判断是否是数据行
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                //当鼠标停留时更改背景色
-                e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='Aqua'");
-                //当鼠标移开时还原背景色
-                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=c");
-            }
-        }
-
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
             e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }
+
 }

@@ -56,26 +56,6 @@ namespace OnLineExamBLLWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_Paper.asmx")]
-        public string OnLineExamBLLWS_DALWS_Paper_DALWS_Paper {
-            get {
-                return ((string)(this["OnLineExamBLLWS_DALWS_Paper_DALWS_Paper"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_MultiProblem.asmx")]
-        public string OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem {
-            get {
-                return ((string)(this["OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_Exam.asmx")]
         public string OnLineExamBLLWS_DALWS_Exam_DALWS_Exam {
             get {
@@ -86,10 +66,10 @@ namespace OnLineExamBLLWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_QuestionProblem.asmx")]
-        public string OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_User.asmx")]
+        public string OnLineExamBLLWS_DALWS_User_DALWS_User {
             get {
-                return ((string)(this["OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem"]));
+                return ((string)(this["OnLineExamBLLWS_DALWS_User_DALWS_User"]));
             }
         }
         
@@ -100,16 +80,6 @@ namespace OnLineExamBLLWS.Properties {
         public string OnLineExamBLLWS_DALWS_StudentAnalysis_WebService1 {
             get {
                 return ((string)(this["OnLineExamBLLWS_DALWS_StudentAnalysis_WebService1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_JudgeProblem.asmx")]
-        public string OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem {
-            get {
-                return ((string)(this["OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem"]));
             }
         }
         
@@ -136,6 +106,46 @@ namespace OnLineExamBLLWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_QuestionProblem.asmx")]
+        public string OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_QuestionProblem_DALWS_QuestionProblem"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_Paper.asmx")]
+        public string OnLineExamBLLWS_DALWS_Paper_DALWS_Paper {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_Paper_DALWS_Paper"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_MultiProblem.asmx")]
+        public string OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_MultiProblem_DALWS_MultiProblem"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_JudgeProblem.asmx")]
+        public string OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem {
+            get {
+                return ((string)(this["OnLineExamBLLWS_DALWS_JudgeProblem_DALWS_JudgeProblem"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_FillBlankProblem.asmx")]
         public string OnLineExamBLLWS_DALWS_FillBlankProblem_DALWS_FillBlankProblem {
             get {
@@ -156,10 +166,10 @@ namespace OnLineExamBLLWS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_User.asmx")]
-        public string OnLineExamBLLWS_DALWS_User_DALWS_User {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:4630/DALWS_PaperAnalysis.asmx")]
+        public string OnLineExamBLLWS_DALWS_PaperAnalysis_DALWS_PaperAnalysis {
             get {
-                return ((string)(this["OnLineExamBLLWS_DALWS_User_DALWS_User"]));
+                return ((string)(this["OnLineExamBLLWS_DALWS_PaperAnalysis_DALWS_PaperAnalysis"]));
             }
         }
     }

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BD72F5B9-F917-4F82-ABCD-47925BF6660F}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +45,7 @@
     <Compile Include="JudgeProblem.cs" />
     <Compile Include="MultiProblem.cs" />
     <Compile Include="Paper.cs" />
+    <Compile Include="PaperAnalysis.cs" />
     <Compile Include="QuestionProblem.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Scores.cs" />
