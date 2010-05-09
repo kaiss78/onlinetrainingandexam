@@ -13,11 +13,11 @@ using localhost;
 public partial class Web_PaperLists : System.Web.UI.Page
 {
     BLLWS_User userService = new BLLWS_User();
-    BLLWS_Paper paperService = new BLLWS_Paper();
+    BLLWS_Exercise ExerciseService = new BLLWS_Exercise();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.Page.Title = "试卷管理";
+        this.Page.Title = "练习管理";
         if (!Page.IsPostBack)
         {
             if (Session["userID"] == null)
@@ -39,7 +39,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
 
     protected void InitData()
     {
-        DataSet ds = paperService.QueryAllPaper();
+        DataSet ds = ExerciseService.QueryAllExercise();
         if (ds.Tables[0].Rows.Count > 0)
         {
             GridView1.DataSource = ds;
@@ -47,7 +47,7 @@ public partial class Web_PaperLists : System.Web.UI.Page
         }
         else
         {
-            lblMessage.Text = "没有试卷!";
+            lblMessage.Text = "没有练习!";
         }
     }
     protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -60,11 +60,11 @@ public partial class Web_PaperLists : System.Web.UI.Page
     {
         string javasc = @"window.onload=function(){alert('删除成功')}";
         int ID = int.Parse(GridView1.DataKeys[e.RowIndex].Values[0].ToString()); //取出要删除记录的主键值
-        if (paperService.DeletePaper(ID) || paperService.DeletePaperDetail(ID))
+        if (ExerciseService.DeleteExercise(ID) || ExerciseService.DeleteExerciseDetail(ID))
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "ddd", javasc, true);
         }
-        Response.Redirect("PaperLists.aspx");
+        Response.Redirect("ExerciseLists.aspx");
     }
     //protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
     //{

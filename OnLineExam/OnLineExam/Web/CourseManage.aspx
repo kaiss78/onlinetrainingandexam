@@ -14,10 +14,12 @@
                 <hr />
                 
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None" 
-                    onrowdatabound="GridView1_RowDataBound1" onrowdeleting="GridView1_RowDeleting1" 
-                    Width="547px" onrowediting="GridView1_RowEditing" RowStyle-HorizontalAlign="Center">
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    CellPadding="4" ForeColor="Black" GridLines="Vertical" 
+                    OnRowDataBound="GridView1_RowDataBound1" onrowdeleting="GridView1_RowDeleting1" 
+                    Width="100%" onrowediting="GridView1_RowEditing" 
+                    RowStyle-HorizontalAlign="Center" BackColor="White" BorderColor="#DEDFDE" 
+                    BorderStyle="None" BorderWidth="1px">
+                    <RowStyle BackColor="#F7F7DE" />
                     <Columns>
                         <asp:BoundField DataField="DepartmentId" HeaderText="编号" Visible="False" />
                         <asp:TemplateField HeaderText="序号">
@@ -32,12 +34,11 @@
                         <asp:CommandField HeaderText="管理" ShowEditButton="True" EditText="管理" />
                         <asp:CommandField HeaderText="删除" ShowDeleteButton="True" />
                     </Columns>
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <EditRowStyle BackColor="#999999" />
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <FooterStyle BackColor="#CCCC99" />
+                    <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                    <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
                 <br />
                 <a href="CourseAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: 楷体_GB2312">

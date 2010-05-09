@@ -14,10 +14,11 @@
                 <hr />
                 
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None" 
+                    CellPadding="4" ForeColor="Black" GridLines="Vertical" 
                     onrowdatabound="GridView1_RowDataBound1" onrowdeleting="GridView1_RowDeleting1" 
-                    Width="547px" RowStyle-HorizontalAlign="Center">
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    Width="100%" RowStyle-HorizontalAlign="Center" BackColor="White" 
+                    BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
+                    <RowStyle BackColor="#F7F7DE" />
                     <Columns>
                         <asp:BoundField DataField="ExamId" HeaderText="±àºÅ" Visible="False" />
                         <asp:TemplateField HeaderText="ÐòºÅ">
@@ -34,12 +35,11 @@
                         <asp:BoundField DataField="EndTime" HeaderText="½áÊøÊ±¼ä" />
                         <asp:CommandField HeaderText="É¾³ý" ShowDeleteButton="True" />
                     </Columns>
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <EditRowStyle BackColor="#999999" />
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <FooterStyle BackColor="#CCCC99" />
+                    <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                    <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
                 <br />
                 <a href="ExamAdd.aspx" style="font-size: medium;"><font color="red" style="font-family: ¿¬Ìå_GB2312">

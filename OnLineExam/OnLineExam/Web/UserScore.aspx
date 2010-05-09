@@ -20,8 +20,10 @@
                         <asp:Label ID="Label12" runat="server" ForeColor="Red"></asp:Label>
                         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="12" AutoGenerateColumns="False"
                             DataKeyNames="ID" CellPadding="4" Font-Size="13px" Width="100%" OnRowDeleting="GridView1_RowDeleting"
-                            ForeColor="#333333" GridLines="None" OnRowDataBound="GridView1_RowDataBound">
-                            <RowStyle ForeColor="#333333" BackColor="#F7F6F3" />
+                            ForeColor="Black" GridLines="Vertical" 
+                            OnRowDataBound="GridView1_RowDataBound" BackColor="White" BorderColor="#DEDFDE" 
+                            BorderStyle="None" BorderWidth="1px">
+                            <RowStyle BackColor="#F7F7DE" />
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
@@ -65,12 +67,11 @@
                                     <HeaderStyle Wrap="False"></HeaderStyle>
                                 </asp:CommandField>
                             </Columns>
-                            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                            <EditRowStyle BackColor="#999999" />
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <FooterStyle BackColor="#CCCC99" />
+                            <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                            <AlternatingRowStyle BackColor="White" />
                         </asp:GridView>
                         <br />
                         <asp:RadioButton ID="RadioButton1" runat="server" AutoPostBack="true" GroupName="radio"

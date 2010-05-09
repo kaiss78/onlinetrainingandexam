@@ -68,8 +68,11 @@ public partial class Web_FillBlankManage : System.Web.UI.Page
         }
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#CCFF66'");
-            e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
+            e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#D9E480'");
+            if (e.Row.RowIndex % 2 == 0)
+                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#F7F7DE'");
+            else
+                e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor='#FFFFFF'");
         }
     }
 }
