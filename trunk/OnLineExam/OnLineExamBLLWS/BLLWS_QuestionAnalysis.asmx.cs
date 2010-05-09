@@ -37,6 +37,29 @@ namespace OnLineExamBLLWS
            up.insert(sql);
         }
 
+
+        [WebMethod]
+        public DataSet getdetails(string type)
+        {
+           DataSet ds= up.select("select id,userid,paperid,mark,useranswer,examtime,usermark from useranswer where (type='" + type.Trim() + "')");
+           return ds;
+        }
+
+        [WebMethod]
+        public DataSet getusername(string userid)
+        {
+            DataSet ds = up.select("select username from users where (userid='"+userid +"')");
+            return ds;
+        }
+
+        [WebMethod]
+        public DataSet getpapername(string paperid)
+        {
+            DataSet ds = up.select("select papername from paper where (paperid='" + paperid + "')");
+            return ds;
+        }
+
+
         [WebMethod]
         public string[] GetList(string lb)
         {

@@ -6,6 +6,12 @@ using System.Web.Services;
 using System.Data.SqlClient;
 using OnLineExamModel;
 using System.ComponentModel;
+using System.Collections;
+using System.Data;
+using System.Web.Services.Protocols;
+using System.Xml.Linq;
+using System.Data.OleDb;
+using System.Data.Sql;
 
 namespace OnLineExamDALWS
 {
@@ -19,6 +25,45 @@ namespace OnLineExamDALWS
     // [System.Web.Script.Services.ScriptService]
     public class DALWS_QuestionAnalysis : System.Web.Services.WebService
     {
+        [WebMethod]
+        public void insert(string sql)
+        {
+            try
+            {
+                string[] str = new string[2];
+                string sel = "Data Source=.\\SqlExpress;Initial Catalog=OnLineExam;User ID=sa;Password=";
+                SqlConnection conn = new SqlConnection(sel);
+                conn.Open();
+                SqlCommand sqlc = new SqlCommand(sql, conn);
+                sqlc.ExecuteNonQuery();
+                sqlc.Dispose();
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+            }
+        }
+        [WebMethod]
+        public DataSet select(string sql)
+        {
+            try
+            {
+                string sel = "Data Source=.\\SqlExpress;Initial Catalog=OnLineExam;User ID=sa;Password=";
+                SqlConnection conn = new SqlConnection(sel);
+                conn.Open();
+                SqlCommand sqlc = new SqlCommand(sql, conn);
+                SqlDataAdapter ada = new SqlDataAdapter(sqlc);
+                DataSet data1 = new DataSet();
+                ada.Fill(data1, "t1");
+                conn.Close();
+                return data1;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
 
         [WebMethod]
         public List<FillBlankProblem> GeFillBlankProblemList()
