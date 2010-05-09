@@ -38,6 +38,12 @@ public partial class _Default : System.Web.UI.Page
         u.UserID = usersId;
         u.UserPwd = pwdMd5;
 
+        if (String.Compare(Request.Cookies["yzmcode"].Value, Validator.Text, true) != 0)
+        {
+            lblMessage.Text = "验证码错误！";
+            return;
+        }
+
         bool success = userService.Login(ref u);
         if (success)
         {
@@ -67,6 +73,11 @@ public partial class _Default : System.Web.UI.Page
         {
             lblMessage.Text = "用户不存在或密码错误！";
         }
+    }
+
+    protected void ChangeCode_Click(object sender, EventArgs e)
+    {
+
     }
     
     private void CreateCookie()

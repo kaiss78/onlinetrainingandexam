@@ -61,6 +61,7 @@
     <Content Include="BLLWS_JudgeProblem.asmx" />
     <Content Include="BLLWS_MultiProblem.asmx" />
     <Content Include="BLLWS_Paper.asmx" />
+    <Content Include="BLLWS_PaperAnalysis.asmx" />
     <Content Include="BLLWS_QuestionAnalysis.asmx" />
     <Content Include="BLLWS_QuestionProblem.asmx" />
     <Content Include="BLLWS_Role.asmx" />
@@ -124,6 +125,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\DALWS_MultiProblem\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\DALWS_PaperAnalysis\DALWS_PaperAnalysis.wsdl" />
+    <None Include="Web References\DALWS_PaperAnalysis\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -228,6 +234,7 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\DALWS_Exercise\DALWS_Exercise.disco" />
+    <None Include="Web References\DALWS_PaperAnalysis\DALWS_PaperAnalysis.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +268,10 @@
     </Compile>
     <Compile Include="BLLWS_Paper.asmx.cs">
       <DependentUpon>BLLWS_Paper.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BLLWS_PaperAnalysis.asmx.cs">
+      <DependentUpon>BLLWS_PaperAnalysis.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="BLLWS_QuestionAnalysis.asmx.cs">
@@ -328,6 +339,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\DALWS_MultiProblem\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\DALWS_PaperAnalysis\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -464,6 +480,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>OnLineExamBLLWS_DALWS_Paper_DALWS_Paper</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:4630/DALWS_PaperAnalysis.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\DALWS_PaperAnalysis\</RelPath>
+      <UpdateFromURL>http://localhost:4630/DALWS_PaperAnalysis.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>OnLineExamBLLWS_DALWS_PaperAnalysis_DALWS_PaperAnalysis</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://localhost:4630/DALWS_QuestionAnalysis.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
