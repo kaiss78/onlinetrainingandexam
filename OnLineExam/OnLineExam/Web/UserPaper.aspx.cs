@@ -20,6 +20,7 @@ public partial class Web_UserPaper : System.Web.UI.Page
     BLLWS_JudgeProblem judgeProblemService = new BLLWS_JudgeProblem();
     BLLWS_FillBlankProblem fillBlankProblemService = new BLLWS_FillBlankProblem();
     BLLWS_QuestionProblem questionProblemService = new BLLWS_QuestionProblem();
+    BLWS_QuestionAnalysis qa = new BLWS_QuestionAnalysis();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -114,11 +115,16 @@ public partial class Web_UserPaper : System.Web.UI.Page
     protected void Button1_Click(object sender, EventArgs e)
     {
         TextBox text = new TextBox();
+         TextBox text1 = new TextBox();
         int grade = 0;
         for (int k = 0; k < GridView5.Rows.Count; k++)
         {
+          
             text = GridView5.Rows[k].FindControl("tbxqueScore") as TextBox;
+              text1 = GridView5.Rows[k].FindControl("TextBox3") as TextBox;
             grade += Convert.ToInt32(text.Text);
+            DataSet da = qa.select("select id from questionproblem where (answer='"+text1.Text+"')");
+            qa.insert("update useranswer set usermark='" + text.Text + "' where (titleid='" + da.Tables[0].Rows[0][0].ToString() + "') and (type='问答题')");
         }
         sumScore.Text = (Convert.ToInt32(Session["SingMark"]) + Convert.ToInt32(Session["MulMark"]) + Convert.ToInt32(Session["JudgeMark"]) + Convert.ToInt32(Session["FillMark"]) + grade).ToString();
     }
@@ -161,9 +167,12 @@ public partial class Web_UserPaper : System.Web.UI.Page
             MulNum++;
             if (userAns == obj.Answer)
             {
+                qa.insert("update useranswer set usermark='" + obj.Mark + "' where id='" + obj.ID + "'");
                 Mulcount = Mulcount + Marks;
                 Mulright++;
             }
+            else
+                qa.insert("update useranswer set usermark='0' where id='" + obj.ID + "'");
             Mulerror = MulNum - Mulright;
             Session["MulMark"] = Mulcount;
             Session["Mulrights"] = Mulright;
@@ -198,9 +207,12 @@ public partial class Web_UserPaper : System.Web.UI.Page
             }
             if (userAns == Ans)
             {
+                qa.insert("update useranswer set usermark='" + judge.Mark + "' where id='" + judge.ID + "'");
                 Judcount = Judcount + Marks;
                 Judright++;
             }
+            else
+                qa.insert("update useranswer set usermark='0' where id='" + judge.ID + "'");
             JudNum++;
             Juderror = JudNum - Judright;
             Session["Judrights"] = Judright;
@@ -224,9 +236,12 @@ public partial class Web_UserPaper : System.Web.UI.Page
             int Marks = Fill.Mark;
             if (Fill.UserAnswer == Fill.Answer)
             {
+                qa.insert("update useranswer set usermark='" + Fill.Mark + "' where id='" + Fill.ID + "'");
                 Fillcount = Fillcount + Marks;
                 Fillright++;
             }
+            else
+                qa.insert("update useranswer set usermark='0' where id='" + Fill.ID + "'");
             FillNum++;
 
             Fillerror = FillNum - Fillright;
@@ -310,7 +325,7 @@ public partial class Web_UserPaper : System.Web.UI.Page
             list.Add(CheckBoxD);
 
             int Marks = spm.Mark;
-
+            
             string userAns = spm.UserAnswer;
 
             foreach (Char var in userAns)
@@ -328,9 +343,12 @@ public partial class Web_UserPaper : System.Web.UI.Page
             SingNum++;
             if (userAns == spm.Answer)
             {
+                qa.insert("update useranswer set usermark='"+spm.Mark +"' where id='" + spm.ID + "'");
                 Singcount = Singcount + Marks;
                 Singright++;
             }
+            else
+                qa.insert("update useranswer set usermark=0 where id='" + spm.ID + "'");
             Singerror = SingNum - Singright;
             Session["SingMark"] = Singcount;
             Session["Singrights"] = Singright;

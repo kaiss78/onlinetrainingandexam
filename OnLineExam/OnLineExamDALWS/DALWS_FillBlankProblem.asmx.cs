@@ -115,7 +115,7 @@ values(@CourseID,@FrontTitle,@BackTitle,@Answer)";
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = @"SELECT     dbo.UserAnswer.Mark, dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.FillBlankProblem.FrontTitle, dbo.FillBlankProblem.BackTitle, 
+                string sql = @"SELECT     dbo.UserAnswer.id,dbo.UserAnswer.Mark, dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.FillBlankProblem.FrontTitle, dbo.FillBlankProblem.BackTitle, 
                       dbo.FillBlankProblem.Answer, dbo.Paper.PaperName
 FROM         dbo.UserAnswer INNER JOIN
                       dbo.FillBlankProblem ON dbo.UserAnswer.TitleID = dbo.FillBlankProblem.ID INNER JOIN
@@ -129,6 +129,8 @@ dbo.UserAnswer.UserID='" + UserId + "' and dbo.UserAnswer.PaperID='" + PaperId +
                 while (dr.Read())
                 {
                     FillBlankProblem Fill = new FillBlankProblem();
+
+                    Fill.ID = Convert.ToInt32(dr["id"]);
                     Fill.Mark = Convert.ToInt32(dr["Mark"]);
                     Fill.UserAnswer = dr["UserAnswer"].ToString();
                     Fill.ExamTime = Convert.ToDateTime(dr["ExamTime"]);
