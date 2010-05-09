@@ -22,6 +22,21 @@ namespace OnLineExamBLLWS
     public class BLWS_QuestionAnalysis : System.Web.Services.WebService
     {
         DALWS_QuestionAnalysis.DALWS_QuestionAnalysis service = new DALWS_QuestionAnalysis.DALWS_QuestionAnalysis();
+        DALWS_UploadPaper.UploadPaper up = new OnLineExamBLLWS.DALWS_UploadPaper.UploadPaper();
+
+        [WebMethod]
+        public DataSet select(string sql)
+        {
+            return up.select(sql);
+        }
+
+
+        [WebMethod]
+        public void insert(string sql)
+        {
+           up.insert(sql);
+        }
+
         [WebMethod]
         public string[] GetList(string lb)
         {

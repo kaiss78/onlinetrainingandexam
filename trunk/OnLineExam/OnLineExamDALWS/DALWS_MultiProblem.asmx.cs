@@ -105,7 +105,7 @@ AnswerB=@AnswerB,AnswerC=@AnswerC,AnswerD=@AnswerD,Answer=@Answer where ID=@ID";
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = @"SELECT     dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.MultiProblem.Title, dbo.MultiProblem.AnswerA, dbo.MultiProblem.AnswerB, 
+                string sql = @"SELECT     dbo.UserAnswer.id,dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.MultiProblem.Title, dbo.MultiProblem.AnswerA, dbo.MultiProblem.AnswerB, 
                       dbo.MultiProblem.AnswerC, dbo.MultiProblem.AnswerD, dbo.MultiProblem.Answer, dbo.UserAnswer.Mark, dbo.Paper.PaperName
 FROM         dbo.UserAnswer INNER JOIN
                       dbo.MultiProblem ON dbo.UserAnswer.TitleID = dbo.MultiProblem.ID AND dbo.UserAnswer.Type = '多选题' INNER JOIN
@@ -119,6 +119,7 @@ dbo.UserAnswer.UserID='" + UserId + "' and dbo.UserAnswer.PaperID='" + PaperId +
                 while (dr.Read())
                 {
                     MultiProblem mul = new MultiProblem();
+                    mul.ID = Convert.ToInt32(dr["id"]);
                     mul.UserAnswer = dr["UserAnswer"].ToString();
                     mul.Answer = dr["Answer"].ToString();
                     mul.ExamTime = Convert.ToDateTime(dr["ExamTime"]);

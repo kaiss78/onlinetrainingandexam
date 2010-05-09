@@ -156,7 +156,7 @@ AnswerC =@AnswerC, AnswerD =@AnswerD, Answer =@Answer where ID=@ID";
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = @"SELECT     dbo.UserAnswer.Mark, dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.SingleProblem.Title, dbo.SingleProblem.AnswerB, 
+                string sql = @"SELECT     dbo.UserAnswer.id,dbo.UserAnswer.Mark, dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.SingleProblem.Title, dbo.SingleProblem.AnswerB, 
                       dbo.SingleProblem.AnswerA, dbo.SingleProblem.AnswerC, dbo.SingleProblem.AnswerD, dbo.SingleProblem.Answer, dbo.Paper.PaperName
 FROM         dbo.UserAnswer INNER JOIN
                       dbo.SingleProblem ON dbo.UserAnswer.TitleID = dbo.SingleProblem.ID AND dbo.UserAnswer.Type = '单选题' INNER JOIN
@@ -170,6 +170,7 @@ dbo.UserAnswer.UserID='" + UserId + "' and dbo.UserAnswer.PaperID='" + PaperId +
                 while (dr.Read())
                 {
                     SingleProblem Sing = new SingleProblem();
+                    Sing.ID = Convert.ToInt32(dr["id"]);
                     Sing.Mark = Convert.ToInt32(dr["Mark"]);
                     Sing.UserAnswer = dr["UserAnswer"].ToString();
                     Sing.ExamTime = Convert.ToDateTime(dr["ExamTime"]);

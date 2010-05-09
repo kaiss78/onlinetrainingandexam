@@ -89,7 +89,7 @@ namespace OnLineExamDALWS
         {
             using (SqlConnection con = DBHelp.GetConnection())
             {
-                string sql = @"SELECT     dbo.UserAnswer.Mark, dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.JudgeProblem.Title, dbo.JudgeProblem.Answer, 
+                string sql = @"SELECT     dbo.UserAnswer.id,dbo.UserAnswer.Mark, dbo.UserAnswer.UserAnswer, dbo.UserAnswer.ExamTime, dbo.JudgeProblem.Title, dbo.JudgeProblem.Answer, 
                       dbo.Paper.PaperName
 FROM         dbo.UserAnswer INNER JOIN
                       dbo.JudgeProblem ON dbo.UserAnswer.TitleID = dbo.JudgeProblem.ID AND dbo.UserAnswer.Type = '判断题' INNER JOIN
@@ -103,6 +103,7 @@ dbo.UserAnswer.UserID='" + UserId + "' and dbo.UserAnswer.PaperID='" + PaperId +
                 while (dr.Read())
                 {
                     JudgeProblem judge = new JudgeProblem();
+                    judge.ID =Convert.ToInt32(dr["id"]);
                     judge.UserAnswer = dr["UserAnswer"].ToString();
                     judge.Mark = Convert.ToInt32(dr["Mark"]);
                     judge.ExamTime = Convert.ToDateTime(dr["ExamTime"]);
