@@ -15,10 +15,11 @@ using localhost;
 public partial class Web_QuestionAnalysis : System.Web.UI.Page
 {
     BLWS_QuestionAnalysis service = new BLWS_QuestionAnalysis();
+    BLLWS_User userService = new BLLWS_User();
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Title = "问题统计分析";
-      /* if (!IsPostBack)
+       if (!IsPostBack)
         {
             if (Session["userID"] == null)
             {
@@ -31,41 +32,56 @@ public partial class Web_QuestionAnalysis : System.Web.UI.Page
                 Label i1 = (Label)Page.Master.FindControl("labUser");
                 i1.Text = userName;
             }
-        }*/
+        }
         updatescore();
     }
 
     public void updatescore()
     {
-        //GridView1.Columns.
-        string StudentID = DropDownList1.SelectedValue;
-        string[] s = service.GetList(StudentID);
-        DataTable table = new DataTable();
+        string type = DropDownList1.SelectedValue;
+        DataSet ds = service.getdetails(type);
+         DataTable table = new DataTable();
         table.Columns.Add("题目序号");
-        table.Columns.Add("课程序号");
-        table.Columns.Add("题目");
+        table.Columns.Add("学生");
+        table.Columns.Add("试卷");
+        table.Columns.Add("类型");
+          table.Columns.Add("分值");
+          table.Columns.Add("答案");
+          table.Columns.Add("考试时间");
+          table.Columns.Add("学生得分");
+          int score = 0;
         int j = 0;
-        while (s[j]!=null)
+        while (j<ds.Tables[0].Rows.Count)
         {
             DataRow row = table.NewRow();
-            row[0] = s[j];
-            row[1] = s[++j];
-            row[2] = s[++j];
+            row[0] = ds.Tables[0].Rows[j][0];
+            string userid = ds.Tables[0].Rows[j][1].ToString();
+            DataSet da1 = service.getusername(userid);
+            row[1] = da1.Tables[0].Rows[0][0];
+            string paperid = ds.Tables[0].Rows[j][2].ToString();
+            DataSet da2 = service.getpapername(paperid);
+            row[2] = da2.Tables[0].Rows[0][0];
+            row[3] = type ;
+            row[4] = ds.Tables[0].Rows[j][3];
+            row[5] = ds.Tables[0].Rows[j][4];
+            row[6] = ds.Tables[0].Rows[j][5];
+            row[7] = ds.Tables[0].Rows[j][6];
+            score += Convert.ToInt32(row[7].ToString());
             j++;
             table.Rows.Add(row);
         } 
         GridView1.DataSource = table;
         GridView1.DataBind();
+        if (ds.Tables[0].Rows.Count != 0)
+        {
+            score = score / j;
+            Label3.Text = score.ToString();
+        }
     }
 
 
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-      /*  if (e.Row.RowType == DataControlRowType.DataRow || e.Row.RowType == DataControlRowType.Separator)
-        {
-            Label label1 = e.Row.FindControl("Label1") as Label;
-            label1.Text = (e.Row.RowIndex + 1).ToString();
-        }*/
+    {    
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             e.Row.Attributes.Add("onmouseover", "this.style.backgroundColor='#D9E480'");
