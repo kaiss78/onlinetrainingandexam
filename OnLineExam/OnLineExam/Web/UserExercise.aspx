@@ -15,7 +15,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>在线考试界面</title>
+    <title>在线练习界面</title>
     <link href="../CSS/CSS.css" rel="stylesheet" type="text/css" />
 </head>
 <body onload="init();">
