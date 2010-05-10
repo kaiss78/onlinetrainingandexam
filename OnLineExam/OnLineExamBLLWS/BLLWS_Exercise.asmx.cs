@@ -139,5 +139,47 @@ namespace OnLineExamBLLWS
         {
             return service.SelectExercise().ToList();
         }
+
+        [WebMethod]
+        public List<Exercise> ListUserExercise()
+        {
+            return service.ListExercise().ToList();
+        }
+
+        [WebMethod]
+        public Exercise GetExercise(int exerciseID)
+        {
+            return service.GetExercise(exerciseID);
+        }
+
+        [WebMethod]
+        public List<Exercise> GetSingQuestion(int exerciseid)
+        {
+            return service.selectSingQuestion(exerciseid).ToList();
+        }
+
+        [WebMethod]
+        public List<Exercise> GetMultiQuestion(int exerciseid)
+        {
+            return service.selectMultiQuestion(exerciseid).ToList();
+        }
+
+        [WebMethod]
+        public List<Exercise> GetJudgeQuestion(int exerciseid)
+        {
+            return service.selectJudgeQuestion(exerciseid).ToList();
+        }
+
+        [WebMethod]
+        public List<Exercise> GetFillBlankQuestion(int exerciseid)
+        {
+            return service.selectFillBlankQuestion(exerciseid).ToList();
+        }
+
+        [WebMethod]
+        public List<Exercise> GetQuestionQuestion(int exerciseid)
+        {
+            return service.selectQuestionQuestion(exerciseid).ToList();
+        }
     }
 }

@@ -140,12 +140,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OnLineExamModel\OnLineExamModel.csproj">
-      <Project>{BD72F5B9-F917-4F82-ABCD-47925BF6660F}</Project>
-      <Name>OnLineExamModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Excel">
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -170,6 +164,12 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnLineExamModel\OnLineExamModel.csproj">
+      <Project>{BD72F5B9-F917-4F82-ABCD-47925BF6660F}</Project>
+      <Name>OnLineExamModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
