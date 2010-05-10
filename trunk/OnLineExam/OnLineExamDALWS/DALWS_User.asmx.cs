@@ -468,6 +468,36 @@ paper.PaperID = Score.PaperID and Users.UserID = Score.UserID and Score.UserID='
         }
 
         [WebMethod]
+        //查询用户练习信息
+        public List<ExerciseScores> selectExerciseScoresInfo(string name)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+
+
+                string sql = @"select 
+UserName,ExerciseName,Score
+from 
+ExerciseScore,Exercise,Users
+where
+Exercise.ExerciseID = ExerciseScore.ExerciseID and Users.UserID = ExerciseScore.UserID and ExerciseScore.UserID='" + name + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<ExerciseScores> list = new List<ExerciseScores>();
+                while (dr.Read())
+                {
+                    ExerciseScores user = new ExerciseScores();
+                    user.UserName = dr["UserName"].ToString();
+                    user.ExerciseName = dr["ExerciseName"].ToString();
+                    user.ExerciseScore = Convert.ToInt32(dr["Score"]);
+                    list.Add(user);
+                }
+                return list;
+            }
+        }
+
+        [WebMethod]
         public bool SeclctCheck(string userId, int paperId)
         {
             using (SqlConnection con = DBHelp.GetConnection())

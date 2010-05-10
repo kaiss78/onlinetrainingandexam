@@ -374,5 +374,153 @@ namespace OnLineExamDALWS
                 return list;
             }
         }
+
+        [WebMethod]
+        public List<Exercise> ListExercise()
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select Exercise.ExerciseID,Course.Name,Exercise.ExerciseName from Exercise,Course where Course.ID=Exercise.CourseID";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                List<Exercise> list = new List<Exercise>();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Exercise e = new Exercise();
+                    e.ExerciseID = Convert.ToInt32(dr["ExerciseID"].ToString());
+                    e.CourseName = dr["Name"].ToString();
+                    e.ExerciseName = dr["ExerciseName"].ToString();
+                    list.Add(e);
+                }
+                dr.Close();
+                con.Close();
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public Exercise GetExercise(int exerciseID)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = "select * from Exercise where ExerciseID = " + exerciseID.ToString();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                Exercise e = new Exercise();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    e.ExerciseID = Convert.ToInt32(dr["ExerciseID"].ToString());
+                    e.CourseID = Convert.ToInt32(dr["CourseID"].ToString());
+                    e.ExerciseName = dr["ExerciseName"].ToString();
+                }
+                dr.Close();
+                con.Close();
+                return e;
+            }
+        }
+
+        [WebMethod]
+        public List<Exercise> selectSingQuestion(int ExerciseId)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = @"SELECT  SingleProblem.Answer FROM SingleProblem,ExerciseDetail where ExerciseDetail.TitleID=SingleProblem.ID and ExerciseDetail.Type = '单选题'and ExerciseDetail.ExerciseID='" + ExerciseId + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Exercise> list = new List<Exercise>();
+                while (dr.Read())
+                {
+                    Exercise Sing = new Exercise();
+                    Sing.SingleAnswer = dr["Answer"].ToString();
+                    list.Add(Sing);
+                }
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public List<Exercise> selectMultiQuestion(int ExerciseId)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = @"SELECT  MultiProblem.Answer FROM MultiProblem,ExerciseDetail where ExerciseDetail.TitleID=MultiProblem.ID and ExerciseDetail.Type = '多选题'and ExerciseDetail.ExerciseID='" + ExerciseId + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Exercise> list = new List<Exercise>();
+                while (dr.Read())
+                {
+                    Exercise Sing = new Exercise();
+                    Sing.MultiAnswer = dr["Answer"].ToString();
+                    list.Add(Sing);
+                }
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public List<Exercise> selectJudgeQuestion(int ExerciseId)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = @"SELECT  JudgeProblem.Answer FROM JudgeProblem,ExerciseDetail where ExerciseDetail.TitleID=JudgeProblem.ID and ExerciseDetail.Type = '判断题'and ExerciseDetail.ExerciseID='" + ExerciseId + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Exercise> list = new List<Exercise>();
+                while (dr.Read())
+                {
+                    Exercise Sing = new Exercise();
+                    Sing.JudgeAnswer = dr["Answer"].ToString();
+                    list.Add(Sing);
+                }
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public List<Exercise> selectFillBlankQuestion(int ExerciseId)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = @"SELECT  FillBlankProblem.Answer FROM FillBlankProblem,ExerciseDetail where ExerciseDetail.TitleID=FillBlankProblem.ID and ExerciseDetail.Type = '填空题'and ExerciseDetail.ExerciseID='" + ExerciseId + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Exercise> list = new List<Exercise>();
+                while (dr.Read())
+                {
+                    Exercise Sing = new Exercise();
+                    Sing.FillBlankAnswer = dr["Answer"].ToString();
+                    list.Add(Sing);
+                }
+                return list;
+            }
+        }
+
+        [WebMethod]
+        public List<Exercise> selectQuestionQuestion(int ExerciseId)
+        {
+            using (SqlConnection con = DBHelp.GetConnection())
+            {
+                string sql = @"SELECT  QuestionProblem.Answer FROM QuestionProblem,ExerciseDetail where ExerciseDetail.TitleID=QuestionProblem.ID and ExerciseDetail.Type = '问答题'and ExerciseDetail.ExerciseID='" + ExerciseId + "'";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                List<Exercise> list = new List<Exercise>();
+                while (dr.Read())
+                {
+                    Exercise Sing = new Exercise();
+                    Sing.QuestionAnswer = dr["Answer"].ToString();
+                    list.Add(Sing);
+                }
+                return list;
+            }
+        }
     }
 }

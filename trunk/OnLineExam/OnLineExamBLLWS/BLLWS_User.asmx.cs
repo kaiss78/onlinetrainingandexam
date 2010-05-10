@@ -111,6 +111,12 @@ namespace OnLineExamBLLWS
         }
 
         [WebMethod]
+        public List<ExerciseScores> GetselectExerciseinfo(string name)
+        {
+            return service.selectExerciseScoresInfo(name).ToList();
+        }
+
+        [WebMethod]
         public bool GetSelectPwd(string Pwd)
         {
             return service.SelectPwd(Pwd);
