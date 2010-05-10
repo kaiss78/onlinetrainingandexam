@@ -49,10 +49,11 @@
                             <tr>
                                 <td colspan="2">
                                     <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                        ForeColor="#333333" GridLines="None" OnRowDataBound="GridView1_RowDataBound"
+                                        ForeColor="Black" GridLines="Vertical" OnRowDataBound="GridView1_RowDataBound"
                                         Width="100%" RowStyle-HorizontalAlign="Center" 
-                                        onselectedindexchanging="GridView2_SelectedIndexChanging">
-                                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                        onselectedindexchanging="GridView2_SelectedIndexChanging" 
+                                        BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
+                                        <RowStyle BackColor="#F7F7DE" />
                                         <Columns>
                                             <asp:BoundField DataField="ExamId" HeaderText="编号" Visible="False" />
                                             <asp:BoundField DataField="CourseName" HeaderText="科目" />
@@ -61,12 +62,11 @@
                                             <asp:BoundField DataField="EndTime" HeaderText="结束时间" />
                                             <asp:CommandField HeaderText="开始考试" SelectText="开始考试" ShowSelectButton="True" />
                                         </Columns>
-                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                        <EditRowStyle BackColor="#999999" />
-                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                        <FooterStyle BackColor="#CCCC99" />
+                                        <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                                        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </td>
                             </tr>
@@ -84,8 +84,9 @@
                                     <div align="left">
                                         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" OnRowDataBound="GridView1_RowDataBound"
                                              PageSize="8" AutoGenerateColumns="False"
-                                            DataKeyNames="ID" CellPadding="4" Font-Size="13px" Width="100%" ForeColor="#333333"
-                                            GridLines="None" RowStyle-HorizontalAlign="Center">
+                                            DataKeyNames="ID" CellPadding="4" Font-Size="13px" Width="100%" ForeColor="Black"
+                                            GridLines="Vertical" RowStyle-HorizontalAlign="Center" BackColor="White" 
+                                            BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
                                             <Columns>
                                                 <asp:TemplateField HeaderText="成绩编号" Visible="False">
                                                     <ItemTemplate>
@@ -123,13 +124,12 @@
                                                     <HeaderStyle Wrap="False" />
                                                 </asp:TemplateField>
                                             </Columns>
-                                            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-                                            <RowStyle ForeColor="#333333" BackColor="#F7F6F3" />
-                                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                            <EditRowStyle BackColor="#999999" />
-                                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                            <FooterStyle BackColor="#CCCC99" />
+                                            <RowStyle BackColor="#F7F7DE" />
+                                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                                            <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                                            <AlternatingRowStyle BackColor="White" />
                                         </asp:GridView>
                                     </div>
                                 </td>
@@ -145,22 +145,22 @@
                             <tr>
                                 <td colspan="2">
                                     <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                        ForeColor="#333333" GridLines="None" OnRowDataBound="GridView1_RowDataBound"
+                                        ForeColor="Black" GridLines="Vertical" OnRowDataBound="GridView1_RowDataBound"
                                         Width="100%" RowStyle-HorizontalAlign="Center" 
-                                        onselectedindexchanging="GridView3_SelectedIndexChanging">
-                                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                        onselectedindexchanging="GridView3_SelectedIndexChanging" 
+                                        BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
+                                        <RowStyle BackColor="#F7F7DE" />
                                         <Columns>
                                             <asp:BoundField DataField="ExerciseId" HeaderText="编号" Visible="False" />
                                             <asp:BoundField DataField="CourseName" HeaderText="科目" />
                                             <asp:BoundField DataField="ExerciseName" HeaderText="练习" />
                                             <asp:CommandField HeaderText="开始练习" SelectText="开始练习" ShowSelectButton="True" />
                                         </Columns>
-                                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                        <EditRowStyle BackColor="#999999" />
-                                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                        <FooterStyle BackColor="#CCCC99" />
+                                        <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                                        <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                        <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                                        <AlternatingRowStyle BackColor="White" />
                                     </asp:GridView>
                                 </td>
                             </tr>
@@ -178,8 +178,9 @@
                                     <div align="left">
                                         <asp:GridView ID="GridView4" runat="server" AllowPaging="True" OnRowDataBound="GridView1_RowDataBound"
                                             PageSize="8" AutoGenerateColumns="False"
-                                            DataKeyNames="ID" CellPadding="4" Font-Size="13px" Width="100%" ForeColor="#333333"
-                                            GridLines="None" RowStyle-HorizontalAlign="Center">
+                                            DataKeyNames="ID" CellPadding="4" Font-Size="13px" Width="100%" ForeColor="Black"
+                                            GridLines="Vertical" RowStyle-HorizontalAlign="Center" BackColor="White" 
+                                            BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
                                             <Columns>
                                                 <asp:TemplateField HeaderText="练习成绩编号" Visible="False">
                                                     <ItemTemplate>
@@ -205,13 +206,12 @@
                                                     <HeaderStyle Wrap="False" />
                                                 </asp:TemplateField>
                                             </Columns>
-                                            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-                                            <RowStyle ForeColor="#333333" BackColor="#F7F6F3" />
-                                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                            <EditRowStyle BackColor="#999999" />
-                                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                            <FooterStyle BackColor="#CCCC99" />
+                                            <RowStyle BackColor="#F7F7DE" />
+                                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                            <PagerStyle BackColor="#90BBC5" ForeColor="Black" HorizontalAlign="Right" />
+                                            <HeaderStyle BackColor="#90BBC5" Font-Bold="True" ForeColor="White" />
+                                            <AlternatingRowStyle BackColor="White" />
                                         </asp:GridView>
                                     </div>
                                 </td>

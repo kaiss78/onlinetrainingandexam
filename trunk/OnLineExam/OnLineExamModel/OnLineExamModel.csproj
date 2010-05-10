@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BD72F5B9-F917-4F82-ABCD-47925BF6660F}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -42,6 +42,7 @@
     <Compile Include="Course.cs" />
     <Compile Include="Exam.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="ExerciseScores.cs" />
     <Compile Include="FillBlankProblem.cs" />
     <Compile Include="JudgeProblem.cs" />
     <Compile Include="MultiProblem.cs" />

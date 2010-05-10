@@ -8,7 +8,7 @@
             <td style="width: 100%;" colspan="4">
                 <div class="title" align="left">
                     <h4 style="font-family: 楷体_GB2312">
-                        >>试卷制定</h4>
+                        试卷制定</h4>
                 </div>
             </td>
         </tr>
@@ -39,9 +39,6 @@
             <td colspan="3">
                 &nbsp;<div align="left">
                     <asp:TextBox ID="txtSingleFen" runat="server" Width="120px"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtSingleFen"
-                        ValidationExpression="^[1-9]d*$" ErrorMessage="请输入&quot;1-9&quot;" 
-                        Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="不能为空"
                         ControlToValidate="txtSingleFen" Display="Dynamic"></asp:RequiredFieldValidator></div>
             </td>
@@ -53,9 +50,6 @@
             <td colspan="3">
                 &nbsp;<div align="left">
                     <asp:TextBox ID="txtMultiFen" runat="server" Width="120px"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txtMultiFen"
-                        ValidationExpression="^[1-9]d*$" ErrorMessage="请输入&quot;1-9&quot;" 
-                        Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="不能为空"
                         ControlToValidate="txtMultiFen" Display="Dynamic"></asp:RequiredFieldValidator></div>
             </td>
@@ -67,9 +61,6 @@
             <td colspan="3">
                 &nbsp;<div align="left">
                     <asp:TextBox ID="txtJudgeFen" runat="server" Width="120px"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtJudgeFen"
-                        ValidationExpression="^[1-9]d*$" ErrorMessage="请输入&quot;1-9&quot;" 
-                        Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="不能为空"
                         ControlToValidate="txtJudgeFen" Display="Dynamic"></asp:RequiredFieldValidator></div>
             </td>
@@ -81,9 +72,6 @@
             <td colspan="3">
                 &nbsp;<div align="left">
                     <asp:TextBox ID="txtFillFen" runat="server" Width="120px"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ControlToValidate="txtFillFen"
-                        ValidationExpression="^[1-9]d*$" ErrorMessage="请输入&quot;1-9&quot;" 
-                        Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="不能为空"
                         ControlToValidate="txtFillFen" Display="Dynamic"></asp:RequiredFieldValidator></div>
             </td>
@@ -95,9 +83,6 @@
             <td colspan="3">
                 &nbsp;<div align="left">
                     <asp:TextBox ID="txtQuestionFen" runat="server" Width="120px"></asp:TextBox>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server"
-                        ControlToValidate="txtQuestionFen" ValidationExpression="^[1-9]d*$" ErrorMessage="请输入&quot;1-9&quot;"
-                        Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="不能为空"
                         ControlToValidate="txtQuestionFen" Display="Dynamic"></asp:RequiredFieldValidator></div>
             </td>
